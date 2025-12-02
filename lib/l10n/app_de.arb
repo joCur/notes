@@ -1,0 +1,168 @@
+{
+  "@@locale": "de",
+
+  "appTitle": "Sprachnotizen",
+  "@appTitle": {
+    "description": "Der Anwendungstitel"
+  },
+
+  "hello": "Hallo",
+  "@hello": {
+    "description": "Eine einfache Begrüßung"
+  },
+
+  "welcomeMessage": "Willkommen bei Voice-First Notizen",
+  "@welcomeMessage": {
+    "description": "Willkommensnachricht auf dem Startbildschirm"
+  },
+
+  "errorOccurred": "Ein Fehler ist aufgetreten",
+  "@errorOccurred": {
+    "description": "Generische Fehlermeldung"
+  },
+
+  "retry": "Wiederholen",
+  "@retry": {
+    "description": "Schaltflächentext zum Wiederholen einer Operation"
+  },
+
+  "cancel": "Abbrechen",
+  "@cancel": {
+    "description": "Schaltflächentext zum Abbrechen einer Operation"
+  },
+
+  "save": "Speichern",
+  "@save": {
+    "description": "Schaltflächentext zum Speichern"
+  },
+
+  "delete": "Löschen",
+  "@delete": {
+    "description": "Schaltflächentext zum Löschen"
+  },
+
+  "ok": "OK",
+  "@ok": {
+    "description": "Schaltflächentext für OK"
+  },
+
+  "errorNetwork": "Überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut",
+  "@errorNetwork": {
+    "description": "Netzwerkverbindungsfehler"
+  },
+
+  "errorUnknown": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut",
+  "@errorUnknown": {
+    "description": "Unbekannter Fehler"
+  },
+
+  "errorAuthInvalidCredentials": "Ungültige E-Mail-Adresse oder Passwort. Bitte versuchen Sie es erneut",
+  "@errorAuthInvalidCredentials": {
+    "description": "Ungültige Anmeldedaten"
+  },
+
+  "errorAuthSessionExpired": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an",
+  "@errorAuthSessionExpired": {
+    "description": "Auth-Sitzung abgelaufen"
+  },
+
+  "errorAuthEmailNotConfirmed": "Bitte bestätigen Sie Ihre E-Mail-Adresse, um fortzufahren",
+  "@errorAuthEmailNotConfirmed": {
+    "description": "E-Mail nicht verifiziert"
+  },
+
+  "errorAuthWeakPassword": "Das Passwort muss mindestens 6 Zeichen lang sein",
+  "@errorAuthWeakPassword": {
+    "description": "Passwort zu schwach"
+  },
+
+  "errorAuthUserNotFound": "Kein Konto mit dieser E-Mail-Adresse gefunden",
+  "@errorAuthUserNotFound": {
+    "description": "Benutzer existiert nicht"
+  },
+
+  "errorAuthEmailExists": "Diese E-Mail-Adresse ist bereits registriert",
+  "@errorAuthEmailExists": {
+    "description": "E-Mail bereits in Verwendung"
+  },
+
+  "errorAuthInvalidToken": "Ungültiges Authentifizierungstoken",
+  "@errorAuthInvalidToken": {
+    "description": "Ungültiges Auth-Token"
+  },
+
+  "errorAuthTokenExpired": "Authentifizierungstoken ist abgelaufen",
+  "@errorAuthTokenExpired": {
+    "description": "Abgelaufenes Auth-Token"
+  },
+
+  "errorAuthUnknown": "Authentifizierungsfehler. Bitte versuchen Sie es erneut",
+  "@errorAuthUnknown": {
+    "description": "Unbekannter Auth-Fehler"
+  },
+
+  "errorPgUniqueViolation": "Dieser Datensatz existiert bereits",
+  "@errorPgUniqueViolation": {
+    "description": "Datenbank-Unique-Constraint-Verletzung"
+  },
+
+  "errorPgNotNullViolation": "Pflichtfeld fehlt",
+  "@errorPgNotNullViolation": {
+    "description": "Datenbank-Not-Null-Verletzung"
+  },
+
+  "errorPgForeignKeyViolation": "Referenzierter Datensatz nicht gefunden",
+  "@errorPgForeignKeyViolation": {
+    "description": "Datenbank-Fremdschlüssel-Verletzung"
+  },
+
+  "errorPgInsufficientPrivilege": "Sie haben keine Berechtigung für diese Aktion",
+  "@errorPgInsufficientPrivilege": {
+    "description": "Datenbank-Berechtigung verweigert"
+  },
+
+  "errorPgStringTooLong": "Eingabetext ist zu lang",
+  "@errorPgStringTooLong": {
+    "description": "Text überschreitet maximale Länge"
+  },
+
+  "errorDatabaseGeneric": "Datenbankfehler. Bitte versuchen Sie es erneut",
+  "@errorDatabaseGeneric": {
+    "description": "Generischer Datenbankfehler"
+  },
+
+  "errorDatabaseNotFound": "Datensatz nicht gefunden",
+  "@errorDatabaseNotFound": {
+    "description": "Datenbank-Datensatz nicht gefunden"
+  },
+
+  "errorDatabaseUnavailable": "Datenbank ist vorübergehend nicht verfügbar",
+  "@errorDatabaseUnavailable": {
+    "description": "Datenbankverbindung fehlgeschlagen"
+  },
+
+  "errorStorageFileNotFound": "Datei nicht gefunden",
+  "@errorStorageFileNotFound": {
+    "description": "Speicher-Datei existiert nicht"
+  },
+
+  "errorStorageFileTooLarge": "Datei ist zu groß",
+  "@errorStorageFileTooLarge": {
+    "description": "Datei überschreitet Größenlimit"
+  },
+
+  "errorStorageAccessDenied": "Sie haben keine Berechtigung, auf diese Datei zuzugreifen",
+  "@errorStorageAccessDenied": {
+    "description": "Speicher-Berechtigung verweigert"
+  },
+
+  "errorStorageBucketNotFound": "Speicher-Bucket nicht gefunden",
+  "@errorStorageBucketNotFound": {
+    "description": "Speicher-Bucket existiert nicht"
+  },
+
+  "errorStorageGeneric": "Speicherfehler. Bitte versuchen Sie es erneut",
+  "@errorStorageGeneric": {
+    "description": "Generischer Speicherfehler"
+  }
+}

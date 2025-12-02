@@ -1,0 +1,168 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Voice Notes",
+  "@appTitle": {
+    "description": "The application title"
+  },
+
+  "hello": "Hello",
+  "@hello": {
+    "description": "A simple greeting"
+  },
+
+  "welcomeMessage": "Welcome to Voice-First Note Taking",
+  "@welcomeMessage": {
+    "description": "Welcome message on the home screen"
+  },
+
+  "errorOccurred": "An error occurred",
+  "@errorOccurred": {
+    "description": "Generic error message"
+  },
+
+  "retry": "Retry",
+  "@retry": {
+    "description": "Button text to retry an operation"
+  },
+
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Button text to cancel an operation"
+  },
+
+  "save": "Save",
+  "@save": {
+    "description": "Button text to save"
+  },
+
+  "delete": "Delete",
+  "@delete": {
+    "description": "Button text to delete"
+  },
+
+  "ok": "OK",
+  "@ok": {
+    "description": "Button text for OK"
+  },
+
+  "errorNetwork": "Check your internet connection and try again",
+  "@errorNetwork": {
+    "description": "Network connection error"
+  },
+
+  "errorUnknown": "An unexpected error occurred. Please try again",
+  "@errorUnknown": {
+    "description": "Unknown error"
+  },
+
+  "errorAuthInvalidCredentials": "Invalid email or password. Please try again",
+  "@errorAuthInvalidCredentials": {
+    "description": "Invalid login credentials"
+  },
+
+  "errorAuthSessionExpired": "Your session has expired. Please sign in again",
+  "@errorAuthSessionExpired": {
+    "description": "Auth session expired"
+  },
+
+  "errorAuthEmailNotConfirmed": "Please confirm your email address to continue",
+  "@errorAuthEmailNotConfirmed": {
+    "description": "Email not verified"
+  },
+
+  "errorAuthWeakPassword": "Password must be at least 6 characters",
+  "@errorAuthWeakPassword": {
+    "description": "Password too weak"
+  },
+
+  "errorAuthUserNotFound": "No account found with this email",
+  "@errorAuthUserNotFound": {
+    "description": "User doesn't exist"
+  },
+
+  "errorAuthEmailExists": "This email is already registered",
+  "@errorAuthEmailExists": {
+    "description": "Email already in use"
+  },
+
+  "errorAuthInvalidToken": "Invalid authentication token",
+  "@errorAuthInvalidToken": {
+    "description": "Invalid auth token"
+  },
+
+  "errorAuthTokenExpired": "Authentication token has expired",
+  "@errorAuthTokenExpired": {
+    "description": "Expired auth token"
+  },
+
+  "errorAuthUnknown": "Authentication error. Please try again",
+  "@errorAuthUnknown": {
+    "description": "Unknown auth error"
+  },
+
+  "errorPgUniqueViolation": "This record already exists",
+  "@errorPgUniqueViolation": {
+    "description": "Database unique constraint violation"
+  },
+
+  "errorPgNotNullViolation": "Required field is missing",
+  "@errorPgNotNullViolation": {
+    "description": "Database not null violation"
+  },
+
+  "errorPgForeignKeyViolation": "Referenced record not found",
+  "@errorPgForeignKeyViolation": {
+    "description": "Database foreign key violation"
+  },
+
+  "errorPgInsufficientPrivilege": "You don't have permission to perform this action",
+  "@errorPgInsufficientPrivilege": {
+    "description": "Database permission denied"
+  },
+
+  "errorPgStringTooLong": "Input text is too long",
+  "@errorPgStringTooLong": {
+    "description": "Text exceeds maximum length"
+  },
+
+  "errorDatabaseGeneric": "Database error. Please try again",
+  "@errorDatabaseGeneric": {
+    "description": "Generic database error"
+  },
+
+  "errorDatabaseNotFound": "Record not found",
+  "@errorDatabaseNotFound": {
+    "description": "Database record not found"
+  },
+
+  "errorDatabaseUnavailable": "Database is temporarily unavailable",
+  "@errorDatabaseUnavailable": {
+    "description": "Database connection failed"
+  },
+
+  "errorStorageFileNotFound": "File not found",
+  "@errorStorageFileNotFound": {
+    "description": "Storage file doesn't exist"
+  },
+
+  "errorStorageFileTooLarge": "File is too large",
+  "@errorStorageFileTooLarge": {
+    "description": "File exceeds size limit"
+  },
+
+  "errorStorageAccessDenied": "You don't have permission to access this file",
+  "@errorStorageAccessDenied": {
+    "description": "Storage permission denied"
+  },
+
+  "errorStorageBucketNotFound": "Storage bucket not found",
+  "@errorStorageBucketNotFound": {
+    "description": "Storage bucket doesn't exist"
+  },
+
+  "errorStorageGeneric": "Storage error. Please try again",
+  "@errorStorageGeneric": {
+    "description": "Generic storage error"
+  }
+}

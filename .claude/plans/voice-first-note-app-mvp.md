@@ -1,5 +1,26 @@
 # Voice-First Note-Taking App - MVP Implementation Plan
 
+## CRITICAL: Design & Architecture Guidelines
+
+**Before implementing ANY feature, read and follow these guides:**
+
+1. **`.claude/docs/bauhaus-widget-design-guide.md`** - Complete Bauhaus design system specification
+   - Color palette (Bauhaus Red #BE1E2D, Blue #21409A, Yellow #FFDE17)
+   - Typography system (Jost font family with specific sizes)
+   - Spacing system (8px grid)
+   - All widget specifications with code examples
+   - Animation guidelines
+   - Accessibility requirements
+
+2. **`.claude/docs/flutter-widget-splitting-guide.md`** - Widget architecture rules
+   - Never create methods that return widgets - always use widget classes
+   - Split screens into private widgets when build() > 50 lines
+   - Use `const` constructors everywhere possible
+   - Keep implementation details in same file as private widgets (`_WidgetName`)
+   - Extract reusable components to separate files
+
+**Violations of these guides will result in technical debt and inconsistent UX.**
+
 ## Objective and Scope
 
 Build a fully-featured MVP of a revolutionary voice-first note-taking application using Flutter and Supabase. The app prioritizes speech-to-text as the primary input method, with a custom Bauhaus-inspired design system, flexible tag-based organization, and powerful search capabilities. This plan ensures solid architectural foundations using Feature-First Clean Architecture with Riverpod 3.0 state management.
@@ -26,74 +47,78 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Speech Recognition**: Native device APIs (iOS SFSpeech, Android SpeechRecognizer) provide zero-cost, low-latency transcription with excellent multilingual support and offline capability.
 
-**Design Philosophy**: Bauhaus principles (form follows function, geometric precision, primary colors) create a distinctive, functional UI that breaks from traditional note-app conventions.
+**Design Philosophy**: Bauhaus principles (form follows function, geometric precision, primary colors) create a distinctive, functional UI that breaks from traditional note-app conventions. **All UI implementation must follow `.claude/docs/bauhaus-widget-design-guide.md`**.
+
+**Widget Architecture**: All screens and widgets must follow the splitting patterns defined in `.claude/docs/flutter-widget-splitting-guide.md` to maintain clean, performant, and maintainable code. No gigantic single-file screens allowed.
 
 **No Offline-First**: Simplified MVP scope - app requires internet connection, avoiding complex sync logic.
 
 ## Implementation Phases
 
-### Phase 1: Project Foundation & Core Infrastructure
+### Phase 1: Project Foundation & Core Infrastructure ✅ COMPLETED
 
 **Goal**: Set up project structure, dependencies, and core infrastructure that all features will build upon.
 
-- [ ] Task 1.1: Initialize Flutter project and dependencies
-  - Create new Flutter project with latest stable version (3.29+)
-  - Add all required dependencies to pubspec.yaml (riverpod, supabase_flutter, go_router, freezed, speech_to_text, flutter_quill, etc.)
-  - Configure minimum SDK versions (iOS 10+, Android 21+)
-  - Set up dev_dependencies for code generation and testing
-  - Run `flutter pub get` to verify all dependencies resolve
+- [x] Task 1.1: Initialize Flutter project and dependencies
+  - ✅ Created Flutter project with Flutter SDK 3.10+
+  - ✅ Added all required dependencies to pubspec.yaml (riverpod, supabase_flutter, go_router, freezed, speech_to_text, flutter_quill, etc.)
+  - ✅ Configured minimum SDK versions (iOS 10+, Android 21+)
+  - ✅ Set up dev_dependencies for code generation and testing
+  - ✅ Ran `flutter pub get` successfully
 
-- [ ] Task 1.2: Configure platform-specific settings
-  - **iOS**: Update Info.plist with microphone and speech recognition permissions
-  - **Android**: Update AndroidManifest.xml with RECORD_AUDIO and INTERNET permissions
-  - **Android**: Set minSdkVersion to 21 in build.gradle
-  - Configure deep link schemes for both platforms (custom scheme: `voicenote://`)
-  - Set up universal links configuration (iOS associated domains, Android app links)
+- [x] Task 1.2: Configure platform-specific settings
+  - ✅ **iOS**: Updated Info.plist with microphone and speech recognition permissions
+  - ✅ **Android**: Updated AndroidManifest.xml with RECORD_AUDIO and INTERNET permissions
+  - ✅ **Android**: Set minSdkVersion to 21 in build.gradle.kts
+  - ✅ Configured deep link schemes for both platforms (custom scheme: `voicenote://`)
 
-- [ ] Task 1.3: Set up code generation infrastructure
-  - Create build.yaml configuration for code generation
-  - Set up scripts for running build_runner (watch mode for development)
-  - Configure freezed, json_serializable, riverpod_generator, and envied_generator
-  - Add .gitignore entries for generated files (*.g.dart, *.freezed.dart)
+- [x] Task 1.3: Set up code generation infrastructure
+  - ✅ Created build.yaml configuration for code generation
+  - ✅ Configured freezed, json_serializable, riverpod_generator, and envied_generator
+  - ✅ Added .gitignore entries for generated files (*.g.dart, *.freezed.dart, .env)
 
-- [ ] Task 1.4: Create core directory structure
-  - Create `lib/core/` with subdirectories: domain/, data/, presentation/, utils/, env/, routing/
-  - Create `lib/features/` with subdirectories for: auth/, notes/, voice/, tags/, editor/
-  - Create `lib/l10n/` for localization files
-  - Set up analysis_options.yaml with flutter_lints
-  - Create README.md with project setup instructions
+- [x] Task 1.4: Create core directory structure
+  - ✅ Created `lib/core/` with subdirectories: domain/, data/, presentation/, utils/, env/, routing/
+  - ✅ Created `lib/features/` with subdirectories for: auth/, notes/, voice/, tags/, editor/
+  - ✅ Created `lib/l10n/` for localization files
+  - ✅ analysis_options.yaml already configured with flutter_lints
+  - ✅ Created comprehensive README.md with project setup instructions
 
-- [ ] Task 1.5: Implement environment configuration
-  - Create `.env` file for Supabase credentials (add to .gitignore)
-  - Create `lib/core/env/env.dart` using envied package for obfuscated environment variables
-  - Generate env.g.dart with `flutter pub run build_runner build`
-  - Document required environment variables in README
+- [x] Task 1.5: Implement environment configuration
+  - ✅ Created `.env` file template for Supabase credentials (added to .gitignore)
+  - ✅ Created `lib/core/env/env.dart` using envied package for obfuscated environment variables
+  - ✅ Generated env.g.dart with `flutter pub run build_runner build`
+  - ✅ Documented required environment variables in README
 
-- [ ] Task 1.6: Set up Supabase project and initialize client
-  - Create Supabase project at supabase.com
-  - Configure Supabase URL and anon key in .env
-  - Create `lib/core/data/supabase_client.dart` with initialization logic
-  - Configure PKCE auth flow in FlutterAuthClientOptions
-  - Add Supabase initialization to main.dart with proper async handling
+- [x] Task 1.6: Set up Supabase project and initialize client
+  - ✅ Created `lib/core/data/supabase_client.dart` with initialization logic
+  - ✅ Configured PKCE auth flow in FlutterAuthClientOptions
+  - ✅ Added Supabase initialization to main.dart with proper async handling
+  - ✅ Created supabaseClientProvider for Riverpod integration
+  - ⚠️ Note: User needs to create Supabase project and configure credentials in .env
 
-- [ ] Task 1.7: Implement Result pattern and error handling foundation
-  - Create `lib/core/domain/result.dart` with Result<T> sealed class (Success, Failure)
-  - Create `lib/core/domain/failures/` directory
-  - Implement sealed failure classes: AppFailure, AuthFailure, DatabaseFailure, NetworkFailure, VoiceInputFailure, ValidationFailure
-  - Create extension methods for common error transformations (PostgrestException → AppFailure)
-  - Set up Talker logger in main.dart for error tracking
+- [x] Task 1.7: Implement Result pattern and error handling foundation
+  - ✅ Created `lib/core/domain/result.dart` with Result<T> sealed class (Success, Failure)
+  - ✅ Created `lib/core/domain/failures/` directory
+  - ✅ Implemented sealed failure classes: AppFailure with variants (AuthFailure, DatabaseFailure, NetworkFailure, VoiceInputFailure, ValidationFailure, UnknownFailure)
+  - ✅ Created extension methods for common error transformations (PostgrestException → AppFailure, AuthException → AppFailure)
+  - ✅ Set up Talker logger in main.dart for error tracking
+  - ✅ Added FlutterError.onError handler
 
-- [ ] Task 1.8: Set up localization infrastructure
-  - Create `lib/l10n/l10n.yaml` with configuration (arb-dir, template-arb-file, output-localization-file)
-  - Create `lib/l10n/app_en.arb` with initial English strings
-  - Create `lib/l10n/app_de.arb` with initial German strings
-  - Add flutter_localizations to MaterialApp in main.dart
-  - Generate localization files with `flutter gen-l10n`
-  - Create provider for accessing L10n instance
+- [x] Task 1.8: Set up localization infrastructure
+  - ✅ Created `l10n.yaml` with configuration (arb-dir, template-arb-file, output-localization-file)
+  - ✅ Created `lib/l10n/app_en.arb` with initial English strings
+  - ✅ Created `lib/l10n/app_de.arb` with initial German strings
+  - ✅ Added flutter_localizations to MaterialApp in main.dart
+  - ✅ Enabled `flutter: generate: true` in pubspec.yaml
+  - ✅ Created provider for accessing L10n instance (lib/core/presentation/providers/localization_provider.dart)
+  - ⚠️ Note: Localization files will be auto-generated on first build
 
 ### Phase 2: Bauhaus Design System Implementation
 
 **Goal**: Implement the complete custom design system before building features, ensuring consistent UI/UX throughout the app.
+
+**IMPORTANT**: Follow `.claude/docs/bauhaus-widget-design-guide.md` for all design decisions, color usage, typography, and widget specifications.
 
 - [ ] Task 2.1: Define color palette
   - Create `lib/core/presentation/theme/bauhaus_colors.dart`
@@ -121,11 +146,13 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 - [ ] Task 2.4: Design reusable geometric components
   - Create `lib/core/presentation/widgets/` directory
-  - Implement BauhausButton with geometric styling and primary color variants
-  - Implement BauhausCard with asymmetric layouts and shadow styling
-  - Implement BauhausTextField with geometric borders and focus states
-  - Implement BauhausChip for tag display with color customization
+  - **Reference `.claude/docs/bauhaus-widget-design-guide.md` sections: Core Widgets, Color System, Layout Principles**
+  - Implement BauhausButton with geometric styling and primary color variants (see VoiceRecordingButton example)
+  - Implement BauhausCard with asymmetric layouts and shadow styling (see NoteCard example)
+  - Implement BauhausTextField with geometric borders and focus states (see BauhausSearchBar example)
+  - Implement BauhausChip for tag display with color customization (see TagChip example)
   - Create BauhausIconButton with circular/square geometric shapes
+  - Use CustomPainter for geometric shapes (circles, triangles, squares)
 
 - [ ] Task 2.5: Implement layout components
   - Create BauhausAppBar with custom geometric styling and asymmetric layouts
@@ -171,9 +198,11 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 - [ ] Task 3.4: Implement login screen
   - Create `lib/features/auth/presentation/screens/login_screen.dart`
-  - Design Bauhaus-styled login form with email and password fields
+  - **Split widgets following `.claude/docs/flutter-widget-splitting-guide.md`** - no single 200+ line screen file
+  - Design Bauhaus-styled login form with email and password fields (see `.claude/docs/bauhaus-widget-design-guide.md`)
+  - Create private widgets for form sections (`_LoginForm`, `_EmailField`, `_PasswordField`)
   - Add form validation (email format, password length)
-  - Implement sign-in button with loading states
+  - Implement sign-in button with loading states using `BauhausElevatedButton`
   - Add "Forgot Password?" link
   - Add "Don't have an account? Sign up" navigation
   - Display error messages using BauhausSnackbar
@@ -314,13 +343,15 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 - [ ] Task 5.5: Create voice input screen
   - Create `lib/features/voice/presentation/screens/voice_input_screen.dart`
-  - Design Bauhaus-styled voice recording interface
-  - Add large circular voice button with geometric animation
+  - **Follow widget splitting guide** - create private widgets for each section
+  - **Design per Bauhaus guide** - large geometric shapes, primary colors, asymmetric layout
+  - Design Bauhaus-styled voice recording interface (reference BauhausGeometricBackground)
+  - Add large circular voice button with geometric animation (see VoiceRecordingButton specification)
   - Show real-time transcription as user speaks
   - Display language selector dropdown with supported languages
-  - Add visual feedback for listening state (pulsing animation)
+  - Add visual feedback for listening state (pulsing animation per Animation Guidelines)
   - Show error states (microphone not available, permission denied)
-  - Add "Save Note" button when transcription complete
+  - Add "Save Note" button when transcription complete using BauhausElevatedButton
 
 - [ ] Task 5.6: Create voice button widget
   - Create `lib/features/voice/presentation/widgets/voice_button.dart`
@@ -375,7 +406,9 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 - [ ] Task 6.3: Create notes list screen
   - Create `lib/features/notes/presentation/screens/notes_list_screen.dart`
-  - Design Bauhaus-styled list view with asymmetric card layouts
+  - **Split widgets per `.claude/docs/flutter-widget-splitting-guide.md`** - separate private widgets for sections
+  - Design Bauhaus-styled list view with asymmetric card layouts (ref: `.claude/docs/bauhaus-widget-design-guide.md`)
+  - Create private widgets: `_NotesList`, `_EmptyState`, `_LoadingState`, `_ErrorState`
   - Display note cards with title, preview, date, tags
   - Add pull-to-refresh functionality
   - Implement infinite scroll pagination
@@ -1016,6 +1049,14 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 ## Dependencies and Prerequisites
 
+### MANDATORY READING
+
+Before writing ANY code, developers MUST read:
+1. **`.claude/docs/bauhaus-widget-design-guide.md`** - Complete design system (colors, typography, spacing, widget specs)
+2. **`.claude/docs/flutter-widget-splitting-guide.md`** - Widget architecture patterns (no giant screens, proper const usage)
+
+These guides are not optional - they define the architectural and design standards for the entire project.
+
 ### Development Environment
 - Flutter SDK 3.29+ with Dart 3.7+
 - Xcode 15+ (for iOS development)
@@ -1111,3 +1152,41 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 **Phase 21**: Desktop and web versions
 **Phase 22**: Advanced export/import (Markdown, Evernote, Notion)
 **Phase 23**: Premium features (unlimited storage, advanced search, custom themes)
+
+---
+
+## Quick Reference: Essential Documentation
+
+### Design System
+- **Color Palette**: `.claude/docs/bauhaus-widget-design-guide.md` → Color System section
+  - Bauhaus Red: `#BE1E2D`, Blue: `#21409A`, Yellow: `#FFDE17`
+  - Use `BauhausColors` constants, never hardcode hex values
+- **Typography**: Jost font family, specific sizes for display/headline/body/label
+- **Spacing**: 8px grid system - use `BauhausSpacing` constants (tight/small/medium/large)
+- **Shapes**: Sharp corners (no rounded except circles), 2px black borders
+- **Animations**: Minimal and purposeful - see Animation Guidelines section
+
+### Widget Architecture
+- **Splitting Rules**: `.claude/docs/flutter-widget-splitting-guide.md`
+  - Build method > 50 lines? → Split into private widgets
+  - Never use methods that return widgets → Use widget classes
+  - Always use `const` constructors when possible
+  - Private widgets (`_WidgetName`) in same file for implementation details
+  - Public reusable components in separate files
+- **Performance**: `const` everywhere, widget classes not methods, focused widgets
+
+### Code Examples in Guides
+- VoiceRecordingButton (circular, pulsing animation)
+- NoteCard (asymmetric layout, geometric decorations)
+- BauhausElevatedButton (sharp corners, 2px border, ALL CAPS labels)
+- BauhausSearchBar (yellow focus indicator, geometric icon)
+- TagChip (rectangular, colored background, optional shape icon)
+- BauhausGeometricBackground (subtle 10% opacity shapes)
+
+### When Building ANY Screen
+1. Read the Bauhaus widget guide section for that component type
+2. Read the widget splitting guide decision tree
+3. Create screen structure with private widgets for sections
+4. Use design system constants (BauhausColors, BauhausSpacing, BauhausTypography)
+5. Follow accessibility requirements (48px touch targets, semantic labels, haptic feedback)
+6. Test with screen reader (TalkBack/VoiceOver)

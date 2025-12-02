@@ -1,0 +1,35 @@
+# Build configuration for code generation
+targets:
+  $default:
+    builders:
+      # Freezed code generation
+      freezed:
+        enabled: true
+        options:
+          # Generate copyWith method
+          copy_with: true
+          # Generate toString method
+          to_string: true
+          # Generate == and hashCode
+          equal: true
+
+      # JSON serialization code generation
+      json_serializable:
+        enabled: true
+        options:
+          # Generate explicit toJson
+          explicit_to_json: true
+          # Use checked mode for type safety
+          checked: true
+          # Create factory constructors
+          create_factory: true
+          # Handle null fields
+          any_map: true
+
+      # Riverpod code generation
+      riverpod_generator:
+        enabled: true
+
+      # Environment variable code generation
+      envied_generator:
+        enabled: true

@@ -1,5 +1,5 @@
 name: notes
-description: "A new Flutter project."
+description: "Voice-first note-taking app with Bauhaus design"
 publish_to: 'none'
 version: 0.1.0
 
@@ -10,10 +10,73 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # State Management
+  flutter_riverpod: ^3.0.3
+  riverpod_annotation: ^3.0.3
+
+  # Backend
+  supabase_flutter: ^2.10.3
+
+  # Navigation
+  go_router: ^14.6.2
+
+  # Data Models
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+
+  # Speech
+  speech_to_text: ^7.3.0
+  permission_handler: ^11.3.1
+
+  # Editor
+  flutter_quill: ^11.5.0
+
+  # Security
+  flutter_secure_storage: ^9.2.2
+  envied: ^1.3.1
+
+  # Logging
+  talker_flutter: ^5.0.2
+
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+  # Language Detection
+  flutter_langdetect: ^0.0.2
+
+  # UI
+  flutter_svg: ^2.0.10+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
 
+  # Code Generation
+  build_runner: ^2.4.13
+  freezed: ^3.0.0
+  json_serializable: ^6.9.2
+  riverpod_generator: ^3.0.3
+  envied_generator: ^1.3.1
+
+  # Testing
+  mocktail: ^1.0.4
+
 flutter:
   uses-material-design: true
+  generate: true
+
+  # Assets
+  # assets:
+  #   - assets/images/
+  #   - assets/fonts/
+
+  # Fonts
+  # fonts:
+  #   - family: Jost
+  #     fonts:
+  #       - asset: assets/fonts/Jost-Regular.ttf
+  #       - asset: assets/fonts/Jost-Bold.ttf
+  #         weight: 700
