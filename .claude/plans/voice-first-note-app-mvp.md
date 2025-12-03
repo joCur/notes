@@ -1,5 +1,27 @@
 # Voice-First Note-Taking App - MVP Implementation Plan
 
+## 🧪 CRITICAL: Test-Driven Development (TDD) Mandate
+
+**ALL implementation tasks with business logic MUST follow TDD:**
+
+1. **🔴 RED Phase**: Write failing tests FIRST (reference `.claude/docs/testing-guide.md`)
+2. **🟢 GREEN Phase**: Implement minimal code to make tests pass
+3. **🔵 REFACTOR Phase**: Improve code quality while keeping tests green
+4. **✅ VERIFY Phase**: Run `flutter test` to ensure no regressions
+
+**Testing Guide Rules** (see `.claude/docs/testing-guide.md`):
+- ✅ **DO TEST**: Business logic, validation, transformations, error handling, state management, repository methods
+- ❌ **DON'T TEST**: Freezed-generated code, simple getters, framework widgets, constants, third-party packages, SQL migrations
+
+**Exceptions** (No tests required):
+- SQL migrations and database configuration (test manually)
+- UI-only screens with no business logic
+- Configuration tasks (deep links, environment setup)
+
+Each task below specifies whether TDD is required and what to test.
+
+---
+
 ## CRITICAL: Design & Architecture Guidelines
 
 **Before implementing ANY feature, read and follow these guides:**
@@ -181,31 +203,64 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Implement complete email/password authentication with Supabase, deep links, and route protection.
 
-- [ ] Task 3.1: Create authentication domain layer
-  - Create `lib/features/auth/domain/models/user.dart` with Freezed
-  - Create `lib/features/auth/domain/models/auth_state.dart` (Authenticated, Unauthenticated, Loading)
-  - Create `lib/features/auth/domain/repositories/auth_repository.dart` interface
-  - Define methods: signInWithEmail, signUpWithEmail, signOut, resetPassword, authStateChanges, currentUser
-  - Add JSON serialization support with json_serializable
+- [x] Task 3.1: Create authentication domain layer
+  - ✅ Created `lib/features/auth/domain/models/user.dart` with Freezed
+  - ✅ Created `lib/features/auth/domain/models/auth_state.dart` (Authenticated, Unauthenticated, Loading)
+  - ✅ Created `lib/features/auth/domain/repositories/auth_repository.dart` interface
+  - ✅ Defined methods: signInWithEmail, signUpWithEmail, signOut, resetPassword, authStateChanges, currentUser
+  - ✅ Added JSON serialization support with json_serializable
+  - ✅ All files pass `flutter analyze` with zero errors
 
-- [ ] Task 3.2: Implement Supabase authentication repository
-  - Create `lib/features/auth/data/repositories/supabase_auth_repository.dart`
-  - Implement signInWithEmail with error handling and Result pattern
-  - Implement signUpWithEmail with automatic profile creation
-  - Implement signOut with session cleanup
-  - Implement resetPassword with deep link handling
-  - Implement authStateChanges stream mapping Supabase auth events to AuthState
-  - Add comprehensive error logging with Talker
+- [x] Task 3.2: Implement Supabase authentication repository
+  - ✅ Created `lib/features/auth/data/repositories/supabase_auth_repository.dart`
+  - ✅ Implemented signInWithEmail with error handling and Result pattern
+  - ✅ Implemented signUpWithEmail with automatic profile creation (note for Task 3.9)
+  - ✅ Implemented signOut with session cleanup
+  - ✅ Implemented resetPassword with deep link handling (redirectTo: 'voicenote://reset-password')
+  - ✅ Implemented authStateChanges stream mapping Supabase auth events to AuthState
+  - ✅ Added comprehensive error logging with Talker
+  - ✅ Proper error transformation using failure_extensions.dart
 
-- [ ] Task 3.3: Create authentication Riverpod providers
-  - Create `lib/features/auth/application/auth_providers.dart`
-  - Implement authRepositoryProvider
-  - Implement authStateProvider (stream of AuthState)
-  - Implement authNotifierProvider (AsyncNotifier for auth actions)
-  - Add methods: signIn, signUp, signOut, resetPassword
-  - Set up provider listeners for state changes
+- [x] Task 3.3: Create authentication Riverpod providers
+  - ✅ Created `lib/features/auth/application/auth_providers.dart`
+  - ✅ Implemented authRepositoryProvider
+  - ✅ Implemented authStateStreamProvider (stream of AuthState)
+  - ✅ Implemented authNotifierProvider (AsyncNotifier for auth actions)
+  - ✅ Added methods: signIn, signUp, signOut, resetPassword (all return Result<T>)
+  - ✅ Implemented currentUserProvider for synchronous user access
+  - ✅ Generated code with build_runner successfully
+  - ✅ **TESTS WRITTEN**: 41 total tests covering Result extensions, SupabaseAuthRepository, and AuthNotifier
+    - `test/core/domain/result_test.dart` (14 tests)
+    - `test/features/auth/data/repositories/supabase_auth_repository_test.dart` (16 tests)
+    - `test/features/auth/application/auth_providers_test.dart` (11 tests)
+
+---
+
+## 🔴 TDD Workflow for Remaining Tasks
+
+**IMPORTANT**: All remaining tasks MUST follow TDD (Test-Driven Development):
+
+1. **RED Phase**: Write failing tests first (reference `.claude/docs/testing-guide.md`)
+2. **GREEN Phase**: Implement minimal code to make tests pass
+3. **REFACTOR Phase**: Improve code quality while keeping tests green
+4. **VERIFY Phase**: Run all tests to ensure no regressions
+
+**Testing Guide Rules** (see `.claude/docs/testing-guide.md`):
+- ✅ **DO TEST**: Business logic, validation, transformations, error handling, state management
+- ❌ **DON'T TEST**: Freezed-generated code, simple getters, framework widgets, constants, third-party packages
+
+---
 
 - [ ] Task 3.4: Implement login screen
+  - **TDD REQUIRED**: Write widget tests BEFORE implementation
+  - 🔴 **RED**: Write tests in `test/features/auth/presentation/screens/login_screen_test.dart`
+    - Test form validation (empty email, invalid email format, short password)
+    - Test sign-in button enabled/disabled states
+    - Test loading state during sign-in
+    - Test error display when sign-in fails
+    - Test navigation on successful sign-in
+    - DON'T test: BauhausElevatedButton internals, Text widget display, framework behavior
+  - 🟢 **GREEN**: Implement code to make tests pass
   - Create `lib/features/auth/presentation/screens/login_screen.dart`
   - **Split widgets following `.claude/docs/flutter-widget-splitting-guide.md`** - no single 200+ line screen file
   - Design Bauhaus-styled login form with email and password fields (see `.claude/docs/bauhaus-widget-design-guide.md`)
@@ -216,8 +271,18 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - Add "Don't have an account? Sign up" navigation
   - Display error messages using BauhausSnackbar
   - Add localized strings for all UI text
+  - 🔵 **REFACTOR**: Clean up code, ensure Bauhaus design consistency
+  - ✅ **VERIFY**: Run `flutter test` - all tests must pass
 
 - [ ] Task 3.5: Implement signup screen
+  - **TDD REQUIRED**: Write widget tests BEFORE implementation
+  - 🔴 **RED**: Write tests in `test/features/auth/presentation/screens/signup_screen_test.dart`
+    - Test form validation (email, password, confirm password match)
+    - Test password strength indicator updates
+    - Test sign-up button states
+    - Test success message display
+    - DON'T test: Framework widgets, Bauhaus widget internals
+  - 🟢 **GREEN**: Implement code to make tests pass
   - Create `lib/features/auth/presentation/screens/signup_screen.dart`
   - Design signup form with email, password, and confirm password fields
   - Implement password strength indicator with Bauhaus colors
@@ -226,8 +291,17 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - Add "Already have an account? Log in" navigation
   - Show success message on account creation
   - Add localized strings for all UI text
+  - 🔵 **REFACTOR**: Optimize validation logic
+  - ✅ **VERIFY**: Run `flutter test` - all tests must pass
 
 - [ ] Task 3.6: Implement forgot password screen
+  - **TDD REQUIRED**: Write widget tests BEFORE implementation
+  - 🔴 **RED**: Write tests in `test/features/auth/presentation/screens/forgot_password_screen_test.dart`
+    - Test email validation
+    - Test success message display
+    - Test error handling
+    - DON'T test: Email sending (repository responsibility)
+  - 🟢 **GREEN**: Implement code to make tests pass
   - Create `lib/features/auth/presentation/screens/forgot_password_screen.dart`
   - Design form with email input field
   - Implement "Send Reset Link" button
@@ -235,8 +309,11 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - Add instructions for checking email
   - Create reset password screen for handling deep link callback
   - Add localized strings for all UI text
+  - 🔵 **REFACTOR**: Clean up code
+  - ✅ **VERIFY**: Run `flutter test` - all tests must pass
 
 - [ ] Task 3.7: Configure Supabase deep links
+  - **NO TESTS NEEDED**: Configuration task (no logic to test)
   - Configure redirect URLs in Supabase dashboard
   - Add custom scheme URL: `voicenote://auth-callback`
   - Add universal link: `https://[project].supabase.co/auth/v1/callback`
@@ -245,6 +322,13 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - Create `lib/core/auth/deep_link_handler.dart` for processing auth callbacks
 
 - [ ] Task 3.8: Implement routing with GoRouter
+  - **TDD REQUIRED**: Write tests for route logic BEFORE implementation
+  - 🔴 **RED**: Write tests in `test/core/routing/router_test.dart`
+    - Test authentication-based redirects (authenticated user → home, unauthenticated → login)
+    - Test route protection logic
+    - Test deep link handling
+    - DON'T test: GoRouter package internals
+  - 🟢 **GREEN**: Implement code to make tests pass
   - Create `lib/core/routing/router.dart`
   - Set up GoRouter with authentication-aware redirect logic
   - Define routes: /splash, /login, /signup, /forgot-password, /reset-password, /home, /notes/:id
@@ -252,20 +336,40 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - Add GoRouterRefreshStream to listen to auth state changes
   - Create splash screen for initial auth check
   - Add deep link handling integration
+  - 🔵 **REFACTOR**: Optimize redirect logic
+  - ✅ **VERIFY**: Run `flutter test` - all tests must pass
 
 - [ ] Task 3.9: Create user profile in database
+  - **TDD REQUIRED**: Write tests for repository logic BEFORE implementation
+  - **NO TESTS FOR SQL**: SQL migrations are configuration (test manually)
+  - 🔴 **RED**: Write tests in `test/features/auth/data/repositories/user_profile_repository_test.dart`
+    - Test profile creation
+    - Test profile fetching
+    - Test profile updates
+    - Test error handling (user not found, network errors)
+    - DON'T test: Supabase package, SQL trigger execution
+  - 🟢 **GREEN**: Implement code to make tests pass
   - Write SQL migration for user_profiles table
   - Add trigger to create profile on user signup
   - Implement user profile repository interface in domain layer
   - Create Supabase implementation for fetching/updating profile
   - Add profile provider in application layer
   - Add RLS policies for user_profiles table
+  - 🔵 **REFACTOR**: Optimize data transformation
+  - ✅ **VERIFY**: Run `flutter test` - all tests must pass
 
 ### Phase 4: Database Schema & Core Note Models
 
 **Goal**: Set up complete PostgreSQL schema with RLS policies and create domain models for notes.
 
+**⚠️ TDD MANDATE**: All tasks with business logic, repositories, or state management MUST follow TDD workflow:
+- 🔴 RED → 🟢 GREEN → 🔵 REFACTOR → ✅ VERIFY
+- Reference `.claude/docs/testing-guide.md` for what to test vs. skip
+- SQL migrations and UI-only code can skip tests
+- All repository methods, validation logic, and transformations MUST have tests
+
 - [ ] Task 4.1: Create and execute database schema
+  - **NO TESTS NEEDED**: SQL configuration (test manually with queries)
   - Write complete SQL schema in `supabase/migrations/001_initial_schema.sql`
   - Create notes table with all columns (id, user_id, title, content, source, language, language_confidence, timestamps)
   - Create tags table with user isolation (id, user_id, name, color, icon, description, usage_count)
@@ -291,6 +395,7 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - Document trigger behavior for developers
 
 - [ ] Task 4.4: Configure Row Level Security (RLS)
+  - **NO TESTS NEEDED**: SQL configuration (test manually with queries)
   - Enable RLS on notes, tags, note_tags, user_profiles tables
   - Create "Users can view own notes" policy for SELECT
   - Create INSERT, UPDATE, DELETE policies for notes
@@ -300,13 +405,16 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - Test RLS policies with different authenticated users
 
 - [ ] Task 4.5: Create note domain models
-  - Create `lib/features/notes/domain/models/note.dart` with Freezed
+  - **NO TESTS NEEDED**: Freezed data classes (no logic to test per testing guide)
+  - Create `lib/features/notes/domain/models/note.dart` with Freezed (use `sealed` keyword!)
   - Define fields: id, userId, title, content, source (voice/text/mixed), language, languageConfidence, timestamps
   - Add JSON serialization with json_serializable
   - Create `lib/features/notes/domain/models/note_filter.dart` for search/filter criteria
   - Generate code with build_runner
+  - ✅ **VERIFY**: Run `flutter analyze` - zero errors
 
 - [ ] Task 4.6: Create note repository interface
+  - **NO TESTS NEEDED**: Interface definitions have no implementation to test
   - Create `lib/features/notes/domain/repositories/note_repository.dart`
   - Define methods: createNote, updateNote, deleteNote, getNote, getAllNotes, searchNotes
   - Use Result<T> pattern for all return types
@@ -317,7 +425,14 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Implement native device speech recognition with real-time transcription and language support.
 
+**🧪 TDD Workflow**: All tasks with business logic (repositories, providers, validation) MUST follow TDD:
+- 🔴 RED → 🟢 GREEN → 🔵 REFACTOR → ✅ VERIFY
+- Reference `.claude/docs/testing-guide.md` for what to test
+- UI-only tasks and permission requests can skip tests
+- All repository and state management logic MUST have tests
+
 - [ ] Task 5.1: Create voice domain layer
+  - **NO TESTS NEEDED**: Freezed data classes and interface definitions have no logic to test
   - Create `lib/features/voice/domain/models/transcription.dart` with Freezed
   - Create `lib/features/voice/domain/models/supported_languages.dart` with language list
   - Define SupportedLanguage class with code, name, displayName
@@ -394,7 +509,22 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Implement complete note CRUD operations with voice and text input integration.
 
+**🧪 TDD Workflow**: All repository and provider tasks MUST follow TDD:
+- 🔴 RED → 🟢 GREEN → 🔵 REFACTOR → ✅ VERIFY
+- Reference `.claude/docs/testing-guide.md` for what to test
+- Test all repository methods, validation logic, and state management
+- UI screens and widgets can have widget tests if they contain business logic
+
 - [ ] Task 6.1: Implement note repository with Supabase
+  - **TDD REQUIRED**: Write tests BEFORE implementation
+  - 🔴 **RED**: Write tests in `test/features/notes/data/repositories/supabase_note_repository_test.dart`
+    - Test createNote with language detection
+    - Test updateNote with content changes
+    - Test deleteNote with error handling
+    - Test getNote by ID
+    - Test getAllNotes with pagination
+    - Test searchNotes calling PostgreSQL function
+    - DON'T test: Supabase package internals, SQL function execution
   - Create `lib/features/notes/data/repositories/supabase_note_repository.dart`
   - Implement createNote() with language detection integration
   - Implement updateNote() with re-detection on content change
@@ -478,7 +608,15 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Integrate flutter_quill for rich text editing with custom Bauhaus-styled toolbar.
 
+**🧪 TDD Workflow**: Test provider logic and data transformations:
+- 🔴 RED → 🟢 GREEN → 🔵 REFACTOR → ✅ VERIFY
+- Reference `.claude/docs/testing-guide.md` for what to test
+- Test Delta ↔ JSON conversion logic
+- Test editor state management
+- UI widgets don't need tests (flutter_quill integration)
+
 - [ ] Task 7.1: Create editor domain layer
+  - **NO TESTS NEEDED**: Freezed data classes and interface definitions
   - Create `lib/features/editor/domain/models/editor_state.dart` with Freezed
   - Define editor state: controller, isEditing, noteId
   - Create `lib/features/editor/domain/repositories/editor_repository.dart` interface
@@ -540,7 +678,15 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Build complete user-specific tag system with manual tagging, colors, and filtering.
 
+**🧪 TDD Workflow**: All repository and provider tasks MUST follow TDD:
+- 🔴 RED → 🟢 GREEN → 🔵 REFACTOR → ✅ VERIFY
+- Reference `.claude/docs/testing-guide.md` for what to test
+- Test all repository methods (CRUD, tag-note associations)
+- Test validation logic (duplicate tag names, etc.)
+- UI widgets can skip tests
+
 - [ ] Task 8.1: Create tag domain layer
+  - **NO TESTS NEEDED**: Freezed data classes and interface definitions
   - Create `lib/features/tags/domain/models/tag.dart` with Freezed
   - Define fields: id, userId, name, color, icon, description, usageCount, createdAt
   - Add JSON serialization with json_serializable
@@ -618,7 +764,16 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Implement powerful search combining full-text queries with tag filtering.
 
+**🧪 TDD Workflow**: Test search logic and query building:
+- 🔴 RED → 🟢 GREEN → 🔵 REFACTOR → ✅ VERIFY
+- Reference `.claude/docs/testing-guide.md` for what to test
+- Test search query building and validation
+- Test repository search method
+- Test provider debouncing logic
+- UI widgets can skip tests
+
 - [ ] Task 9.1: Create search domain models
+  - **NO TESTS NEEDED**: Freezed data classes
   - Create `lib/features/notes/domain/models/search_query.dart` with Freezed
   - Define fields: text, tagIds, sortBy (enum: dateAscending, dateDescending, relevance)
   - Add methods for building search queries
@@ -682,7 +837,16 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Implement comprehensive localization for English and German languages.
 
+**🧪 TDD Workflow**: Test locale provider logic:
+- 🔴 RED → 🟢 GREEN → 🔵 REFACTOR → ✅ VERIFY
+- Reference `.claude/docs/testing-guide.md` for what to test
+- Test locale provider state management
+- Test locale persistence logic
+- ARB files don't need tests (configuration)
+- Manual testing for translation quality
+
 - [ ] Task 10.1: Define all English strings (app_en.arb)
+  - **NO TESTS NEEDED**: Configuration file
   - Add authentication strings (login, signup, forgot password, errors)
   - Add navigation strings (screen titles, button labels)
   - Add note strings (create, edit, delete, search, empty states)
@@ -741,7 +905,16 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Implement robust error handling throughout the app with user-friendly messages.
 
+**🧪 TDD Workflow**: Test error transformation and handling logic:
+- 🔴 RED → 🟢 GREEN → 🔵 REFACTOR → ✅ VERIFY
+- Reference `.claude/docs/testing-guide.md` for what to test
+- Test failure type transformations
+- Test retry mechanisms and backoff logic
+- Test validation error generation
+- UI error widgets don't need tests
+
 - [ ] Task 11.1: Extend failure types with localized messages
+  - **NO TESTS NEEDED**: Adding message keys to existing classes
   - Update all AppFailure subclasses with localized message keys
   - Create error message mapping in l10n files
   - Add context-specific error messages (auth errors, network errors, etc.)
@@ -802,7 +975,15 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Finalize app navigation flow and create remaining screens.
 
+**🧪 TDD Workflow**: Test routing logic and deep link handling:
+- 🔴 RED → 🟢 GREEN → 🔵 REFACTOR → ✅ VERIFY
+- Reference `.claude/docs/testing-guide.md` for what to test
+- Test deep link parsing and routing logic
+- Test onboarding state persistence
+- UI screens don't need tests (mostly presentation)
+
 - [ ] Task 12.1: Create home screen with bottom navigation
+  - **NO TESTS NEEDED**: UI-only screen
   - Create `lib/features/home/presentation/screens/home_screen.dart`
   - Implement bottom navigation with 3 tabs: Notes, Search, Settings
   - Use BauhausBottomNavigationBar widget
@@ -857,7 +1038,14 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Refine UI/UX, optimize performance, and fix bugs.
 
+**🧪 TDD Workflow**: Focus on performance testing and manual QA:
+- Reference `.claude/docs/testing-guide.md` for what to test
+- Most tasks are optimization and don't need new tests
+- Run existing test suite to ensure no regressions (✅ VERIFY)
+- Use profiling tools for performance testing
+
 - [ ] Task 13.1: Optimize note list performance
+  - **NO NEW TESTS NEEDED**: Performance optimization (verify with profiling)
   - Implement virtual scrolling for large lists
   - Add pagination (load 20 notes at a time)
   - Optimize note card rendering
@@ -923,7 +1111,15 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Comprehensive testing to ensure app stability and reliability.
 
+**🧪 TDD Note**: This phase is dedicated to adding missing tests and QA:
+- Reference `.claude/docs/testing-guide.md` for what to test
+- Fill gaps in test coverage from previous phases
+- Write integration tests for critical flows
+- Perform manual testing on devices
+- Target > 70% code coverage for critical paths
+
 - [ ] Task 14.1: Write unit tests for domain layer
+  - **TDD REQUIRED**: Write comprehensive unit tests
   - Test Result<T> pattern with success/failure cases
   - Test all failure types and error transformations
   - Test domain models (serialization, equality)
@@ -988,7 +1184,14 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 **Goal**: Create comprehensive documentation and prepare for MVP release.
 
+**🧪 TDD Note**: This phase is documentation and deployment:
+- No tests needed for documentation tasks
+- Run full test suite before deployment (✅ VERIFY)
+- Ensure all tests pass with zero failures
+- Document testing procedures for future developers
+
 - [ ] Task 15.1: Write user documentation
+  - **NO TESTS NEEDED**: Documentation task
   - Create user guide explaining voice input
   - Document tagging system and organization
   - Explain search functionality and filters
