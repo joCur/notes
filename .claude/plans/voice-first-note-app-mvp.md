@@ -449,31 +449,42 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 - UI-only tasks and permission requests can skip tests
 - All repository and state management logic MUST have tests
 
-- [ ] Task 5.1: Create voice domain layer
+- [x] Task 5.1: Create voice domain layer
   - **NO TESTS NEEDED**: Freezed data classes and interface definitions have no logic to test
-  - Create `lib/features/voice/domain/models/transcription.dart` with Freezed
-  - Create `lib/features/voice/domain/models/supported_languages.dart` with language list
-  - Define SupportedLanguage class with code, name, displayName
-  - Create language list: German (de_DE, de_AT, de_CH), English (en_US, en_GB, en_AU, en_CA)
-  - Create `lib/features/voice/domain/repositories/voice_repository.dart` interface
-  - Define methods: initialize, getAvailableLanguages, startListening, stopListening, transcriptionStream, isListening
+  - ✅ Created `lib/features/voice/domain/models/transcription.dart` with Freezed
+  - ✅ Created `lib/features/voice/domain/models/supported_languages.dart` with language list
+  - ✅ Defined SupportedLanguage class with code, name, displayName, languageCode, countryCode
+  - ✅ Created language list: German (de_DE, de_AT, de_CH), English (en_US, en_GB, en_AU, en_CA)
+  - ✅ Created `lib/features/voice/domain/repositories/voice_repository.dart` interface
+  - ✅ Defined methods: initialize, getAvailableLanguages, startListening, stopListening, transcriptionStream, isListening, isAvailable, cancel
+  - ✅ Transcription model includes: text, confidence, isFinal, detectedLanguage, durationMs
+  - ✅ All files pass `flutter analyze` with zero errors
 
-- [ ] Task 5.2: Implement native voice repository
-  - Create `lib/features/voice/data/repositories/native_voice_repository.dart`
-  - Initialize SpeechToText instance with error handling
-  - Implement initialize() with availability check
-  - Implement startListening() with locale parameter and partial results
-  - Implement stopListening() with cleanup
-  - Create broadcast stream controller for transcription updates
-  - Add comprehensive error handling and logging with Talker
+- [x] Task 5.2: Implement native voice repository
+  - ✅ Created `lib/features/voice/data/repositories/native_voice_repository.dart`
+  - ✅ Initialized SpeechToText instance with error handling and status callbacks
+  - ✅ Implemented initialize() with availability check and Result pattern
+  - ✅ Implemented startListening() with locale parameter and SpeechListenOptions (partialResults, listenMode, cancelOnError)
+  - ✅ Implemented stopListening() with cleanup and state management
+  - ✅ Created broadcast stream controller for transcription updates
+  - ✅ Added comprehensive error handling and logging with Talker
+  - ✅ Implemented getAvailableLanguages() filtering system locales against supported languages
+  - ✅ Implemented cancel() for cleanup
+  - ✅ Added _onSpeechResult() handler for processing speech recognition results
+  - ✅ All files pass `flutter analyze` with zero errors
 
-- [ ] Task 5.3: Create voice Riverpod providers
-  - Create `lib/features/voice/application/voice_providers.dart`
-  - Implement voiceRepositoryProvider
-  - Implement voiceNotifierProvider (AsyncNotifier for voice state)
-  - Implement selectedLanguageProvider (StateProvider for current language)
-  - Add methods: startListening, stopListening
-  - Listen to transcription stream and update state
+- [x] Task 5.3: Create voice Riverpod providers
+  - ✅ Created `lib/features/voice/application/voice_providers.dart`
+  - ✅ Implemented voiceRepositoryProvider (keepAlive: true)
+  - ✅ Implemented VoiceNotifier (AsyncNotifier for voice state management)
+  - ✅ Implemented selectedLanguageProvider (Notifier for current language, defaults to German)
+  - ✅ Added methods: startListening, stopListening, cancel with Result<void> return types
+  - ✅ Implemented isListeningProvider for checking listening state
+  - ✅ Implemented isVoiceAvailableProvider for checking availability
+  - ✅ Implemented transcriptionStreamProvider for real-time transcription updates
+  - ✅ Implemented availableLanguagesProvider for getting device languages
+  - ✅ Generated provider code with build_runner successfully
+  - ✅ All files pass `flutter analyze` with zero errors
 
 - [ ] Task 5.4: Request microphone permissions
   - Use permission_handler package to request RECORD_AUDIO permission
@@ -522,6 +533,30 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - Map ISO 639-1 codes to PostgreSQL configurations
   - Handle edge cases: short text, code snippets, mixed languages
   - Test with German and English sample text
+
+---
+
+**✅ Phase 5 Test Summary**:
+- **34 voice feature tests** written following TDD principles (RED → GREEN → REFACTOR → VERIFY)
+- **13 Transcription model tests** (test/features/voice/domain/models/transcription_test.dart)
+  - Helper methods: hasContent, isHighConfidence, wordCount
+- **9 NativeVoiceRepository tests** (test/features/voice/data/repositories/native_voice_repository_test.dart)
+  - Repository methods: initialize, startListening, stopListening, cancel
+  - State management: isListening, isAvailable, transcriptionStream
+- **12 VoiceProvider tests** (test/features/voice/application/voice_providers_test.dart)
+  - VoiceNotifier state management: startListening, stopListening, cancel
+  - Provider integrations: isListeningProvider, isVoiceAvailableProvider, transcriptionStreamProvider
+- **Full test suite: 97 tests passing** (34 voice + 63 existing)
+- **flutter analyze: 0 errors**
+
+**Key Implementation Notes**:
+- Automatic language detection (no manual selection required)
+- 60-second recording limit configured
+- Broadcast stream for real-time transcription updates
+- Result pattern for type-safe error handling
+- Comprehensive error logging with Talker
+
+---
 
 ### Phase 6: Note Creation & Management
 
