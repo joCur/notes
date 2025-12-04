@@ -358,7 +358,7 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - 🔵 **REFACTOR**: Optimize data transformation
   - ✅ **VERIFY**: Run `flutter test` - all tests must pass
 
-### Phase 4: Database Schema & Core Note Models
+### Phase 4: Database Schema & Core Note Models ✅ COMPLETED
 
 **Goal**: Set up complete PostgreSQL schema with RLS policies and create domain models for notes.
 
@@ -368,58 +368,76 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 - SQL migrations and UI-only code can skip tests
 - All repository methods, validation logic, and transformations MUST have tests
 
-- [ ] Task 4.1: Create and execute database schema
+- [x] Task 4.1: Create and execute database schema
   - **NO TESTS NEEDED**: SQL configuration (test manually with queries)
-  - Write complete SQL schema in `supabase/migrations/001_initial_schema.sql`
-  - Create notes table with all columns (id, user_id, title, content, source, language, language_confidence, timestamps)
-  - Create tags table with user isolation (id, user_id, name, color, icon, description, usage_count)
-  - Create note_tags junction table for many-to-many relationship
-  - Create user_profiles table
-  - Add all necessary indexes for performance
-  - Execute migration in Supabase dashboard
+  - ✅ Created complete SQL schema in `supabase/migrations/002_initial_schema.sql`
+  - ✅ Created notes table (id, user_id, title, content, language, language_confidence, timestamps)
+  - ✅ Removed `source` field as it's not needed for MVP
+  - ✅ Created tags table with user isolation (id, user_id, name, color, icon, description, usage_count)
+  - ✅ Created note_tags junction table for many-to-many relationship
+  - ✅ user_profiles table already exists from migration 001
+  - ✅ Added all necessary indexes for performance
+  - ⚠️ **MANUAL ACTION REQUIRED**: Execute migrations in Supabase dashboard
 
-- [ ] Task 4.2: Set up full-text search infrastructure
-  - Add search_vector column to notes table (TSVECTOR GENERATED ALWAYS)
-  - Create GIN index on search_vector for fast full-text queries
-  - Implement search_notes() PostgreSQL function with text + tag filtering
-  - Configure 'simple' text search configuration for multilingual support
-  - Test search function with sample data
-  - Document search syntax for developers
+- [x] Task 4.2: Set up full-text search infrastructure
+  - ✅ Created `supabase/migrations/003_full_text_search.sql`
+  - ✅ Added search_vector column to notes table (TSVECTOR GENERATED ALWAYS)
+  - ✅ Created GIN index on search_vector for fast full-text queries
+  - ✅ Implemented search_notes() PostgreSQL function with text + tag filtering
+  - ✅ Configured 'simple' text search configuration for multilingual support
+  - ✅ Added example queries and documentation in migration file
+  - ⚠️ **MANUAL ACTION REQUIRED**: Test search function with sample data after executing migrations
 
-- [ ] Task 4.3: Implement database triggers
-  - Create update_updated_at_column() trigger function
-  - Apply trigger to notes and user_profiles tables
-  - Create update_tag_usage_count() trigger function
-  - Apply trigger to note_tags table for INSERT and DELETE operations
-  - Test triggers with manual SQL commands
-  - Document trigger behavior for developers
+- [x] Task 4.3: Implement database triggers
+  - ✅ Created `supabase/migrations/004_triggers.sql`
+  - ✅ Created update_updated_at_column() trigger function
+  - ✅ Applied trigger to notes, tags, and user_profiles tables
+  - ✅ Created update_tag_usage_count() trigger function
+  - ✅ Applied trigger to note_tags table for INSERT and DELETE operations
+  - ✅ Added test examples and documentation in migration file
+  - ⚠️ **MANUAL ACTION REQUIRED**: Test triggers with manual SQL commands after executing migrations
 
-- [ ] Task 4.4: Configure Row Level Security (RLS)
+- [x] Task 4.4: Configure Row Level Security (RLS)
   - **NO TESTS NEEDED**: SQL configuration (test manually with queries)
-  - Enable RLS on notes, tags, note_tags, user_profiles tables
-  - Create "Users can view own notes" policy for SELECT
-  - Create INSERT, UPDATE, DELETE policies for notes
-  - Create policies for tags ensuring user isolation
-  - Create policies for note_tags verifying note ownership
-  - Create policies for user_profiles
-  - Test RLS policies with different authenticated users
+  - ✅ Created `supabase/migrations/005_row_level_security.sql`
+  - ✅ Enabled RLS on notes, tags, note_tags, user_profiles tables
+  - ✅ Created comprehensive SELECT, INSERT, UPDATE, DELETE policies for all tables
+  - ✅ Implemented policies for tags ensuring user isolation
+  - ✅ Created policies for note_tags verifying note ownership
+  - ✅ Added policy documentation and test examples
+  - ⚠️ **MANUAL ACTION REQUIRED**: Test RLS policies with different authenticated users after executing migrations
 
-- [ ] Task 4.5: Create note domain models
+- [x] Task 4.5: Create note domain models
   - **NO TESTS NEEDED**: Freezed data classes (no logic to test per testing guide)
-  - Create `lib/features/notes/domain/models/note.dart` with Freezed (use `sealed` keyword!)
-  - Define fields: id, userId, title, content, source (voice/text/mixed), language, languageConfidence, timestamps
-  - Add JSON serialization with json_serializable
-  - Create `lib/features/notes/domain/models/note_filter.dart` for search/filter criteria
-  - Generate code with build_runner
-  - ✅ **VERIFY**: Run `flutter analyze` - zero errors
+  - ✅ Created `lib/features/notes/domain/models/note.dart` with Freezed using `sealed` keyword
+  - ✅ Defined fields: id, userId, title, content, language, languageConfidence, createdAt, updatedAt
+  - ✅ Removed `source` field (not needed for MVP - per user feedback)
+  - ✅ Added JSON serialization with json_serializable
+  - ✅ Added helper getters: plainText, hasTitle, isLanguageConfident, languageDisplayName
+  - ✅ Created `lib/features/notes/domain/models/note_filter.dart` with comprehensive filter options
+  - ✅ Created NoteSortOrder enum (dateDescending, dateAscending, relevance)
+  - ✅ Added factory constructors: empty, search, byTags, byLanguage, recent
+  - ✅ Added helper getters for filter state inspection
+  - ✅ Generated code with build_runner successfully
+  - ✅ **VERIFIED**: Run `flutter analyze` - zero errors
 
-- [ ] Task 4.6: Create note repository interface
+- [x] Task 4.6: Create note repository interface
   - **NO TESTS NEEDED**: Interface definitions have no implementation to test
-  - Create `lib/features/notes/domain/repositories/note_repository.dart`
-  - Define methods: createNote, updateNote, deleteNote, getNote, getAllNotes, searchNotes
-  - Use Result<T> pattern for all return types
-  - Add comprehensive documentation for each method
-  - Define parameter models for complex operations
+  - ✅ Created `lib/features/notes/domain/repositories/note_repository.dart`
+  - ✅ Defined methods: createNote, updateNote, deleteNote, getNote, getAllNotes, searchNotes
+  - ✅ Added additional methods: getNotesUpdatedSince, getNoteCount, getNotesByLanguage
+  - ✅ Used `Result<T>` pattern for all return types
+  - ✅ Added comprehensive documentation for each method with parameters and return types
+  - ✅ Documented expected failure types for each operation
+  - ✅ **VERIFIED**: Run `flutter analyze` - zero errors
+
+**Summary**: Phase 4 is complete! All database migrations created (002-005), domain models implemented with Freezed, and repository interface defined. The architecture is ready for implementation in Phase 5.
+
+**⚠️ IMPORTANT**: Before proceeding to Phase 5, execute all 4 SQL migrations (002-005) in the Supabase dashboard in order. Then test the database setup manually with sample queries to verify:
+- Tables created correctly
+- Full-text search works
+- Triggers update timestamps and usage counts
+- RLS policies enforce user isolation
 
 ### Phase 5: Speech-to-Text Implementation
 
