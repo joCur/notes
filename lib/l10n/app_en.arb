@@ -354,5 +354,105 @@
   "loading": "Loading...",
   "@loading": {
     "description": "Loading indicator text"
+  },
+
+  "voiceInputTitle": "Voice Input",
+  "@voiceInputTitle": {
+    "description": "Voice input screen title"
+  },
+
+  "voiceInputPlaceholder": "Tap the button and start speaking...",
+  "@voiceInputPlaceholder": {
+    "description": "Placeholder text for voice input"
+  },
+
+  "voiceInputListening": "Listening...",
+  "@voiceInputListening": {
+    "description": "Status text when listening to voice"
+  },
+
+  "voiceInputTranscribing": "Transcribing...",
+  "@voiceInputTranscribing": {
+    "description": "Status text when transcribing voice"
+  },
+
+  "voiceInputSaveNote": "SAVE NOTE",
+  "@voiceInputSaveNote": {
+    "description": "Button text to save voice note"
+  },
+
+  "voiceInputPermissionDenied": "Microphone permission is required for voice recording",
+  "@voiceInputPermissionDenied": {
+    "description": "Error when microphone permission denied"
+  },
+
+  "voiceInputPermissionSettings": "Open Settings",
+  "@voiceInputPermissionSettings": {
+    "description": "Button text to open app settings for permissions"
+  },
+
+  "voiceInputPermissionTitle": "Microphone Permission Required",
+  "@voiceInputPermissionTitle": {
+    "description": "Permission dialog title"
+  },
+
+  "voiceInputPermissionMessage": "This app needs access to your microphone to record voice notes",
+  "@voiceInputPermissionMessage": {
+    "description": "Permission dialog message"
+  },
+
+  "voiceInputNotAvailable": "Voice recognition is not available on this device",
+  "@voiceInputNotAvailable": {
+    "description": "Error when voice recognition not available"
+  },
+
+  "voiceInputError": "An error occurred during voice recording. Please try again",
+  "@voiceInputError": {
+    "description": "Generic voice input error"
+  },
+
+  "transcriptionPlaceholder": "Transcription will appear here...",
+  "@transcriptionPlaceholder": {
+    "description": "Placeholder for empty transcription"
+  },
+
+  "transcriptionConfidenceHigh": "High confidence",
+  "@transcriptionConfidenceHigh": {
+    "description": "High confidence indicator"
+  },
+
+  "transcriptionConfidenceMedium": "Medium confidence",
+  "@transcriptionConfidenceMedium": {
+    "description": "Medium confidence indicator"
+  },
+
+  "transcriptionConfidenceLow": "Low confidence",
+  "@transcriptionConfidenceLow": {
+    "description": "Low confidence indicator"
+  },
+
+  "voiceInputEmptyWarning": "Please record some text before saving",
+  "@voiceInputEmptyWarning": {
+    "description": "Warning when trying to save empty transcription"
+  },
+
+  "voiceInputSaveSuccess": "Note saved successfully!",
+  "@voiceInputSaveSuccess": {
+    "description": "Success message when note is saved"
+  },
+
+  "voiceButtonStartRecording": "Start recording",
+  "@voiceButtonStartRecording": {
+    "description": "Accessibility label for voice button when idle"
+  },
+
+  "voiceButtonStopRecording": "Stop recording",
+  "@voiceButtonStopRecording": {
+    "description": "Accessibility label for voice button when recording"
+  },
+
+  "transcriptionClearButton": "Clear transcription",
+  "@transcriptionClearButton": {
+    "description": "Accessibility label for clear transcription button"
   }
 }

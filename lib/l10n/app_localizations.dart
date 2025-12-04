@@ -523,6 +523,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading...'**
   String get loading;
+
+  /// Voice input screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Voice Input'**
+  String get voiceInputTitle;
+
+  /// Placeholder text for voice input
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the button and start speaking...'**
+  String get voiceInputPlaceholder;
+
+  /// Status text when listening to voice
+  ///
+  /// In en, this message translates to:
+  /// **'Listening...'**
+  String get voiceInputListening;
+
+  /// Status text when transcribing voice
+  ///
+  /// In en, this message translates to:
+  /// **'Transcribing...'**
+  String get voiceInputTranscribing;
+
+  /// Button text to save voice note
+  ///
+  /// In en, this message translates to:
+  /// **'SAVE NOTE'**
+  String get voiceInputSaveNote;
+
+  /// Error when microphone permission denied
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone permission is required for voice recording'**
+  String get voiceInputPermissionDenied;
+
+  /// Button text to open app settings for permissions
+  ///
+  /// In en, this message translates to:
+  /// **'Open Settings'**
+  String get voiceInputPermissionSettings;
+
+  /// Permission dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone Permission Required'**
+  String get voiceInputPermissionTitle;
+
+  /// Permission dialog message
+  ///
+  /// In en, this message translates to:
+  /// **'This app needs access to your microphone to record voice notes'**
+  String get voiceInputPermissionMessage;
+
+  /// Error when voice recognition not available
+  ///
+  /// In en, this message translates to:
+  /// **'Voice recognition is not available on this device'**
+  String get voiceInputNotAvailable;
+
+  /// Generic voice input error
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred during voice recording. Please try again'**
+  String get voiceInputError;
+
+  /// Placeholder for empty transcription
+  ///
+  /// In en, this message translates to:
+  /// **'Transcription will appear here...'**
+  String get transcriptionPlaceholder;
+
+  /// High confidence indicator
+  ///
+  /// In en, this message translates to:
+  /// **'High confidence'**
+  String get transcriptionConfidenceHigh;
+
+  /// Medium confidence indicator
+  ///
+  /// In en, this message translates to:
+  /// **'Medium confidence'**
+  String get transcriptionConfidenceMedium;
+
+  /// Low confidence indicator
+  ///
+  /// In en, this message translates to:
+  /// **'Low confidence'**
+  String get transcriptionConfidenceLow;
+
+  /// Warning when trying to save empty transcription
+  ///
+  /// In en, this message translates to:
+  /// **'Please record some text before saving'**
+  String get voiceInputEmptyWarning;
+
+  /// Success message when note is saved
+  ///
+  /// In en, this message translates to:
+  /// **'Note saved successfully!'**
+  String get voiceInputSaveSuccess;
+
+  /// Accessibility label for voice button when idle
+  ///
+  /// In en, this message translates to:
+  /// **'Start recording'**
+  String get voiceButtonStartRecording;
+
+  /// Accessibility label for voice button when recording
+  ///
+  /// In en, this message translates to:
+  /// **'Stop recording'**
+  String get voiceButtonStopRecording;
+
+  /// Accessibility label for clear transcription button
+  ///
+  /// In en, this message translates to:
+  /// **'Clear transcription'**
+  String get transcriptionClearButton;
 }
 
 class _AppLocalizationsDelegate

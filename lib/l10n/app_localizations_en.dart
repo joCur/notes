@@ -231,4 +231,68 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loading => 'Loading...';
+
+  @override
+  String get voiceInputTitle => 'Voice Input';
+
+  @override
+  String get voiceInputPlaceholder => 'Tap the button and start speaking...';
+
+  @override
+  String get voiceInputListening => 'Listening...';
+
+  @override
+  String get voiceInputTranscribing => 'Transcribing...';
+
+  @override
+  String get voiceInputSaveNote => 'SAVE NOTE';
+
+  @override
+  String get voiceInputPermissionDenied =>
+      'Microphone permission is required for voice recording';
+
+  @override
+  String get voiceInputPermissionSettings => 'Open Settings';
+
+  @override
+  String get voiceInputPermissionTitle => 'Microphone Permission Required';
+
+  @override
+  String get voiceInputPermissionMessage =>
+      'This app needs access to your microphone to record voice notes';
+
+  @override
+  String get voiceInputNotAvailable =>
+      'Voice recognition is not available on this device';
+
+  @override
+  String get voiceInputError =>
+      'An error occurred during voice recording. Please try again';
+
+  @override
+  String get transcriptionPlaceholder => 'Transcription will appear here...';
+
+  @override
+  String get transcriptionConfidenceHigh => 'High confidence';
+
+  @override
+  String get transcriptionConfidenceMedium => 'Medium confidence';
+
+  @override
+  String get transcriptionConfidenceLow => 'Low confidence';
+
+  @override
+  String get voiceInputEmptyWarning => 'Please record some text before saving';
+
+  @override
+  String get voiceInputSaveSuccess => 'Note saved successfully!';
+
+  @override
+  String get voiceButtonStartRecording => 'Start recording';
+
+  @override
+  String get voiceButtonStopRecording => 'Stop recording';
+
+  @override
+  String get transcriptionClearButton => 'Clear transcription';
 }

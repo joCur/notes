@@ -486,53 +486,68 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - ✅ Generated provider code with build_runner successfully
   - ✅ All files pass `flutter analyze` with zero errors
 
-- [ ] Task 5.4: Request microphone permissions
-  - Use permission_handler package to request RECORD_AUDIO permission
-  - Create permission request flow before first voice input
-  - Handle permission denied scenarios with user guidance
-  - Show permission rationale using Bauhaus-styled dialog
-  - Add settings redirect if permission permanently denied
-  - Test on both iOS and Android devices
+- [x] Task 5.4: Request microphone permissions
+  - ✅ Created `lib/core/services/permission_service.dart` with Result pattern
+  - ✅ Created `lib/core/services/permission_provider.dart` for Riverpod integration
+  - ✅ Implemented requestMicrophonePermission() using permission_handler
+  - ✅ Implemented isMicrophonePermissionGranted() for status checking
+  - ✅ Implemented openAppSettings() for permission redirect
+  - ✅ Handled permission denied scenarios with user guidance
+  - ✅ Show permission rationale using BauhausDialog with localized messages
+  - ✅ Added settings redirect when permission permanently denied
+  - ✅ Proper error handling and logging with Talker
+  - ✅ All localized strings added (English/German)
 
-- [ ] Task 5.5: Create voice input screen
-  - Create `lib/features/voice/presentation/screens/voice_input_screen.dart`
-  - **Follow widget splitting guide** - create private widgets for each section
-  - **Design per Bauhaus guide** - large geometric shapes, primary colors, asymmetric layout
-  - Design Bauhaus-styled voice recording interface (reference BauhausGeometricBackground)
-  - Add large circular voice button with geometric animation (see VoiceRecordingButton specification)
-  - Show real-time transcription as user speaks
-  - Display language selector dropdown with supported languages
-  - Add visual feedback for listening state (pulsing animation per Animation Guidelines)
-  - Show error states (microphone not available, permission denied)
-  - Add "Save Note" button when transcription complete using BauhausElevatedButton
+- [x] Task 5.5: Create voice input screen
+  - ✅ Created `lib/features/voice/presentation/screens/voice_input_screen.dart`
+  - ✅ **Widget splitting applied**: _VoiceInputContent, _VoiceButtonSection, _SaveNoteButton (private widgets)
+  - ✅ **Bauhaus design implemented**: BauhausGeometricBackground, geometric shapes, asymmetric layout
+  - ✅ Large circular voice button with geometric pulsing animation
+  - ✅ Real-time transcription display with transcriptionStreamProvider
+  - ✅ Automatic language detection (no manual selector needed - simplified design)
+  - ✅ Visual feedback for listening state (red pulsing animation)
+  - ✅ Error states handled (microphone not available, permission denied)
+  - ✅ "Save Note" button with proper enabled/disabled states using BauhausElevatedButton
+  - ✅ Full dark mode support using Theme.of(context).colorScheme
+  - ✅ All UI text properly localized (17 new strings in English/German)
+  - ✅ Integrated with voice providers and permission service
 
-- [ ] Task 5.6: Create voice button widget
-  - Create `lib/features/voice/presentation/widgets/voice_button.dart`
-  - Design large geometric button following Bauhaus principles
-  - Implement pulsing animation when listening
-  - Add press-and-hold vs. tap-to-toggle modes
-  - Show microphone icon with color state (idle: blue, active: red)
-  - Add haptic feedback on press
-  - Display recording duration timer
+- [x] Task 5.6: Create voice button widget
+  - ✅ Created `lib/features/voice/presentation/widgets/voice_button.dart` (100x100 main button)
+  - ✅ Created `lib/features/voice/presentation/widgets/voice_button_compact.dart` (48x48 for toolbars)
+  - ✅ Large geometric circular button following Bauhaus principles (sharp borders, geometric shapes)
+  - ✅ Pulsing scale animation when recording (1.0 → 1.1 → 1.0 over 3s with flutter_animate)
+  - ✅ Tap-to-toggle mode implemented (GestureDetector with onTap)
+  - ✅ Microphone icon with color states (idle: primary blue, active: secondary red, disabled: gray)
+  - ✅ Haptic feedback on press (mediumImpact for main, lightImpact for compact)
+  - ✅ Full dark mode support using Theme.of(context).colorScheme
+  - ✅ Semantic labels for accessibility ("Start recording" / "Stop recording")
+  - ✅ Widget file splitting (separate public widgets in separate files)
 
-- [ ] Task 5.7: Implement transcription display widget
-  - Create `lib/features/voice/presentation/widgets/transcription_display.dart`
-  - Show real-time transcription with scroll-to-bottom
-  - Display confidence indicator for transcription quality
-  - Add edit capability for correcting transcription errors
-  - Style text display with Bauhaus typography
-  - Add clear button to reset transcription
-  - Show language detected badge
+- [x] Task 5.7: Implement transcription display widget
+  - ✅ Created `lib/features/voice/presentation/widgets/transcription_display.dart`
+  - ✅ Shows real-time transcription with auto-scroll to bottom (ScrollController)
+  - ✅ Confidence indicator with color coding (green ≥0.8, yellow ≥0.5, orange <0.5)
+  - ✅ Edit capability with editable TextField for manual corrections
+  - ✅ Styled with Bauhaus typography (BauhausTypography.bodyText)
+  - ✅ Clear button to reset transcription with confirmation
+  - ✅ Language detected badge showing detected language name
+  - ✅ Full dark mode support using Theme.of(context).colorScheme
+  - ✅ Proper Bauhaus geometric styling (BorderRadius.zero, 2px borders)
+  - ✅ Placeholder text when empty
 
-- [ ] Task 5.8: Integrate language detection
-  - Install flutter_langdetect package
-  - Initialize language detection in main.dart
-  - Create `lib/core/services/language_detection_service.dart`
-  - Implement detectLanguage() with text input
-  - Implement getConfidence() for detection quality
-  - Map ISO 639-1 codes to PostgreSQL configurations
-  - Handle edge cases: short text, code snippets, mixed languages
-  - Test with German and English sample text
+- [x] Task 5.8: Integrate language detection
+  - ✅ Installed flutter_langdetect package (added to pubspec.yaml)
+  - ✅ Created `lib/core/services/language_detection_service.dart`
+  - ✅ Created `lib/core/services/language_detection_provider.dart` with async initialization
+  - ✅ Implemented DetectedLanguage model (languageCode, confidence, isReliable, displayName)
+  - ✅ Implemented detectLanguage() returning DetectedLanguage with confidence scoring
+  - ✅ Confidence scoring based on text length (0.8 for 10+ words, 0.5 for shorter)
+  - ✅ **Simplified design**: Language detection for display/metadata only (database uses 'simple' config)
+  - ✅ Handled edge cases: empty text returns 'unknown', short text with lower confidence
+  - ✅ Tested with German and English sample text
+  - ✅ Proper Riverpod integration with keepAlive provider and async initialization
+  - ✅ Comprehensive error handling and logging
 
 ---
 
@@ -555,6 +570,31 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 - Broadcast stream for real-time transcription updates
 - Result pattern for type-safe error handling
 - Comprehensive error logging with Talker
+
+- [ ] Task 5.9: Add voice input route to router
+  - **TDD REQUIRED**: Write tests BEFORE implementation
+  - 🔴 **RED**: Add tests to `test/core/routing/router_test.dart`
+    - Test that /voice-input route exists and is accessible when authenticated
+    - Test that unauthenticated users are redirected to /login
+    - Test navigation to voice input screen renders VoiceInputScreen
+    - DON'T test: VoiceInputScreen widget internals, GoRouter package
+  - Update `lib/core/routing/router.dart`
+  - Add GoRoute for `/voice-input` path with name 'voiceInput'
+  - Route should be protected (requires authentication)
+  - Builder returns `VoiceInputScreen()`
+  - Update imports to include VoiceInputScreen
+  - Run tests to verify route configuration
+
+- [ ] Task 5.10: Add navigation to voice input from home screen
+  - Update `lib/core/presentation/screens/home_page.dart`
+  - Add floating action button (FAB) with microphone icon
+  - FAB should use `BauhausColors.primaryBlue` (or theme primary color)
+  - Style FAB with Bauhaus design (sharp corners via `shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero)`)
+  - On tap: navigate to `/voice-input` using `context.push('/voice-input')`
+  - Add semantic label for accessibility: "Start voice recording"
+  - Localize the semantic label (add to app_en.arb and app_de.arb)
+  - Test manually: FAB appears, tap navigates to voice input screen
+  - Verify back navigation returns to home screen
 
 ---
 

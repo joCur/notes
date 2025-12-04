@@ -354,5 +354,105 @@
   "loading": "Lädt...",
   "@loading": {
     "description": "Text der Ladeanzeige"
+  },
+
+  "voiceInputTitle": "Spracheingabe",
+  "@voiceInputTitle": {
+    "description": "Titel des Spracheingabe-Bildschirms"
+  },
+
+  "voiceInputPlaceholder": "Tippen Sie auf die Schaltfläche und sprechen Sie los...",
+  "@voiceInputPlaceholder": {
+    "description": "Platzhaltertext für Spracheingabe"
+  },
+
+  "voiceInputListening": "Ich höre zu...",
+  "@voiceInputListening": {
+    "description": "Statustext beim Zuhören der Sprache"
+  },
+
+  "voiceInputTranscribing": "Transkribiere...",
+  "@voiceInputTranscribing": {
+    "description": "Statustext beim Transkribieren der Sprache"
+  },
+
+  "voiceInputSaveNote": "NOTIZ SPEICHERN",
+  "@voiceInputSaveNote": {
+    "description": "Schaltflächentext zum Speichern der Sprachnotiz"
+  },
+
+  "voiceInputPermissionDenied": "Mikrofonberechtigung ist für die Sprachaufnahme erforderlich",
+  "@voiceInputPermissionDenied": {
+    "description": "Fehler bei verweigerter Mikrofonberechtigung"
+  },
+
+  "voiceInputPermissionSettings": "Einstellungen öffnen",
+  "@voiceInputPermissionSettings": {
+    "description": "Schaltflächentext zum Öffnen der App-Einstellungen für Berechtigungen"
+  },
+
+  "voiceInputPermissionTitle": "Mikrofonberechtigung erforderlich",
+  "@voiceInputPermissionTitle": {
+    "description": "Titel des Berechtigungs-Dialogs"
+  },
+
+  "voiceInputPermissionMessage": "Diese App benötigt Zugriff auf Ihr Mikrofon, um Sprachnotizen aufzunehmen",
+  "@voiceInputPermissionMessage": {
+    "description": "Nachricht im Berechtigungs-Dialog"
+  },
+
+  "voiceInputNotAvailable": "Spracherkennung ist auf diesem Gerät nicht verfügbar",
+  "@voiceInputNotAvailable": {
+    "description": "Fehler wenn Spracherkennung nicht verfügbar ist"
+  },
+
+  "voiceInputError": "Bei der Sprachaufnahme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut",
+  "@voiceInputError": {
+    "description": "Allgemeiner Spracheingabefehler"
+  },
+
+  "transcriptionPlaceholder": "Die Transkription wird hier erscheinen...",
+  "@transcriptionPlaceholder": {
+    "description": "Platzhalter für leere Transkription"
+  },
+
+  "transcriptionConfidenceHigh": "Hohe Sicherheit",
+  "@transcriptionConfidenceHigh": {
+    "description": "Indikator für hohe Sicherheit"
+  },
+
+  "transcriptionConfidenceMedium": "Mittlere Sicherheit",
+  "@transcriptionConfidenceMedium": {
+    "description": "Indikator für mittlere Sicherheit"
+  },
+
+  "transcriptionConfidenceLow": "Niedrige Sicherheit",
+  "@transcriptionConfidenceLow": {
+    "description": "Indikator für niedrige Sicherheit"
+  },
+
+  "voiceInputEmptyWarning": "Bitte nehmen Sie etwas Text auf, bevor Sie speichern",
+  "@voiceInputEmptyWarning": {
+    "description": "Warnung beim Versuch, eine leere Transkription zu speichern"
+  },
+
+  "voiceInputSaveSuccess": "Notiz erfolgreich gespeichert!",
+  "@voiceInputSaveSuccess": {
+    "description": "Erfolgsmeldung beim Speichern der Notiz"
+  },
+
+  "voiceButtonStartRecording": "Aufnahme starten",
+  "@voiceButtonStartRecording": {
+    "description": "Barrierefreiheits-Label für Sprach-Schaltfläche im Ruhezustand"
+  },
+
+  "voiceButtonStopRecording": "Aufnahme stoppen",
+  "@voiceButtonStopRecording": {
+    "description": "Barrierefreiheits-Label für Sprach-Schaltfläche während der Aufnahme"
+  },
+
+  "transcriptionClearButton": "Transkription löschen",
+  "@transcriptionClearButton": {
+    "description": "Barrierefreiheits-Label für Schaltfläche zum Löschen der Transkription"
   }
 }

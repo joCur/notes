@@ -243,4 +243,71 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get loading => 'Lädt...';
+
+  @override
+  String get voiceInputTitle => 'Spracheingabe';
+
+  @override
+  String get voiceInputPlaceholder =>
+      'Tippen Sie auf die Schaltfläche und sprechen Sie los...';
+
+  @override
+  String get voiceInputListening => 'Ich höre zu...';
+
+  @override
+  String get voiceInputTranscribing => 'Transkribiere...';
+
+  @override
+  String get voiceInputSaveNote => 'NOTIZ SPEICHERN';
+
+  @override
+  String get voiceInputPermissionDenied =>
+      'Mikrofonberechtigung ist für die Sprachaufnahme erforderlich';
+
+  @override
+  String get voiceInputPermissionSettings => 'Einstellungen öffnen';
+
+  @override
+  String get voiceInputPermissionTitle => 'Mikrofonberechtigung erforderlich';
+
+  @override
+  String get voiceInputPermissionMessage =>
+      'Diese App benötigt Zugriff auf Ihr Mikrofon, um Sprachnotizen aufzunehmen';
+
+  @override
+  String get voiceInputNotAvailable =>
+      'Spracherkennung ist auf diesem Gerät nicht verfügbar';
+
+  @override
+  String get voiceInputError =>
+      'Bei der Sprachaufnahme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut';
+
+  @override
+  String get transcriptionPlaceholder =>
+      'Die Transkription wird hier erscheinen...';
+
+  @override
+  String get transcriptionConfidenceHigh => 'Hohe Sicherheit';
+
+  @override
+  String get transcriptionConfidenceMedium => 'Mittlere Sicherheit';
+
+  @override
+  String get transcriptionConfidenceLow => 'Niedrige Sicherheit';
+
+  @override
+  String get voiceInputEmptyWarning =>
+      'Bitte nehmen Sie etwas Text auf, bevor Sie speichern';
+
+  @override
+  String get voiceInputSaveSuccess => 'Notiz erfolgreich gespeichert!';
+
+  @override
+  String get voiceButtonStartRecording => 'Aufnahme starten';
+
+  @override
+  String get voiceButtonStopRecording => 'Aufnahme stoppen';
+
+  @override
+  String get transcriptionClearButton => 'Transkription löschen';
 }
