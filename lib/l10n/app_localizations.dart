@@ -295,6 +295,234 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Storage error. Please try again'**
   String get errorStorageGeneric;
+
+  /// Login screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get loginTitle;
+
+  /// Email input field label
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get loginEmailLabel;
+
+  /// Password input field label
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get loginPasswordLabel;
+
+  /// Sign in button text
+  ///
+  /// In en, this message translates to:
+  /// **'SIGN IN'**
+  String get loginButton;
+
+  /// Forgot password link text
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get loginForgotPassword;
+
+  /// No account text
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get loginNoAccount;
+
+  /// Sign up link text
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up'**
+  String get loginSignUpLink;
+
+  /// Invalid email validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get loginEmailError;
+
+  /// Short password validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get loginPasswordError;
+
+  /// Signup screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get signupTitle;
+
+  /// Email input field label on signup
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get signupEmailLabel;
+
+  /// Password input field label on signup
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get signupPasswordLabel;
+
+  /// Confirm password input field label
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get signupConfirmPasswordLabel;
+
+  /// Create account button text
+  ///
+  /// In en, this message translates to:
+  /// **'CREATE ACCOUNT'**
+  String get signupButton;
+
+  /// Already have account text
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get signupHaveAccount;
+
+  /// Login link text on signup
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get signupLoginLink;
+
+  /// Password mismatch validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get signupPasswordMismatch;
+
+  /// Weak password validation error
+  ///
+  /// In en, this message translates to:
+  /// **'Password is too weak. Use at least 8 characters'**
+  String get signupPasswordWeak;
+
+  /// Weak password strength indicator
+  ///
+  /// In en, this message translates to:
+  /// **'Weak'**
+  String get signupPasswordStrengthWeak;
+
+  /// Medium password strength indicator
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get signupPasswordStrengthMedium;
+
+  /// Strong password strength indicator
+  ///
+  /// In en, this message translates to:
+  /// **'Strong'**
+  String get signupPasswordStrengthStrong;
+
+  /// Account creation success message
+  ///
+  /// In en, this message translates to:
+  /// **'Account created! Please check your email to verify your account'**
+  String get signupSuccess;
+
+  /// Forgot password screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get forgotPasswordTitle;
+
+  /// Email input field label on forgot password
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get forgotPasswordEmailLabel;
+
+  /// Send reset link button text
+  ///
+  /// In en, this message translates to:
+  /// **'SEND RESET LINK'**
+  String get forgotPasswordButton;
+
+  /// Forgot password instructions
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email address and we\'ll send you a link to reset your password'**
+  String get forgotPasswordInstructions;
+
+  /// Password reset email sent success message
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset email sent! Check your inbox'**
+  String get forgotPasswordSuccess;
+
+  /// Back to login link text
+  ///
+  /// In en, this message translates to:
+  /// **'Back to login'**
+  String get forgotPasswordBackToLogin;
+
+  /// Reset password screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Create New Password'**
+  String get resetPasswordTitle;
+
+  /// New password input field label
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get resetPasswordNewLabel;
+
+  /// Confirm new password input field label
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm New Password'**
+  String get resetPasswordConfirmLabel;
+
+  /// Reset password button text
+  ///
+  /// In en, this message translates to:
+  /// **'RESET PASSWORD'**
+  String get resetPasswordButton;
+
+  /// Password reset success message
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset successful! You can now sign in'**
+  String get resetPasswordSuccess;
+
+  /// Sign out button text
+  ///
+  /// In en, this message translates to:
+  /// **'SIGN OUT'**
+  String get signOut;
+
+  /// Simple welcome greeting
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// Placeholder message for note list feature
+  ///
+  /// In en, this message translates to:
+  /// **'Note List Coming Soon'**
+  String get noteListComingSoon;
+
+  /// Placeholder description on home page
+  ///
+  /// In en, this message translates to:
+  /// **'This is a placeholder home screen.\nThe note list will be implemented in Phase 4.'**
+  String get homePagePlaceholder;
+
+  /// Loading indicator text
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loading;
 }
 
 class _AppLocalizationsDelegate

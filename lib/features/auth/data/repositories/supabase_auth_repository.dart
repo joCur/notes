@@ -46,6 +46,15 @@ class SupabaseAuthRepository implements AuthRepository {
 
         _talker.debug('Auth state changed: $event');
 
+        // Handle password recovery as a distinct auth state
+        if (event == AuthChangeEvent.passwordRecovery && session != null) {
+          final user = _mapSupabaseUserToAppUser(session.user);
+          _currentUser = user;
+          _authStateController.add(auth.AuthState.passwordRecovery(user));
+          _talker.info('User in password recovery mode: ${user.email}');
+          return;
+        }
+
         if (session != null) {
           // User is authenticated
           final user = _mapSupabaseUserToAppUser(session.user);
@@ -156,6 +165,24 @@ class SupabaseAuthRepository implements AuthRepository {
       return Result.failure(e.toAppFailure(_talker));
     } catch (e, stackTrace) {
       _talker.error('Unexpected password reset error', e, stackTrace);
+      return Result.failure(AppFailure.unknown(message: 'errorUnknown', exception: e));
+    }
+  }
+
+  @override
+  Future<Result<void>> updatePassword({required String newPassword}) async {
+    try {
+      _talker.info('Attempting to update password');
+
+      await _supabaseClient.auth.updateUser(UserAttributes(password: newPassword));
+
+      _talker.info('Password updated successfully');
+      return const Result.success(null);
+    } on AuthException catch (e) {
+      _talker.error('Password update failed', e);
+      return Result.failure(e.toAppFailure(_talker));
+    } catch (e, stackTrace) {
+      _talker.error('Unexpected password update error', e, stackTrace);
       return Result.failure(AppFailure.unknown(message: 'errorUnknown', exception: e));
     }
   }

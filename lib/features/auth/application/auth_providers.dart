@@ -84,6 +84,9 @@ class AuthNotifier extends _$AuthNotifier {
     final repository = ref.read(authRepositoryProvider);
     final result = await repository.signInWithEmail(email: email, password: password);
 
+    // Only update state if still mounted (avoid updating after navigation/disposal)
+    if (!ref.mounted) return result;
+
     // Update state based on result
     result.when(success: (_) => state = const AsyncValue.data(null), failure: (error) => state = AsyncValue.error(error, StackTrace.current));
 
@@ -99,6 +102,9 @@ class AuthNotifier extends _$AuthNotifier {
 
     final repository = ref.read(authRepositoryProvider);
     final result = await repository.signUpWithEmail(email: email, password: password);
+
+    // Only update state if still mounted (avoid updating after navigation/disposal)
+    if (!ref.mounted) return result;
 
     // Update state based on result
     result.when(success: (_) => state = const AsyncValue.data(null), failure: (error) => state = AsyncValue.error(error, StackTrace.current));
@@ -116,6 +122,9 @@ class AuthNotifier extends _$AuthNotifier {
     final repository = ref.read(authRepositoryProvider);
     final result = await repository.signOut();
 
+    // Only update state if still mounted (avoid updating after navigation/disposal)
+    if (!ref.mounted) return result;
+
     // Update state based on result
     result.when(success: (_) => state = const AsyncValue.data(null), failure: (error) => state = AsyncValue.error(error, StackTrace.current));
 
@@ -131,6 +140,28 @@ class AuthNotifier extends _$AuthNotifier {
 
     final repository = ref.read(authRepositoryProvider);
     final result = await repository.resetPassword(email: email);
+
+    // Only update state if still mounted (avoid updating after navigation/disposal)
+    if (!ref.mounted) return result;
+
+    // Update state based on result
+    result.when(success: (_) => state = const AsyncValue.data(null), failure: (error) => state = AsyncValue.error(error, StackTrace.current));
+
+    return result;
+  }
+
+  /// Update the user's password.
+  ///
+  /// Returns `Result<void>` indicating success or failure.
+  /// This should be called after a password reset link is clicked.
+  Future<Result<void>> updatePassword({required String newPassword}) async {
+    state = const AsyncValue.loading();
+
+    final repository = ref.read(authRepositoryProvider);
+    final result = await repository.updatePassword(newPassword: newPassword);
+
+    // Only update state if still mounted (avoid updating after navigation/disposal)
+    if (!ref.mounted) return result;
 
     // Update state based on result
     result.when(success: (_) => state = const AsyncValue.data(null), failure: (error) => state = AsyncValue.error(error, StackTrace.current));

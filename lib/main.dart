@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notes/l10n/app_localizations.dart';
+
 import 'core/data/supabase_client.dart';
+import 'core/presentation/theme/app_theme.dart';
+import 'core/routing/router.dart';
 import 'core/utils/logger.dart';
 
 void main() async {
@@ -21,20 +24,19 @@ void main() async {
   logger.info('App initialized successfully');
 
   // Run app with Riverpod provider scope
-  runApp(
-    const ProviderScope(
-      child: MainApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MainApp()));
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends ConsumerWidget {
   const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(routerProvider);
+
+    return MaterialApp.router(
       title: 'Voice Notes',
+      routerConfig: router,
       // Localization delegates
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -46,15 +48,10 @@ class MainApp extends StatelessWidget {
         Locale('en'), // English
         Locale('de'), // German
       ],
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Voice-First Note App'),
-        ),
-      ),
+      // Use Bauhaus theme
+      theme: BauhausTheme.lightTheme,
+      darkTheme: BauhausTheme.darkTheme,
+      themeMode: ThemeMode.system,
     );
   }
 }

@@ -251,7 +251,7 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 ---
 
-- [ ] Task 3.4: Implement login screen
+- [x] Task 3.4: Implement login screen
   - **TDD REQUIRED**: Write widget tests BEFORE implementation
   - 🔴 **RED**: Write tests in `test/features/auth/presentation/screens/login_screen_test.dart`
     - Test form validation (empty email, invalid email format, short password)
@@ -274,7 +274,7 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - 🔵 **REFACTOR**: Clean up code, ensure Bauhaus design consistency
   - ✅ **VERIFY**: Run `flutter test` - all tests must pass
 
-- [ ] Task 3.5: Implement signup screen
+- [x] Task 3.5: Implement signup screen
   - **TDD REQUIRED**: Write widget tests BEFORE implementation
   - 🔴 **RED**: Write tests in `test/features/auth/presentation/screens/signup_screen_test.dart`
     - Test form validation (email, password, confirm password match)
@@ -294,7 +294,7 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - 🔵 **REFACTOR**: Optimize validation logic
   - ✅ **VERIFY**: Run `flutter test` - all tests must pass
 
-- [ ] Task 3.6: Implement forgot password screen
+- [x] Task 3.6: Implement forgot password screen
   - **TDD REQUIRED**: Write widget tests BEFORE implementation
   - 🔴 **RED**: Write tests in `test/features/auth/presentation/screens/forgot_password_screen_test.dart`
     - Test email validation
@@ -314,14 +314,14 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
 
 - [ ] Task 3.7: Configure Supabase deep links
   - **NO TESTS NEEDED**: Configuration task (no logic to test)
-  - Configure redirect URLs in Supabase dashboard
+  - ⚠️ **MANUAL TASK**: Configure redirect URLs in Supabase dashboard
   - Add custom scheme URL: `voicenote://auth-callback`
   - Add universal link: `https://[project].supabase.co/auth/v1/callback`
   - Test email verification flow
   - Test password reset flow
-  - Create `lib/core/auth/deep_link_handler.dart` for processing auth callbacks
+  - ✅ Deep link handler created at `lib/core/routing/deep_link_handler.dart`
 
-- [ ] Task 3.8: Implement routing with GoRouter
+- [x] Task 3.8: Implement routing with GoRouter
   - **TDD REQUIRED**: Write tests for route logic BEFORE implementation
   - 🔴 **RED**: Write tests in `test/core/routing/router_test.dart`
     - Test authentication-based redirects (authenticated user → home, unauthenticated → login)
@@ -339,7 +339,7 @@ Build a fully-featured MVP of a revolutionary voice-first note-taking applicatio
   - 🔵 **REFACTOR**: Optimize redirect logic
   - ✅ **VERIFY**: Run `flutter test` - all tests must pass
 
-- [ ] Task 3.9: Create user profile in database
+- [x] Task 3.9: Create user profile in database
   - **TDD REQUIRED**: Write tests for repository logic BEFORE implementation
   - **NO TESTS FOR SQL**: SQL migrations are configuration (test manually)
   - 🔴 **RED**: Write tests in `test/features/auth/data/repositories/user_profile_repository_test.dart`

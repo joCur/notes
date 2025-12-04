@@ -150,6 +150,21 @@ class _BauhausTextFieldState extends State<BauhausTextField> {
 
   @override
   Widget build(BuildContext context) {
+    // Get theme colors for dark mode support
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final isDark = theme.brightness == Brightness.dark;
+
+    // Theme-aware colors
+    final backgroundColor = widget.enabled
+        ? colorScheme.surface
+        : (isDark ? BauhausColors.darkBackground : BauhausColors.neutralGray);
+    final borderColor = colorScheme.outline;
+    final focusColor = isDark ? BauhausColors.darkYellow : BauhausColors.yellow;
+    final labelColor = colorScheme.onSurface;
+    final textColor = colorScheme.onSurface;
+    final hintColor = colorScheme.onSurfaceVariant;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -158,7 +173,7 @@ class _BauhausTextFieldState extends State<BauhausTextField> {
           Text(
             widget.label!,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  color: BauhausColors.black,
+                  color: labelColor,
                 ),
           ),
           const SizedBox(height: BauhausSpacing.small),
@@ -173,29 +188,25 @@ class _BauhausTextFieldState extends State<BauhausTextField> {
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeInOut,
             decoration: BoxDecoration(
-              color: widget.enabled
-                  ? BauhausColors.white
-                  : BauhausColors.neutralGray,
+              color: backgroundColor,
               border: Border(
                 // Animated yellow left border on focus
                 left: BorderSide(
-                  color: _isFocused
-                      ? BauhausColors.yellow
-                      : BauhausColors.black,
+                  color: _isFocused ? focusColor : borderColor,
                   width: _isFocused
                       ? BauhausSpacing.borderThick // 4px when focused
                       : BauhausSpacing.borderThin, // 1px normally
                 ),
-                top: const BorderSide(
-                  color: BauhausColors.black,
+                top: BorderSide(
+                  color: borderColor,
                   width: BauhausSpacing.borderThin,
                 ),
-                right: const BorderSide(
-                  color: BauhausColors.black,
+                right: BorderSide(
+                  color: borderColor,
                   width: BauhausSpacing.borderThin,
                 ),
                 bottom: BorderSide(
-                  color: BauhausColors.black,
+                  color: borderColor,
                   width: BauhausSpacing.borderThin,
                 ),
               ),
@@ -221,14 +232,21 @@ class _BauhausTextFieldState extends State<BauhausTextField> {
                 inputFormatters: widget.inputFormatters,
                 validator: widget.validator,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: BauhausColors.black,
+                      color: textColor,
                     ),
                 decoration: InputDecoration(
                   hintText: widget.placeholder,
                   hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: BauhausColors.darkGray,
+                        color: hintColor,
                       ),
+                  // Explicitly disable ALL borders - we handle them in the outer Container
                   border: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  errorBorder: InputBorder.none,
+                  focusedErrorBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                  filled: false, // CRITICAL: Prevent theme's fillColor from overriding
                   isDense: true,
                   contentPadding: EdgeInsets.zero,
                   // Remove counter text if maxLength is set

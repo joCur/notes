@@ -121,4 +121,126 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get errorStorageGeneric =>
       'Speicherfehler. Bitte versuchen Sie es erneut';
+
+  @override
+  String get loginTitle => 'Anmelden';
+
+  @override
+  String get loginEmailLabel => 'E-Mail';
+
+  @override
+  String get loginPasswordLabel => 'Passwort';
+
+  @override
+  String get loginButton => 'ANMELDEN';
+
+  @override
+  String get loginForgotPassword => 'Passwort vergessen?';
+
+  @override
+  String get loginNoAccount => 'Noch kein Konto?';
+
+  @override
+  String get loginSignUpLink => 'Registrieren';
+
+  @override
+  String get loginEmailError =>
+      'Bitte geben Sie eine gültige E-Mail-Adresse ein';
+
+  @override
+  String get loginPasswordError =>
+      'Das Passwort muss mindestens 6 Zeichen lang sein';
+
+  @override
+  String get signupTitle => 'Konto erstellen';
+
+  @override
+  String get signupEmailLabel => 'E-Mail';
+
+  @override
+  String get signupPasswordLabel => 'Passwort';
+
+  @override
+  String get signupConfirmPasswordLabel => 'Passwort bestätigen';
+
+  @override
+  String get signupButton => 'KONTO ERSTELLEN';
+
+  @override
+  String get signupHaveAccount => 'Bereits ein Konto?';
+
+  @override
+  String get signupLoginLink => 'Anmelden';
+
+  @override
+  String get signupPasswordMismatch => 'Passwörter stimmen nicht überein';
+
+  @override
+  String get signupPasswordWeak =>
+      'Das Passwort ist zu schwach. Verwenden Sie mindestens 8 Zeichen';
+
+  @override
+  String get signupPasswordStrengthWeak => 'Schwach';
+
+  @override
+  String get signupPasswordStrengthMedium => 'Mittel';
+
+  @override
+  String get signupPasswordStrengthStrong => 'Stark';
+
+  @override
+  String get signupSuccess =>
+      'Konto erstellt! Bitte überprüfen Sie Ihre E-Mails, um Ihr Konto zu verifizieren';
+
+  @override
+  String get forgotPasswordTitle => 'Passwort zurücksetzen';
+
+  @override
+  String get forgotPasswordEmailLabel => 'E-Mail';
+
+  @override
+  String get forgotPasswordButton => 'RESET-LINK SENDEN';
+
+  @override
+  String get forgotPasswordInstructions =>
+      'Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts';
+
+  @override
+  String get forgotPasswordSuccess =>
+      'E-Mail zum Zurücksetzen des Passworts gesendet! Überprüfen Sie Ihren Posteingang';
+
+  @override
+  String get forgotPasswordBackToLogin => 'Zurück zur Anmeldung';
+
+  @override
+  String get resetPasswordTitle => 'Neues Passwort erstellen';
+
+  @override
+  String get resetPasswordNewLabel => 'Neues Passwort';
+
+  @override
+  String get resetPasswordConfirmLabel => 'Neues Passwort bestätigen';
+
+  @override
+  String get resetPasswordButton => 'PASSWORT ZURÜCKSETZEN';
+
+  @override
+  String get resetPasswordSuccess =>
+      'Passwort erfolgreich zurückgesetzt! Sie können sich jetzt anmelden';
+
+  @override
+  String get signOut => 'ABMELDEN';
+
+  @override
+  String get welcome => 'Willkommen';
+
+  @override
+  String get noteListComingSoon => 'Notizenliste kommt bald';
+
+  @override
+  String get homePagePlaceholder =>
+      'Dies ist eine Platzhalter-Startseite.\nDie Notizenliste wird in Phase 4 implementiert.';
+
+  @override
+  String get loading => 'Lädt...';
 }

@@ -164,5 +164,195 @@
   "errorStorageGeneric": "Speicherfehler. Bitte versuchen Sie es erneut",
   "@errorStorageGeneric": {
     "description": "Generischer Speicherfehler"
+  },
+
+  "loginTitle": "Anmelden",
+  "@loginTitle": {
+    "description": "Titel des Anmeldebildschirms"
+  },
+
+  "loginEmailLabel": "E-Mail",
+  "@loginEmailLabel": {
+    "description": "Beschriftung des E-Mail-Eingabefelds"
+  },
+
+  "loginPasswordLabel": "Passwort",
+  "@loginPasswordLabel": {
+    "description": "Beschriftung des Passwort-Eingabefelds"
+  },
+
+  "loginButton": "ANMELDEN",
+  "@loginButton": {
+    "description": "Text der Anmeldeschaltfläche"
+  },
+
+  "loginForgotPassword": "Passwort vergessen?",
+  "@loginForgotPassword": {
+    "description": "Text des Links zum Zurücksetzen des Passworts"
+  },
+
+  "loginNoAccount": "Noch kein Konto?",
+  "@loginNoAccount": {
+    "description": "Text für kein Konto"
+  },
+
+  "loginSignUpLink": "Registrieren",
+  "@loginSignUpLink": {
+    "description": "Text des Registrierungslinks"
+  },
+
+  "loginEmailError": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+  "@loginEmailError": {
+    "description": "Validierungsfehler für ungültige E-Mail"
+  },
+
+  "loginPasswordError": "Das Passwort muss mindestens 6 Zeichen lang sein",
+  "@loginPasswordError": {
+    "description": "Validierungsfehler für kurzes Passwort"
+  },
+
+  "signupTitle": "Konto erstellen",
+  "@signupTitle": {
+    "description": "Titel des Registrierungsbildschirms"
+  },
+
+  "signupEmailLabel": "E-Mail",
+  "@signupEmailLabel": {
+    "description": "Beschriftung des E-Mail-Eingabefelds bei der Registrierung"
+  },
+
+  "signupPasswordLabel": "Passwort",
+  "@signupPasswordLabel": {
+    "description": "Beschriftung des Passwort-Eingabefelds bei der Registrierung"
+  },
+
+  "signupConfirmPasswordLabel": "Passwort bestätigen",
+  "@signupConfirmPasswordLabel": {
+    "description": "Beschriftung des Bestätigungs-Passwort-Eingabefelds"
+  },
+
+  "signupButton": "KONTO ERSTELLEN",
+  "@signupButton": {
+    "description": "Text der Schaltfläche zum Erstellen eines Kontos"
+  },
+
+  "signupHaveAccount": "Bereits ein Konto?",
+  "@signupHaveAccount": {
+    "description": "Text für bereits vorhandenes Konto"
+  },
+
+  "signupLoginLink": "Anmelden",
+  "@signupLoginLink": {
+    "description": "Text des Anmeldelinks bei der Registrierung"
+  },
+
+  "signupPasswordMismatch": "Passwörter stimmen nicht überein",
+  "@signupPasswordMismatch": {
+    "description": "Validierungsfehler für nicht übereinstimmende Passwörter"
+  },
+
+  "signupPasswordWeak": "Das Passwort ist zu schwach. Verwenden Sie mindestens 8 Zeichen",
+  "@signupPasswordWeak": {
+    "description": "Validierungsfehler für schwaches Passwort"
+  },
+
+  "signupPasswordStrengthWeak": "Schwach",
+  "@signupPasswordStrengthWeak": {
+    "description": "Indikator für schwache Passwortstärke"
+  },
+
+  "signupPasswordStrengthMedium": "Mittel",
+  "@signupPasswordStrengthMedium": {
+    "description": "Indikator für mittlere Passwortstärke"
+  },
+
+  "signupPasswordStrengthStrong": "Stark",
+  "@signupPasswordStrengthStrong": {
+    "description": "Indikator für starke Passwortstärke"
+  },
+
+  "signupSuccess": "Konto erstellt! Bitte überprüfen Sie Ihre E-Mails, um Ihr Konto zu verifizieren",
+  "@signupSuccess": {
+    "description": "Erfolgsmeldung bei Kontoerstellung"
+  },
+
+  "forgotPasswordTitle": "Passwort zurücksetzen",
+  "@forgotPasswordTitle": {
+    "description": "Titel des Bildschirms zum Zurücksetzen des Passworts"
+  },
+
+  "forgotPasswordEmailLabel": "E-Mail",
+  "@forgotPasswordEmailLabel": {
+    "description": "Beschriftung des E-Mail-Eingabefelds beim Zurücksetzen des Passworts"
+  },
+
+  "forgotPasswordButton": "RESET-LINK SENDEN",
+  "@forgotPasswordButton": {
+    "description": "Text der Schaltfläche zum Senden des Reset-Links"
+  },
+
+  "forgotPasswordInstructions": "Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts",
+  "@forgotPasswordInstructions": {
+    "description": "Anweisungen zum Zurücksetzen des Passworts"
+  },
+
+  "forgotPasswordSuccess": "E-Mail zum Zurücksetzen des Passworts gesendet! Überprüfen Sie Ihren Posteingang",
+  "@forgotPasswordSuccess": {
+    "description": "Erfolgsmeldung beim Senden der E-Mail zum Zurücksetzen des Passworts"
+  },
+
+  "forgotPasswordBackToLogin": "Zurück zur Anmeldung",
+  "@forgotPasswordBackToLogin": {
+    "description": "Text des Links zurück zur Anmeldung"
+  },
+
+  "resetPasswordTitle": "Neues Passwort erstellen",
+  "@resetPasswordTitle": {
+    "description": "Titel des Bildschirms zum Zurücksetzen des Passworts"
+  },
+
+  "resetPasswordNewLabel": "Neues Passwort",
+  "@resetPasswordNewLabel": {
+    "description": "Beschriftung des Eingabefelds für neues Passwort"
+  },
+
+  "resetPasswordConfirmLabel": "Neues Passwort bestätigen",
+  "@resetPasswordConfirmLabel": {
+    "description": "Beschriftung des Eingabefelds zum Bestätigen des neuen Passworts"
+  },
+
+  "resetPasswordButton": "PASSWORT ZURÜCKSETZEN",
+  "@resetPasswordButton": {
+    "description": "Text der Schaltfläche zum Zurücksetzen des Passworts"
+  },
+
+  "resetPasswordSuccess": "Passwort erfolgreich zurückgesetzt! Sie können sich jetzt anmelden",
+  "@resetPasswordSuccess": {
+    "description": "Erfolgsmeldung beim Zurücksetzen des Passworts"
+  },
+
+  "signOut": "ABMELDEN",
+  "@signOut": {
+    "description": "Text der Abmelde-Schaltfläche"
+  },
+
+  "welcome": "Willkommen",
+  "@welcome": {
+    "description": "Einfacher Willkommensgruß"
+  },
+
+  "noteListComingSoon": "Notizenliste kommt bald",
+  "@noteListComingSoon": {
+    "description": "Platzhalternachricht für die Notizenlisten-Funktion"
+  },
+
+  "homePagePlaceholder": "Dies ist eine Platzhalter-Startseite.\nDie Notizenliste wird in Phase 4 implementiert.",
+  "@homePagePlaceholder": {
+    "description": "Platzhalterbeschreibung auf der Startseite"
+  },
+
+  "loading": "Lädt...",
+  "@loading": {
+    "description": "Text der Ladeanzeige"
   }
 }

@@ -111,4 +111,124 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorStorageGeneric => 'Storage error. Please try again';
+
+  @override
+  String get loginTitle => 'Sign In';
+
+  @override
+  String get loginEmailLabel => 'Email';
+
+  @override
+  String get loginPasswordLabel => 'Password';
+
+  @override
+  String get loginButton => 'SIGN IN';
+
+  @override
+  String get loginForgotPassword => 'Forgot Password?';
+
+  @override
+  String get loginNoAccount => 'Don\'t have an account?';
+
+  @override
+  String get loginSignUpLink => 'Sign up';
+
+  @override
+  String get loginEmailError => 'Please enter a valid email';
+
+  @override
+  String get loginPasswordError => 'Password must be at least 6 characters';
+
+  @override
+  String get signupTitle => 'Create Account';
+
+  @override
+  String get signupEmailLabel => 'Email';
+
+  @override
+  String get signupPasswordLabel => 'Password';
+
+  @override
+  String get signupConfirmPasswordLabel => 'Confirm Password';
+
+  @override
+  String get signupButton => 'CREATE ACCOUNT';
+
+  @override
+  String get signupHaveAccount => 'Already have an account?';
+
+  @override
+  String get signupLoginLink => 'Log in';
+
+  @override
+  String get signupPasswordMismatch => 'Passwords do not match';
+
+  @override
+  String get signupPasswordWeak =>
+      'Password is too weak. Use at least 8 characters';
+
+  @override
+  String get signupPasswordStrengthWeak => 'Weak';
+
+  @override
+  String get signupPasswordStrengthMedium => 'Medium';
+
+  @override
+  String get signupPasswordStrengthStrong => 'Strong';
+
+  @override
+  String get signupSuccess =>
+      'Account created! Please check your email to verify your account';
+
+  @override
+  String get forgotPasswordTitle => 'Reset Password';
+
+  @override
+  String get forgotPasswordEmailLabel => 'Email';
+
+  @override
+  String get forgotPasswordButton => 'SEND RESET LINK';
+
+  @override
+  String get forgotPasswordInstructions =>
+      'Enter your email address and we\'ll send you a link to reset your password';
+
+  @override
+  String get forgotPasswordSuccess =>
+      'Password reset email sent! Check your inbox';
+
+  @override
+  String get forgotPasswordBackToLogin => 'Back to login';
+
+  @override
+  String get resetPasswordTitle => 'Create New Password';
+
+  @override
+  String get resetPasswordNewLabel => 'New Password';
+
+  @override
+  String get resetPasswordConfirmLabel => 'Confirm New Password';
+
+  @override
+  String get resetPasswordButton => 'RESET PASSWORD';
+
+  @override
+  String get resetPasswordSuccess =>
+      'Password reset successful! You can now sign in';
+
+  @override
+  String get signOut => 'SIGN OUT';
+
+  @override
+  String get welcome => 'Welcome';
+
+  @override
+  String get noteListComingSoon => 'Note List Coming Soon';
+
+  @override
+  String get homePagePlaceholder =>
+      'This is a placeholder home screen.\nThe note list will be implemented in Phase 4.';
+
+  @override
+  String get loading => 'Loading...';
 }

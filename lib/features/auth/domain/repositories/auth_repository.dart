@@ -80,6 +80,24 @@ abstract class AuthRepository {
   /// ```
   Future<Result<void>> resetPassword({required String email});
 
+  /// Updates the user's password.
+  ///
+  /// This method should be called after the user clicks a password reset link
+  /// and has a valid recovery session. It updates the password for the
+  /// currently authenticated user (with recovery session).
+  ///
+  /// Returns:
+  /// - `Success<void>` if password updated successfully
+  /// - `Failure<void>` with AuthFailure if update fails
+  ///
+  /// Example:
+  /// ```dart
+  /// final result = await authRepository.updatePassword(
+  ///   newPassword: 'new_secure_password',
+  /// );
+  /// ```
+  Future<Result<void>> updatePassword({required String newPassword});
+
   /// Stream of authentication state changes.
   ///
   /// Emits new AuthState whenever the user's authentication status changes:

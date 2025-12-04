@@ -164,5 +164,195 @@
   "errorStorageGeneric": "Storage error. Please try again",
   "@errorStorageGeneric": {
     "description": "Generic storage error"
+  },
+
+  "loginTitle": "Sign In",
+  "@loginTitle": {
+    "description": "Login screen title"
+  },
+
+  "loginEmailLabel": "Email",
+  "@loginEmailLabel": {
+    "description": "Email input field label"
+  },
+
+  "loginPasswordLabel": "Password",
+  "@loginPasswordLabel": {
+    "description": "Password input field label"
+  },
+
+  "loginButton": "SIGN IN",
+  "@loginButton": {
+    "description": "Sign in button text"
+  },
+
+  "loginForgotPassword": "Forgot Password?",
+  "@loginForgotPassword": {
+    "description": "Forgot password link text"
+  },
+
+  "loginNoAccount": "Don't have an account?",
+  "@loginNoAccount": {
+    "description": "No account text"
+  },
+
+  "loginSignUpLink": "Sign up",
+  "@loginSignUpLink": {
+    "description": "Sign up link text"
+  },
+
+  "loginEmailError": "Please enter a valid email",
+  "@loginEmailError": {
+    "description": "Invalid email validation error"
+  },
+
+  "loginPasswordError": "Password must be at least 6 characters",
+  "@loginPasswordError": {
+    "description": "Short password validation error"
+  },
+
+  "signupTitle": "Create Account",
+  "@signupTitle": {
+    "description": "Signup screen title"
+  },
+
+  "signupEmailLabel": "Email",
+  "@signupEmailLabel": {
+    "description": "Email input field label on signup"
+  },
+
+  "signupPasswordLabel": "Password",
+  "@signupPasswordLabel": {
+    "description": "Password input field label on signup"
+  },
+
+  "signupConfirmPasswordLabel": "Confirm Password",
+  "@signupConfirmPasswordLabel": {
+    "description": "Confirm password input field label"
+  },
+
+  "signupButton": "CREATE ACCOUNT",
+  "@signupButton": {
+    "description": "Create account button text"
+  },
+
+  "signupHaveAccount": "Already have an account?",
+  "@signupHaveAccount": {
+    "description": "Already have account text"
+  },
+
+  "signupLoginLink": "Log in",
+  "@signupLoginLink": {
+    "description": "Login link text on signup"
+  },
+
+  "signupPasswordMismatch": "Passwords do not match",
+  "@signupPasswordMismatch": {
+    "description": "Password mismatch validation error"
+  },
+
+  "signupPasswordWeak": "Password is too weak. Use at least 8 characters",
+  "@signupPasswordWeak": {
+    "description": "Weak password validation error"
+  },
+
+  "signupPasswordStrengthWeak": "Weak",
+  "@signupPasswordStrengthWeak": {
+    "description": "Weak password strength indicator"
+  },
+
+  "signupPasswordStrengthMedium": "Medium",
+  "@signupPasswordStrengthMedium": {
+    "description": "Medium password strength indicator"
+  },
+
+  "signupPasswordStrengthStrong": "Strong",
+  "@signupPasswordStrengthStrong": {
+    "description": "Strong password strength indicator"
+  },
+
+  "signupSuccess": "Account created! Please check your email to verify your account",
+  "@signupSuccess": {
+    "description": "Account creation success message"
+  },
+
+  "forgotPasswordTitle": "Reset Password",
+  "@forgotPasswordTitle": {
+    "description": "Forgot password screen title"
+  },
+
+  "forgotPasswordEmailLabel": "Email",
+  "@forgotPasswordEmailLabel": {
+    "description": "Email input field label on forgot password"
+  },
+
+  "forgotPasswordButton": "SEND RESET LINK",
+  "@forgotPasswordButton": {
+    "description": "Send reset link button text"
+  },
+
+  "forgotPasswordInstructions": "Enter your email address and we'll send you a link to reset your password",
+  "@forgotPasswordInstructions": {
+    "description": "Forgot password instructions"
+  },
+
+  "forgotPasswordSuccess": "Password reset email sent! Check your inbox",
+  "@forgotPasswordSuccess": {
+    "description": "Password reset email sent success message"
+  },
+
+  "forgotPasswordBackToLogin": "Back to login",
+  "@forgotPasswordBackToLogin": {
+    "description": "Back to login link text"
+  },
+
+  "resetPasswordTitle": "Create New Password",
+  "@resetPasswordTitle": {
+    "description": "Reset password screen title"
+  },
+
+  "resetPasswordNewLabel": "New Password",
+  "@resetPasswordNewLabel": {
+    "description": "New password input field label"
+  },
+
+  "resetPasswordConfirmLabel": "Confirm New Password",
+  "@resetPasswordConfirmLabel": {
+    "description": "Confirm new password input field label"
+  },
+
+  "resetPasswordButton": "RESET PASSWORD",
+  "@resetPasswordButton": {
+    "description": "Reset password button text"
+  },
+
+  "resetPasswordSuccess": "Password reset successful! You can now sign in",
+  "@resetPasswordSuccess": {
+    "description": "Password reset success message"
+  },
+
+  "signOut": "SIGN OUT",
+  "@signOut": {
+    "description": "Sign out button text"
+  },
+
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Simple welcome greeting"
+  },
+
+  "noteListComingSoon": "Note List Coming Soon",
+  "@noteListComingSoon": {
+    "description": "Placeholder message for note list feature"
+  },
+
+  "homePagePlaceholder": "This is a placeholder home screen.\nThe note list will be implemented in Phase 4.",
+  "@homePagePlaceholder": {
+    "description": "Placeholder description on home page"
+  },
+
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading indicator text"
   }
 }

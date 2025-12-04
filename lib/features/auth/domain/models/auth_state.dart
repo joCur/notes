@@ -11,6 +11,7 @@ part 'auth_state.freezed.dart';
 /// States:
 /// - [Authenticated]: User is logged in with valid session
 /// - [Unauthenticated]: User is not logged in
+/// - [PasswordRecovery]: User has valid recovery session, needs to set new password
 /// - [Loading]: Authentication status is being determined
 ///
 /// Usage:
@@ -18,6 +19,7 @@ part 'auth_state.freezed.dart';
 /// authState.when(
 ///   authenticated: (user) => HomeScreen(user: user),
 ///   unauthenticated: () => LoginScreen(),
+///   passwordRecovery: (user) => ResetPasswordScreen(),
 ///   loading: () => SplashScreen(),
 /// );
 /// ```
@@ -28,6 +30,9 @@ sealed class AuthState with _$AuthState {
 
   /// User is not authenticated (no valid session)
   const factory AuthState.unauthenticated() = Unauthenticated;
+
+  /// User has a password recovery session and needs to set new password
+  const factory AuthState.passwordRecovery(User user) = PasswordRecovery;
 
   /// Authentication status is being determined
   /// (e.g., during app startup or after auth action)
@@ -45,10 +50,14 @@ extension AuthStateX on AuthState {
   /// Returns true if auth state is loading
   bool get isLoading => this is Loading;
 
+  /// Returns true if user is in password recovery mode
+  bool get isPasswordRecovery => this is PasswordRecovery;
+
   /// Returns the authenticated user if available, otherwise null
   User? get userOrNull => when(
         authenticated: (user) => user,
         unauthenticated: () => null,
+        passwordRecovery: (user) => user,
         loading: () => null,
       );
 }

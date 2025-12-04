@@ -39,8 +39,8 @@ class BauhausElevatedButton extends StatelessWidget {
   /// Callback when button is pressed
   final VoidCallback? onPressed;
 
-  /// Background color of the button
-  final Color backgroundColor;
+  /// Background color of the button (if null, uses theme primary color)
+  final Color? backgroundColor;
 
   /// Text color (defaults to white)
   final Color? textColor;
@@ -55,7 +55,7 @@ class BauhausElevatedButton extends StatelessWidget {
     super.key,
     required this.label,
     required this.onPressed,
-    this.backgroundColor = BauhausColors.primaryBlue,
+    this.backgroundColor,
     this.textColor,
     this.isLoading = false,
     this.fullWidth = false,
@@ -63,7 +63,18 @@ class BauhausElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final isDark = theme.brightness == Brightness.dark;
+
+    // Use theme primary color if no backgroundColor specified
+    final effectiveBackgroundColor = backgroundColor ?? colorScheme.primary;
     final effectiveTextColor = textColor ?? BauhausColors.white;
+
+    // Theme-aware disabled colors
+    final disabledBgColor = isDark ? BauhausColors.darkGray : BauhausColors.lightGray;
+    final disabledFgColor = isDark ? BauhausColors.darkTextSecondary : BauhausColors.darkGray;
+    final borderColor = colorScheme.outline;
 
     return SizedBox(
       height: BauhausSpacing.minTouchTarget, // 48px minimum touch target
@@ -75,16 +86,16 @@ class BauhausElevatedButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: isLoading ? null : onPressed,
           style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
+            backgroundColor: effectiveBackgroundColor,
             foregroundColor: effectiveTextColor,
-            disabledBackgroundColor: BauhausColors.lightGray,
-            disabledForegroundColor: BauhausColors.darkGray,
+            disabledBackgroundColor: disabledBgColor,
+            disabledForegroundColor: disabledFgColor,
             elevation: 0, // NO elevation - flat design
             shadowColor: Colors.transparent,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.zero, // Sharp corners
               side: BorderSide(
-                color: BauhausColors.black,
+                color: borderColor,
                 width: BauhausSpacing.borderStandard, // 2px border
               ),
             ),

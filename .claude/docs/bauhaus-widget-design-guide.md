@@ -107,10 +107,19 @@ class BauhausColors {
 
 **Usage Guidelines:**
 ```dart
-// ✅ GOOD: One primary color per major element
+// ✅ GOOD: Use theme colors for dark mode support
+final colorScheme = Theme.of(context).colorScheme;
 Container(
   decoration: BoxDecoration(
-    color: BauhausColors.primaryBlue,
+    color: colorScheme.primary,
+    border: Border.all(color: colorScheme.outline, width: 2),
+  ),
+)
+
+// ⚠️ ACCEPTABLE: Hardcoded colors only for specific design elements
+Container(
+  decoration: BoxDecoration(
+    color: BauhausColors.primaryBlue, // Only if you want the same color in light & dark
     border: Border.all(color: BauhausColors.black, width: 2),
   ),
 )
@@ -122,6 +131,22 @@ Container(
     border: Border.all(color: BauhausColors.red, width: 2),
   ),
 )
+```
+
+**Dark Mode Support:**
+```dart
+// Always use theme-aware colors for text, backgrounds, and borders
+final theme = Theme.of(context);
+final colorScheme = theme.colorScheme;
+final isDark = theme.brightness == Brightness.dark;
+
+// Common mappings:
+// - Background: colorScheme.surface or colorScheme.surfaceContainerHighest
+// - Text: colorScheme.onSurface
+// - Secondary text: colorScheme.onSurfaceVariant
+// - Borders: colorScheme.outline
+// - Primary accent: colorScheme.primary
+// - Focus color: isDark ? BauhausColors.darkYellow : BauhausColors.yellow
 ```
 
 ### Accessibility Compliance
