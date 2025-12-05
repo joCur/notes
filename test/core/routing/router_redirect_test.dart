@@ -286,6 +286,30 @@ void main() {
       });
     });
 
+    group('Protected routes - /voice-input', () {
+      test('allows authenticated user to access', () {
+        // Arrange & Act
+        final result = getRedirectLocation(
+          authState: authenticatedState,
+          currentLocation: '/voice-input',
+        );
+
+        // Assert
+        expect(result, isNull);
+      });
+
+      test('redirects unauthenticated user to /login', () {
+        // Arrange & Act
+        final result = getRedirectLocation(
+          authState: unauthenticatedState,
+          currentLocation: '/voice-input',
+        );
+
+        // Assert
+        expect(result, equals('/login'));
+      });
+    });
+
     group('Edge cases', () {
       test('treats unknown routes as protected', () {
         // Arrange & Act

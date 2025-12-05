@@ -16,7 +16,6 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 import '../../../../core/domain/failures/app_failure.dart';
 import '../../../../core/domain/result.dart';
@@ -42,27 +41,69 @@ class VoiceInputScreen extends ConsumerStatefulWidget {
   ConsumerState<VoiceInputScreen> createState() => _VoiceInputScreenState();
 }
 
-class _VoiceInputScreenState extends ConsumerState<VoiceInputScreen> {
+class _VoiceInputScreenState extends ConsumerState<VoiceInputScreen> with WidgetsBindingObserver {
   Transcription? _currentTranscription;
   String? _errorMessage;
 
   @override
   void initState() {
     super.initState();
-    // Check voice availability on init
+    WidgetsBinding.instance.addObserver(this);
+
+    // Listen to voice availability changes
+    ref.listenManual(isVoiceAvailableProvider, (previous, next) {
+      if (mounted) {
+        _checkVoiceAvailability();
+      }
+    });
+
+    // Listen to voice provider state changes (for errors)
+    ref.listenManual(voiceProvider, (previous, next) {
+      if (mounted) {
+        _checkVoiceAvailability();
+      }
+    });
+
+    // Initial check after first frame
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _checkVoiceAvailability();
     });
   }
 
-  Future<void> _checkVoiceAvailability() async {
-    final isAvailable = ref.read(isVoiceAvailableProvider);
-    if (!isAvailable && mounted) {
-      final l10n = AppLocalizations.of(context);
-      setState(() {
-        _errorMessage = l10n.voiceInputNotAvailable;
-      });
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    // Re-check availability when app returns from background (e.g., from Settings)
+    if (state == AppLifecycleState.resumed) {
+      _checkVoiceAvailability();
     }
+  }
+
+  void _checkVoiceAvailability() {
+    if (!mounted) return;
+
+    // Check if voice is available (provider handles initialization wait)
+    final isAvailable = ref.read(isVoiceAvailableProvider);
+    final voiceState = ref.read(voiceProvider);
+
+    setState(() {
+      if (voiceState.hasError) {
+        // Initialization failed
+        _errorMessage = voiceState.error.toString();
+      } else if (!isAvailable) {
+        final l10n = AppLocalizations.of(context);
+        _errorMessage = l10n.voiceInputNotAvailable;
+      } else {
+        // Clear error when available
+        _errorMessage = null;
+      }
+    });
   }
 
   Future<void> _toggleRecording() async {
@@ -116,7 +157,7 @@ class _VoiceInputScreenState extends ConsumerState<VoiceInputScreen> {
           if (mounted) {
             final shouldOpenSettings = await _showPermissionDialog(failure.message);
             if (shouldOpenSettings == true) {
-              await openAppSettings();
+              await ref.read(permissionServiceProvider).openSettings();
             }
           }
         },
@@ -280,15 +321,6 @@ class _VoiceInputContent extends StatelessWidget {
       padding: EdgeInsets.all(BauhausSpacing.large),
       child: Column(
         children: [
-          // Voice recording button
-          _VoiceButtonSection(
-            isListening: isListening,
-            errorMessage: errorMessage,
-            onToggleRecording: onToggleRecording,
-          ),
-
-          SizedBox(height: BauhausSpacing.xLarge),
-
           // Transcription display
           Expanded(
             child: TranscriptionDisplay(
@@ -297,6 +329,15 @@ class _VoiceInputContent extends StatelessWidget {
               onClear: onClear,
               placeholder: l10n.transcriptionPlaceholder,
             ),
+          ),
+
+          SizedBox(height: BauhausSpacing.xLarge),
+
+          // Voice recording button
+          _VoiceButtonSection(
+            isListening: isListening,
+            errorMessage: errorMessage,
+            onToggleRecording: onToggleRecording,
           ),
         ],
       ),

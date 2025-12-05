@@ -152,5 +152,31 @@ void main() {
         expect(router.routeInformationProvider, isNotNull);
       });
     });
+
+    group('Voice input route', () {
+      test('router can be created with voice-input route', () {
+        // Arrange - Mock authenticated state
+        final mockUser = User(
+          id: 'test-id',
+          email: 'test@example.com',
+          createdAt: DateTime.now(),
+        );
+        final authStateStream =
+            Stream<AuthState>.value(AuthState.authenticated(mockUser));
+
+        container = ProviderContainer(
+          overrides: [
+            authStateStreamProvider.overrideWith((_) => authStateStream),
+          ],
+        );
+
+        // Act
+        final router = container.read(routerProvider);
+
+        // Assert - Router should be created successfully with voice-input route
+        // The route configuration is tested in router_redirect_test.dart
+        expect(router, isNotNull);
+      });
+    });
   });
 }

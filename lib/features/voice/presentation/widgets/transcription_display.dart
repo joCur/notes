@@ -4,7 +4,6 @@
 ///
 /// Features:
 /// - Real-time text display with auto-scroll
-/// - Confidence indicator with color coding
 /// - Editable text for corrections
 /// - Language detection badge
 /// - Clear button to reset
@@ -22,7 +21,6 @@ library;
 
 import 'package:flutter/material.dart';
 
-import '../../../../core/presentation/theme/bauhaus_colors.dart';
 import '../../../../core/presentation/theme/bauhaus_spacing.dart';
 import '../../../../core/presentation/theme/bauhaus_typography.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -30,8 +28,8 @@ import '../../domain/models/transcription.dart';
 
 /// Widget for displaying and editing voice transcription
 ///
-/// Shows real-time transcription with confidence indicator,
-/// language badge, and editing capabilities.
+/// Shows real-time transcription with language badge
+/// and editing capabilities.
 class TranscriptionDisplay extends StatefulWidget {
   /// Current transcription to display
   final Transcription? transcription;
@@ -141,7 +139,7 @@ class _TranscriptionDisplayState extends State<TranscriptionDisplay> {
   }
 }
 
-/// Header with confidence indicator and clear button
+/// Header with language badge and clear button
 class _TranscriptionHeader extends StatelessWidget {
   const _TranscriptionHeader({
     required this.transcription,
@@ -168,11 +166,6 @@ class _TranscriptionHeader extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Confidence indicator
-          if (transcription != null)
-            _ConfidenceIndicator(confidence: transcription!.confidence),
-          if (transcription != null) SizedBox(width: BauhausSpacing.medium),
-
           // Language badge
           if (transcription?.detectedLanguage != null)
             _LanguageBadge(language: transcription!.detectedLanguage!),
@@ -196,58 +189,6 @@ class _TranscriptionHeader extends StatelessWidget {
                 ),
               ),
             ),
-        ],
-      ),
-    );
-  }
-}
-
-/// Confidence indicator with color coding
-class _ConfidenceIndicator extends StatelessWidget {
-  const _ConfidenceIndicator({required this.confidence});
-
-  final double confidence;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final colorScheme = Theme.of(context).colorScheme;
-
-    // Color based on confidence level
-    // Using semantic colors from BauhausColors as these are status indicators
-    // Green = high confidence (≥80%), Yellow = medium (50-79%), Red = low (<50%)
-    Color indicatorColor;
-    String label;
-
-    if (confidence >= 0.8) {
-      indicatorColor = BauhausColors.success; // Green for high confidence
-      label = l10n.transcriptionConfidenceHigh;
-    } else if (confidence >= 0.5) {
-      indicatorColor = BauhausColors.yellow; // Yellow for medium confidence
-      label = l10n.transcriptionConfidenceMedium;
-    } else {
-      indicatorColor = BauhausColors.red; // Red for low confidence (warning)
-      label = l10n.transcriptionConfidenceLow;
-    }
-
-    return Semantics(
-      label: '$label: ${(confidence * 100).toStringAsFixed(0)}%',
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: 12,
-            height: 12,
-            decoration: BoxDecoration(
-              color: indicatorColor,
-              border: Border.all(color: colorScheme.outline, width: 1),
-            ),
-          ),
-          SizedBox(width: BauhausSpacing.tight),
-          Text(
-            '${(confidence * 100).toStringAsFixed(0)}%',
-            style: BauhausTypography.caption,
-          ),
         ],
       ),
     );

@@ -71,7 +71,6 @@ void main() {
         // Assert
         expect(result.isSuccess, isTrue);
         expect(result.dataOrNull, isTrue);
-        expect(repository.isAvailable, isTrue);
         verify(
           () => mockSpeech.initialize(
             onError: any(named: 'onError'),
@@ -100,7 +99,6 @@ void main() {
           result.errorOrNull?.message,
           contains('not available on this device'),
         );
-        expect(repository.isAvailable, isFalse);
       });
 
       test('returns failure when initialization throws exception', () async {
@@ -173,6 +171,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).thenAnswer((_) async {});
@@ -183,37 +182,6 @@ void main() {
         statusCallback('done');
 
         // Assert
-        expect(repository.isListening, isFalse);
-      });
-    });
-
-    group('isListening', () {
-      test('returns false initially', () {
-        // Assert
-        expect(repository.isListening, isFalse);
-      });
-    });
-
-    group('isAvailable', () {
-      test('returns false initially before initialization', () {
-        // Assert
-        expect(repository.isAvailable, isFalse);
-      });
-
-      test('returns true after successful initialization', () async {
-        // Arrange
-        when(
-          () => mockSpeech.initialize(
-            onError: any(named: 'onError'),
-            onStatus: any(named: 'onStatus'),
-          ),
-        ).thenAnswer((_) async => true);
-
-        // Act
-        await repository.initialize();
-
-        // Assert
-        expect(repository.isAvailable, isTrue);
       });
     });
 
@@ -258,6 +226,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).thenAnswer((_) async {});
@@ -267,11 +236,11 @@ void main() {
 
         // Assert
         expect(result.isSuccess, isTrue);
-        expect(repository.isListening, isTrue);
         verify(
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: const Duration(seconds: 60),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).called(1);
@@ -291,6 +260,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).thenAnswer((_) async {});
@@ -306,6 +276,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).called(1);
@@ -325,6 +296,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).thenAnswer((_) async {});
@@ -337,6 +309,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: captureAny(named: 'listenOptions'),
           ),
         ).captured;
@@ -359,6 +332,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).thenThrow(Exception('Listen error'));
@@ -369,7 +343,6 @@ void main() {
         // Assert
         expect(result.isFailure, isTrue);
         expect(result.errorOrNull?.message, contains('Failed to start listening'));
-        expect(repository.isListening, isFalse);
       });
 
       test('emits transcription updates via callback', () async {
@@ -387,6 +360,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).thenAnswer((invocation) async {
@@ -417,45 +391,6 @@ void main() {
         expect(transcriptions[0].isFinal, isFalse);
       });
 
-      test('sets isListening to false when final result received', () async {
-        // Arrange
-        late void Function(SpeechRecognitionResult) resultCallback;
-        when(
-          () => mockSpeech.initialize(
-            onError: any(named: 'onError'),
-            onStatus: any(named: 'onStatus'),
-          ),
-        ).thenAnswer((_) async => true);
-        await repository.initialize();
-
-        when(
-          () => mockSpeech.listen(
-            onResult: any(named: 'onResult'),
-            listenFor: any(named: 'listenFor'),
-            listenOptions: any(named: 'listenOptions'),
-          ),
-        ).thenAnswer((invocation) async {
-          resultCallback = invocation.namedArguments[#onResult]
-              as void Function(SpeechRecognitionResult);
-        });
-
-        await repository.startListening();
-        expect(repository.isListening, isTrue);
-
-        // Act - simulate final result
-        resultCallback(
-          FakeSpeechRecognitionResult(
-            recognizedWords: 'Complete',
-            confidence: 0.9,
-            finalResult: true,
-          ),
-        );
-
-        await Future.delayed(const Duration(milliseconds: 10));
-
-        // Assert
-        expect(repository.isListening, isFalse);
-      });
     });
 
     group('stopListening', () {
@@ -482,6 +417,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).thenAnswer((_) async {});
@@ -494,7 +430,6 @@ void main() {
 
         // Assert
         expect(result.isSuccess, isTrue);
-        expect(repository.isListening, isFalse);
         verify(() => mockSpeech.stop()).called(1);
       });
 
@@ -512,6 +447,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).thenAnswer((_) async {});
@@ -525,7 +461,6 @@ void main() {
         // Assert
         expect(result.isFailure, isTrue);
         expect(result.errorOrNull?.message, contains('Failed to stop listening'));
-        expect(repository.isListening, isFalse);
       });
     });
 
@@ -555,6 +490,7 @@ void main() {
           () => mockSpeech.listen(
             onResult: any(named: 'onResult'),
             listenFor: any(named: 'listenFor'),
+            localeId: any(named: 'localeId'),
             listenOptions: any(named: 'listenOptions'),
           ),
         ).thenAnswer((_) async {});
@@ -567,7 +503,6 @@ void main() {
 
         // Assert
         verify(() => mockSpeech.cancel()).called(1);
-        expect(repository.isListening, isFalse);
       });
 
       test('handles exceptions gracefully', () async {

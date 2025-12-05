@@ -16,6 +16,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../features/auth/application/auth_providers.dart';
 import '../../../l10n/app_localizations.dart';
@@ -53,6 +54,18 @@ class HomePage extends ConsumerWidget {
         backgroundColor: colorScheme.surface,
         elevation: 0,
         centerTitle: false,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.push('/voice-input');
+        },
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.zero, // Sharp corners for Bauhaus style
+        ),
+        tooltip: l10n.voiceButtonStartRecording,
+        child: const Icon(Icons.mic),
       ),
       body: SafeArea(
         child: Center(

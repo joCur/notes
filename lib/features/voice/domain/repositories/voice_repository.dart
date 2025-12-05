@@ -35,12 +35,6 @@ abstract class VoiceRepository {
   /// - Empty transcription on errors
   Stream<Transcription> get transcriptionStream;
 
-  /// Whether the repository is currently listening for speech
-  bool get isListening;
-
-  /// Whether speech recognition is available on the current device
-  bool get isAvailable;
-
   /// Cancels any ongoing speech recognition and cleans up resources
   Future<void> cancel();
 }

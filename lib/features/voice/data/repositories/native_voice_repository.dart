@@ -10,11 +10,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 /// Native implementation of VoiceRepository using device's speech recognition API
 class NativeVoiceRepository implements VoiceRepository {
-  NativeVoiceRepository({
-    required Talker logger,
-    stt.SpeechToText? speech,
-  })  : _logger = logger,
-        _speech = speech ?? stt.SpeechToText();
+  NativeVoiceRepository({required Talker logger, stt.SpeechToText? speech}) : _logger = logger, _speech = speech ?? stt.SpeechToText();
 
   final Talker _logger;
   final stt.SpeechToText _speech;
@@ -27,18 +23,19 @@ class NativeVoiceRepository implements VoiceRepository {
   DateTime? _startTime;
 
   @override
-  bool get isListening => _isListening;
-
-  @override
-  bool get isAvailable => _isAvailable;
-
-  @override
   Stream<Transcription> get transcriptionStream => _transcriptionController.stream;
 
   @override
   Future<Result<bool>> initialize() async {
     try {
       _logger.info('[NativeVoiceRepository] Initializing speech recognition');
+
+      // Note: According to speech_to_text docs, subsequent calls to initialize()
+      // are ignored. So we check if already initialized and successful.
+      if (_isAvailable && _speech.isAvailable) {
+        _logger.debug('[NativeVoiceRepository] Already initialized and available');
+        return Result.success(true);
+      }
 
       final available = await _speech.initialize(
         onError: (error) {
@@ -60,7 +57,7 @@ class NativeVoiceRepository implements VoiceRepository {
         return Result.failure(const VoiceInputFailure(message: 'Speech recognition is not available on this device'));
       }
 
-      _logger.info('[NativeVoiceRepository] Speech recognition initialized');
+      _logger.info('[NativeVoiceRepository] Speech recognition initialized successfully');
       return Result.success(true);
     } catch (e, stackTrace) {
       _logger.error('[NativeVoiceRepository] Failed to initialize speech recognition', e, stackTrace);
@@ -86,6 +83,7 @@ class NativeVoiceRepository implements VoiceRepository {
 
       await _speech.listen(
         onResult: _onSpeechResult,
+        localeId: "de-DE",
         listenFor: const Duration(seconds: 60), // 1 minute max
         listenOptions: stt.SpeechListenOptions(partialResults: partialResults, listenMode: stt.ListenMode.confirmation, cancelOnError: false),
       );
@@ -128,6 +126,7 @@ class NativeVoiceRepository implements VoiceRepository {
   Future<void> cancel() async {
     try {
       _logger.info('[NativeVoiceRepository] Cancelling speech recognition');
+
       await _speech.cancel();
       _isListening = false;
       _startTime = null;
