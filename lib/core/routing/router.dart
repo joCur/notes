@@ -15,7 +15,8 @@
 /// - `/forgot-password` - Forgot password screen (public)
 /// - `/reset-password` - Reset password screen (public, deep link target)
 /// - `/home` - Home screen (protected, requires authentication)
-/// - `/voice-input` - Voice input screen (protected, requires authentication)
+/// - `/text-editor` - Text editor screen with voice capability (protected, requires authentication)
+/// - `/notes/:noteId` - Note detail screen (protected, requires authentication)
 ///
 /// Usage:
 /// ```dart
@@ -39,8 +40,9 @@ import '../../features/auth/presentation/screens/forgot_password_screen.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/reset_password_screen.dart';
 import '../../features/auth/presentation/screens/signup_screen.dart';
-import '../../features/voice/presentation/screens/voice_input_screen.dart';
-import '../presentation/screens/home_page.dart';
+import '../../features/notes/presentation/screens/note_detail_screen.dart';
+import '../../features/notes/presentation/screens/notes_list_screen.dart';
+import '../../features/notes/presentation/screens/simple_text_editor_screen.dart';
 import '../presentation/screens/splash_screen.dart';
 import 'router_redirect.dart';
 
@@ -86,8 +88,16 @@ GoRouter router(Ref ref) {
       GoRoute(path: '/signup', name: 'signup', builder: (context, state) => const SignupScreen()),
       GoRoute(path: '/forgot-password', name: 'forgotPassword', builder: (context, state) => const ForgotPasswordScreen()),
       GoRoute(path: '/reset-password', name: 'resetPassword', builder: (context, state) => const ResetPasswordScreen()),
-      GoRoute(path: '/home', name: 'home', builder: (context, state) => const HomePage()),
-      GoRoute(path: '/voice-input', name: 'voiceInput', builder: (context, state) => const VoiceInputScreen()),
+      GoRoute(path: '/home', name: 'home', builder: (context, state) => const NotesListScreen()),
+      GoRoute(path: '/text-editor', name: 'textEditor', builder: (context, state) => const SimpleTextEditorScreen()),
+      GoRoute(
+        path: '/notes/:noteId',
+        name: 'noteDetail',
+        builder: (context, state) {
+          final noteId = state.pathParameters['noteId']!;
+          return NoteDetailScreen(noteId: noteId);
+        },
+      ),
     ],
     errorBuilder: (context, state) => Scaffold(body: Center(child: Text('Page not found: ${state.uri.path}'))),
   );

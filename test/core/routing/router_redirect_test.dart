@@ -286,12 +286,12 @@ void main() {
       });
     });
 
-    group('Protected routes - /voice-input', () {
+    group('Protected routes - /text-editor', () {
       test('allows authenticated user to access', () {
         // Arrange & Act
         final result = getRedirectLocation(
           authState: authenticatedState,
-          currentLocation: '/voice-input',
+          currentLocation: '/text-editor',
         );
 
         // Assert
@@ -302,7 +302,7 @@ void main() {
         // Arrange & Act
         final result = getRedirectLocation(
           authState: unauthenticatedState,
-          currentLocation: '/voice-input',
+          currentLocation: '/text-editor',
         );
 
         // Assert

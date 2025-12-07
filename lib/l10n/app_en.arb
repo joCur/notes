@@ -441,6 +441,16 @@
     "description": "Success message when note is saved"
   },
 
+  "voiceInputSaveError": "Failed to save note. Please try again",
+  "@voiceInputSaveError": {
+    "description": "Error message when note save fails"
+  },
+
+  "voiceInputSaving": "Saving note...",
+  "@voiceInputSaving": {
+    "description": "Loading message while saving note"
+  },
+
   "voiceButtonStartRecording": "Start recording",
   "@voiceButtonStartRecording": {
     "description": "Accessibility label for voice button when idle"
@@ -454,5 +464,315 @@
   "transcriptionClearButton": "Clear transcription",
   "@transcriptionClearButton": {
     "description": "Accessibility label for clear transcription button"
+  },
+
+  "notesListTitle": "Notes",
+  "@notesListTitle": {
+    "description": "Title for notes list screen"
+  },
+
+  "notesListEmptyTitle": "No Notes Yet",
+  "@notesListEmptyTitle": {
+    "description": "Empty state title when no notes exist"
+  },
+
+  "notesListEmptySubtitle": "Start creating your first note using voice or text",
+  "@notesListEmptySubtitle": {
+    "description": "Empty state subtitle message"
+  },
+
+  "notesListEmptyActionVoice": "Record Voice Note",
+  "@notesListEmptyActionVoice": {
+    "description": "Empty state button to create voice note"
+  },
+
+  "notesListEmptyActionText": "Create Text Note",
+  "@notesListEmptyActionText": {
+    "description": "Empty state button to create text note"
+  },
+
+  "notesListErrorLoadingTitle": "Failed to Load Notes",
+  "@notesListErrorLoadingTitle": {
+    "description": "Error title when notes fail to load"
+  },
+
+  "notesListErrorLoadingMessage": "Unable to fetch your notes. Please check your connection and try again",
+  "@notesListErrorLoadingMessage": {
+    "description": "Error message when notes fail to load"
+  },
+
+  "notesListLoadingMessage": "Loading your notes...",
+  "@notesListLoadingMessage": {
+    "description": "Loading message for notes list"
+  },
+
+  "notesListSearchPlaceholder": "Search notes...",
+  "@notesListSearchPlaceholder": {
+    "description": "Search bar placeholder text"
+  },
+
+  "notesListCreateVoiceNote": "Create Voice Note",
+  "@notesListCreateVoiceNote": {
+    "description": "Floating action button label for voice note"
+  },
+
+  "notesListCreateTextNote": "Create Text Note",
+  "@notesListCreateTextNote": {
+    "description": "Floating action button label for text note"
+  },
+
+  "notesListRefreshTooltip": "Pull down to refresh",
+  "@notesListRefreshTooltip": {
+    "description": "Tooltip for pull-to-refresh"
+  },
+
+  "notesListUntitled": "Untitled Note",
+  "@notesListUntitled": {
+    "description": "Default title for notes without a title"
+  },
+
+  "notesListJustNow": "Just now",
+  "@notesListJustNow": {
+    "description": "Timestamp for very recent notes"
+  },
+
+  "notesListMinutesAgo": "{count} min ago",
+  "@notesListMinutesAgo": {
+    "description": "Timestamp for notes created minutes ago",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "notesListHoursAgo": "{count}h ago",
+  "@notesListHoursAgo": {
+    "description": "Timestamp for notes created hours ago",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "notesListDaysAgo": "{count}d ago",
+  "@notesListDaysAgo": {
+    "description": "Timestamp for notes created days ago",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "noteCardDeleteTitle": "Delete Note?",
+  "@noteCardDeleteTitle": {
+    "description": "Title for delete note confirmation dialog"
+  },
+
+  "noteCardDeleteMessage": "This note will be permanently deleted. This action cannot be undone.",
+  "@noteCardDeleteMessage": {
+    "description": "Message for delete note confirmation dialog"
+  },
+
+  "noteCardContextEdit": "Edit",
+  "@noteCardContextEdit": {
+    "description": "Context menu option to edit a note"
+  },
+
+  "noteCardContextDelete": "Delete",
+  "@noteCardContextDelete": {
+    "description": "Context menu option to delete a note"
+  },
+
+  "noteCardContextShare": "Share",
+  "@noteCardContextShare": {
+    "description": "Context menu option to share a note"
+  },
+
+  "noteDetailTitle": "Note Details",
+  "@noteDetailTitle": {
+    "description": "Title for note detail screen"
+  },
+
+  "noteDetailBackButton": "Back to notes",
+  "@noteDetailBackButton": {
+    "description": "Accessibility label for back button on note detail screen"
+  },
+
+  "noteDetailEdit": "Edit",
+  "@noteDetailEdit": {
+    "description": "Edit button label"
+  },
+
+  "noteDetailShare": "Share",
+  "@noteDetailShare": {
+    "description": "Share button label"
+  },
+
+  "noteDetailDelete": "Delete",
+  "@noteDetailDelete": {
+    "description": "Delete button label"
+  },
+
+  "noteDetailDeleteTitle": "Delete Note?",
+  "@noteDetailDeleteTitle": {
+    "description": "Delete confirmation dialog title"
+  },
+
+  "noteDetailDeleteMessage": "This note will be permanently deleted. This action cannot be undone.",
+  "@noteDetailDeleteMessage": {
+    "description": "Delete confirmation dialog message"
+  },
+
+  "noteDetailDeleteSuccess": "Note deleted successfully",
+  "@noteDetailDeleteSuccess": {
+    "description": "Success message after note deletion"
+  },
+
+  "noteDetailDeleteError": "Failed to delete note. Please try again",
+  "@noteDetailDeleteError": {
+    "description": "Error message when note deletion fails"
+  },
+
+  "noteDetailMetadata": "Note Information",
+  "@noteDetailMetadata": {
+    "description": "Metadata section header"
+  },
+
+  "noteDetailCreated": "Created",
+  "@noteDetailCreated": {
+    "description": "Created date label"
+  },
+
+  "noteDetailModified": "Modified",
+  "@noteDetailModified": {
+    "description": "Last modified date label"
+  },
+
+  "noteDetailWords": "Words",
+  "@noteDetailWords": {
+    "description": "Word count label"
+  },
+
+  "noteDetailLanguageConfidence": "Confidence",
+  "@noteDetailLanguageConfidence": {
+    "description": "Language detection confidence label"
+  },
+
+  "noteDetailContent": "Content",
+  "@noteDetailContent": {
+    "description": "Content section header"
+  },
+
+  "noteDetailEmptyContent": "This note has no content",
+  "@noteDetailEmptyContent": {
+    "description": "Empty content placeholder message"
+  },
+
+  "noteDetailCopyToClipboard": "Copy to clipboard",
+  "@noteDetailCopyToClipboard": {
+    "description": "Copy content to clipboard button label"
+  },
+
+  "noteDetailCopySuccess": "Copied to clipboard",
+  "@noteDetailCopySuccess": {
+    "description": "Success message after copying content"
+  },
+
+  "noteDetailTags": "Tags",
+  "@noteDetailTags": {
+    "description": "Tags section header"
+  },
+
+  "noteDetailTagsComingSoon": "Tags will be available in Phase 8",
+  "@noteDetailTagsComingSoon": {
+    "description": "Placeholder message for tags feature"
+  },
+
+  "noteDetailEditComingSoon": "Note editing will be available in Phase 7",
+  "@noteDetailEditComingSoon": {
+    "description": "Placeholder message for edit feature"
+  },
+
+  "noteDetailShareError": "Failed to share note. Please try again",
+  "@noteDetailShareError": {
+    "description": "Error message when sharing fails"
+  },
+
+  "noteDetailLoading": "Loading note...",
+  "@noteDetailLoading": {
+    "description": "Loading message for note detail screen"
+  },
+
+  "noteDetailErrorTitle": "Failed to Load Note",
+  "@noteDetailErrorTitle": {
+    "description": "Error title when note fails to load"
+  },
+
+  "noteDetailErrorMessage": "Unable to fetch the note. Please check your connection and try again",
+  "@noteDetailErrorMessage": {
+    "description": "Error message when note fails to load"
+  },
+
+  "textEditorTitle": "New Note",
+  "@textEditorTitle": {
+    "description": "Title for text editor screen"
+  },
+
+  "textEditorTitlePlaceholder": "Title (optional)",
+  "@textEditorTitlePlaceholder": {
+    "description": "Placeholder for note title field"
+  },
+
+  "textEditorContentPlaceholder": "Start typing your note...",
+  "@textEditorContentPlaceholder": {
+    "description": "Placeholder for note content field"
+  },
+
+  "textEditorSaveButton": "SAVE",
+  "@textEditorSaveButton": {
+    "description": "Save button text"
+  },
+
+  "textEditorCancelButton": "CANCEL",
+  "@textEditorCancelButton": {
+    "description": "Cancel button text"
+  },
+
+  "textEditorEmptyContentError": "Note content cannot be empty",
+  "@textEditorEmptyContentError": {
+    "description": "Error when trying to save empty note"
+  },
+
+  "textEditorSaveSuccess": "Text note created successfully",
+  "@textEditorSaveSuccess": {
+    "description": "Success message when text note is saved"
+  },
+
+  "textEditorSaveError": "Failed to save note. Please try again",
+  "@textEditorSaveError": {
+    "description": "Error message when note save fails"
+  },
+
+  "textEditorSaving": "Saving note...",
+  "@textEditorSaving": {
+    "description": "Loading message while saving note"
+  },
+
+  "textEditorUnsavedChangesTitle": "Discard Changes?",
+  "@textEditorUnsavedChangesTitle": {
+    "description": "Dialog title when user tries to exit with unsaved changes"
+  },
+
+  "textEditorUnsavedChangesMessage": "You have unsaved changes. Are you sure you want to discard them?",
+  "@textEditorUnsavedChangesMessage": {
+    "description": "Dialog message when user tries to exit with unsaved changes"
+  },
+
+  "textEditorDiscardButton": "DISCARD",
+  "@textEditorDiscardButton": {
+    "description": "Button to discard unsaved changes"
   }
 }

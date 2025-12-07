@@ -441,6 +441,16 @@
     "description": "Erfolgsmeldung beim Speichern der Notiz"
   },
 
+  "voiceInputSaveError": "Speichern der Notiz fehlgeschlagen. Bitte versuchen Sie es erneut",
+  "@voiceInputSaveError": {
+    "description": "Fehlermeldung wenn das Speichern der Notiz fehlschlägt"
+  },
+
+  "voiceInputSaving": "Speichere Notiz...",
+  "@voiceInputSaving": {
+    "description": "Lademeldung während des Speicherns der Notiz"
+  },
+
   "voiceButtonStartRecording": "Aufnahme starten",
   "@voiceButtonStartRecording": {
     "description": "Barrierefreiheits-Label für Sprach-Schaltfläche im Ruhezustand"
@@ -454,5 +464,315 @@
   "transcriptionClearButton": "Transkription löschen",
   "@transcriptionClearButton": {
     "description": "Barrierefreiheits-Label für Schaltfläche zum Löschen der Transkription"
+  },
+
+  "notesListTitle": "Notizen",
+  "@notesListTitle": {
+    "description": "Titel für die Notizenlisten-Ansicht"
+  },
+
+  "notesListEmptyTitle": "Noch keine Notizen",
+  "@notesListEmptyTitle": {
+    "description": "Titel im leeren Zustand wenn keine Notizen existieren"
+  },
+
+  "notesListEmptySubtitle": "Erstellen Sie Ihre erste Notiz mit Sprache oder Text",
+  "@notesListEmptySubtitle": {
+    "description": "Untertitel im leeren Zustand"
+  },
+
+  "notesListEmptyActionVoice": "Sprachnotiz Aufnehmen",
+  "@notesListEmptyActionVoice": {
+    "description": "Schaltfläche im leeren Zustand zum Erstellen einer Sprachnotiz"
+  },
+
+  "notesListEmptyActionText": "Textnotiz Erstellen",
+  "@notesListEmptyActionText": {
+    "description": "Schaltfläche im leeren Zustand zum Erstellen einer Textnotiz"
+  },
+
+  "notesListErrorLoadingTitle": "Laden der Notizen fehlgeschlagen",
+  "@notesListErrorLoadingTitle": {
+    "description": "Fehler-Titel wenn Notizen nicht geladen werden konnten"
+  },
+
+  "notesListErrorLoadingMessage": "Ihre Notizen können nicht abgerufen werden. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut",
+  "@notesListErrorLoadingMessage": {
+    "description": "Fehlermeldung wenn Notizen nicht geladen werden konnten"
+  },
+
+  "notesListLoadingMessage": "Lade Ihre Notizen...",
+  "@notesListLoadingMessage": {
+    "description": "Lademeldung für Notizenliste"
+  },
+
+  "notesListSearchPlaceholder": "Notizen durchsuchen...",
+  "@notesListSearchPlaceholder": {
+    "description": "Platzhaltertext für Suchleiste"
+  },
+
+  "notesListCreateVoiceNote": "Sprachnotiz Erstellen",
+  "@notesListCreateVoiceNote": {
+    "description": "Beschriftung der schwebenden Aktionsschaltfläche für Sprachnotiz"
+  },
+
+  "notesListCreateTextNote": "Textnotiz Erstellen",
+  "@notesListCreateTextNote": {
+    "description": "Beschriftung der schwebenden Aktionsschaltfläche für Textnotiz"
+  },
+
+  "notesListRefreshTooltip": "Zum Aktualisieren nach unten ziehen",
+  "@notesListRefreshTooltip": {
+    "description": "Tooltip für Ziehen-zum-Aktualisieren"
+  },
+
+  "notesListUntitled": "Unbenannte Notiz",
+  "@notesListUntitled": {
+    "description": "Standardtitel für Notizen ohne Titel"
+  },
+
+  "notesListJustNow": "Gerade eben",
+  "@notesListJustNow": {
+    "description": "Zeitstempel für sehr aktuelle Notizen"
+  },
+
+  "notesListMinutesAgo": "Vor {count} Min",
+  "@notesListMinutesAgo": {
+    "description": "Zeitstempel für vor Minuten erstellte Notizen",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "notesListHoursAgo": "Vor {count}h",
+  "@notesListHoursAgo": {
+    "description": "Zeitstempel für vor Stunden erstellte Notizen",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "notesListDaysAgo": "Vor {count}T",
+  "@notesListDaysAgo": {
+    "description": "Zeitstempel für vor Tagen erstellte Notizen",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "noteCardDeleteTitle": "Notiz löschen?",
+  "@noteCardDeleteTitle": {
+    "description": "Titel für Bestätigungsdialog zum Löschen einer Notiz"
+  },
+
+  "noteCardDeleteMessage": "Diese Notiz wird dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+  "@noteCardDeleteMessage": {
+    "description": "Nachricht für Bestätigungsdialog zum Löschen einer Notiz"
+  },
+
+  "noteCardContextEdit": "Bearbeiten",
+  "@noteCardContextEdit": {
+    "description": "Kontextmenüoption zum Bearbeiten einer Notiz"
+  },
+
+  "noteCardContextDelete": "Löschen",
+  "@noteCardContextDelete": {
+    "description": "Kontextmenüoption zum Löschen einer Notiz"
+  },
+
+  "noteCardContextShare": "Teilen",
+  "@noteCardContextShare": {
+    "description": "Kontextmenüoption zum Teilen einer Notiz"
+  },
+
+  "noteDetailTitle": "Notizdetails",
+  "@noteDetailTitle": {
+    "description": "Titel für die Notizdetailansicht"
+  },
+
+  "noteDetailBackButton": "Zurück zu Notizen",
+  "@noteDetailBackButton": {
+    "description": "Barrierefreiheits-Label für Zurück-Schaltfläche in der Notizdetailansicht"
+  },
+
+  "noteDetailEdit": "Bearbeiten",
+  "@noteDetailEdit": {
+    "description": "Bearbeitungs-Schaltflächen-Label"
+  },
+
+  "noteDetailShare": "Teilen",
+  "@noteDetailShare": {
+    "description": "Teilen-Schaltflächen-Label"
+  },
+
+  "noteDetailDelete": "Löschen",
+  "@noteDetailDelete": {
+    "description": "Löschen-Schaltflächen-Label"
+  },
+
+  "noteDetailDeleteTitle": "Notiz löschen?",
+  "@noteDetailDeleteTitle": {
+    "description": "Titel des Bestätigungsdialogs zum Löschen"
+  },
+
+  "noteDetailDeleteMessage": "Diese Notiz wird dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+  "@noteDetailDeleteMessage": {
+    "description": "Nachricht des Bestätigungsdialogs zum Löschen"
+  },
+
+  "noteDetailDeleteSuccess": "Notiz erfolgreich gelöscht",
+  "@noteDetailDeleteSuccess": {
+    "description": "Erfolgsmeldung nach dem Löschen der Notiz"
+  },
+
+  "noteDetailDeleteError": "Löschen der Notiz fehlgeschlagen. Bitte versuchen Sie es erneut",
+  "@noteDetailDeleteError": {
+    "description": "Fehlermeldung wenn das Löschen der Notiz fehlschlägt"
+  },
+
+  "noteDetailMetadata": "Notizinformationen",
+  "@noteDetailMetadata": {
+    "description": "Überschrift des Metadaten-Abschnitts"
+  },
+
+  "noteDetailCreated": "Erstellt",
+  "@noteDetailCreated": {
+    "description": "Erstellungsdatum-Label"
+  },
+
+  "noteDetailModified": "Geändert",
+  "@noteDetailModified": {
+    "description": "Letztes Änderungsdatum-Label"
+  },
+
+  "noteDetailWords": "Wörter",
+  "@noteDetailWords": {
+    "description": "Wortanzahl-Label"
+  },
+
+  "noteDetailLanguageConfidence": "Sicherheit",
+  "@noteDetailLanguageConfidence": {
+    "description": "Spracherkennungs-Sicherheits-Label"
+  },
+
+  "noteDetailContent": "Inhalt",
+  "@noteDetailContent": {
+    "description": "Überschrift des Inhalts-Abschnitts"
+  },
+
+  "noteDetailEmptyContent": "Diese Notiz hat keinen Inhalt",
+  "@noteDetailEmptyContent": {
+    "description": "Platzhalternachricht für leeren Inhalt"
+  },
+
+  "noteDetailCopyToClipboard": "In Zwischenablage kopieren",
+  "@noteDetailCopyToClipboard": {
+    "description": "Schaltflächen-Label zum Kopieren in die Zwischenablage"
+  },
+
+  "noteDetailCopySuccess": "In Zwischenablage kopiert",
+  "@noteDetailCopySuccess": {
+    "description": "Erfolgsmeldung nach dem Kopieren des Inhalts"
+  },
+
+  "noteDetailTags": "Tags",
+  "@noteDetailTags": {
+    "description": "Überschrift des Tags-Abschnitts"
+  },
+
+  "noteDetailTagsComingSoon": "Tags werden in Phase 8 verfügbar sein",
+  "@noteDetailTagsComingSoon": {
+    "description": "Platzhalternachricht für Tags-Funktion"
+  },
+
+  "noteDetailEditComingSoon": "Notizbearbeitung wird in Phase 7 verfügbar sein",
+  "@noteDetailEditComingSoon": {
+    "description": "Platzhalternachricht für Bearbeitungsfunktion"
+  },
+
+  "noteDetailShareError": "Teilen der Notiz fehlgeschlagen. Bitte versuchen Sie es erneut",
+  "@noteDetailShareError": {
+    "description": "Fehlermeldung wenn das Teilen fehlschlägt"
+  },
+
+  "noteDetailLoading": "Lade Notiz...",
+  "@noteDetailLoading": {
+    "description": "Lademeldung für Notizdetailansicht"
+  },
+
+  "noteDetailErrorTitle": "Laden der Notiz fehlgeschlagen",
+  "@noteDetailErrorTitle": {
+    "description": "Fehler-Titel wenn das Laden der Notiz fehlschlägt"
+  },
+
+  "noteDetailErrorMessage": "Die Notiz kann nicht abgerufen werden. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut",
+  "@noteDetailErrorMessage": {
+    "description": "Fehlermeldung wenn das Laden der Notiz fehlschlägt"
+  },
+
+  "textEditorTitle": "Neue Notiz",
+  "@textEditorTitle": {
+    "description": "Titel für die Texteditor-Ansicht"
+  },
+
+  "textEditorTitlePlaceholder": "Titel (optional)",
+  "@textEditorTitlePlaceholder": {
+    "description": "Platzhalter für das Notiz-Titel-Feld"
+  },
+
+  "textEditorContentPlaceholder": "Beginnen Sie mit dem Tippen Ihrer Notiz...",
+  "@textEditorContentPlaceholder": {
+    "description": "Platzhalter für das Notiz-Inhalts-Feld"
+  },
+
+  "textEditorSaveButton": "SPEICHERN",
+  "@textEditorSaveButton": {
+    "description": "Speichern-Schaltflächen-Text"
+  },
+
+  "textEditorCancelButton": "ABBRECHEN",
+  "@textEditorCancelButton": {
+    "description": "Abbrechen-Schaltflächen-Text"
+  },
+
+  "textEditorEmptyContentError": "Der Notizinhalt darf nicht leer sein",
+  "@textEditorEmptyContentError": {
+    "description": "Fehler beim Versuch, eine leere Notiz zu speichern"
+  },
+
+  "textEditorSaveSuccess": "Textnotiz erfolgreich erstellt",
+  "@textEditorSaveSuccess": {
+    "description": "Erfolgsmeldung wenn die Textnotiz gespeichert wurde"
+  },
+
+  "textEditorSaveError": "Speichern der Notiz fehlgeschlagen. Bitte versuchen Sie es erneut",
+  "@textEditorSaveError": {
+    "description": "Fehlermeldung wenn das Speichern der Notiz fehlschlägt"
+  },
+
+  "textEditorSaving": "Speichere Notiz...",
+  "@textEditorSaving": {
+    "description": "Lademeldung während des Speicherns der Notiz"
+  },
+
+  "textEditorUnsavedChangesTitle": "Änderungen verwerfen?",
+  "@textEditorUnsavedChangesTitle": {
+    "description": "Dialog-Titel wenn der Benutzer versucht zu beenden mit nicht gespeicherten Änderungen"
+  },
+
+  "textEditorUnsavedChangesMessage": "Sie haben nicht gespeicherte Änderungen. Möchten Sie diese wirklich verwerfen?",
+  "@textEditorUnsavedChangesMessage": {
+    "description": "Dialog-Nachricht wenn der Benutzer versucht zu beenden mit nicht gespeicherten Änderungen"
+  },
+
+  "textEditorDiscardButton": "VERWERFEN",
+  "@textEditorDiscardButton": {
+    "description": "Schaltfläche zum Verwerfen nicht gespeicherter Änderungen"
   }
 }

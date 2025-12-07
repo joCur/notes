@@ -9,9 +9,17 @@
 /// - Optional actions list
 /// - Leading icon/back button with localized label
 /// - Minimum 56px height
+/// - Theme-aware colors (automatically adapts to light/dark mode)
+///
+/// Theme Integration:
+/// - Background: colorScheme.surface (can override with backgroundColor)
+/// - Text: colorScheme.onSurface (can override with textColor)
+/// - Left accent: BauhausColors.yellow (can override with accentColor)
+/// - Bottom border: colorScheme.outline
 ///
 /// Usage:
 /// ```dart
+/// // Default theme-aware colors
 /// BauhausAppBarWithLeftAccent(
 ///   title: 'Settings',
 ///   accentColor: BauhausColors.red,
@@ -20,6 +28,14 @@
 ///   actions: [
 ///     IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
 ///   ],
+/// )
+///
+/// // Override colors for custom styling
+/// BauhausAppBarWithLeftAccent(
+///   title: 'Profile',
+///   backgroundColor: BauhausColors.lightGray,
+///   textColor: BauhausColors.black,
+///   accentColor: BauhausColors.primaryBlue,
 /// )
 /// ```
 library;
@@ -35,6 +51,7 @@ import 'bauhaus_app_bar_leading.dart';
 ///
 /// This variant uses a colored left border instead of a bottom accent line,
 /// following alternative Bauhaus layout patterns.
+/// Theme-aware colors (uses ColorScheme by default).
 class BauhausAppBarWithLeftAccent extends StatelessWidget implements PreferredSizeWidget {
   /// Title text displayed in the app bar
   final String title;
@@ -48,14 +65,14 @@ class BauhausAppBarWithLeftAccent extends StatelessWidget implements PreferredSi
   /// Action widgets displayed at the end of the app bar
   final List<Widget>? actions;
 
-  /// Background color of the app bar
-  final Color backgroundColor;
+  /// Background color of the app bar (defaults to colorScheme.surface)
+  final Color? backgroundColor;
 
-  /// Text color for the title
-  final Color textColor;
+  /// Text color for the title (defaults to colorScheme.onSurface)
+  final Color? textColor;
 
-  /// Accent color for the left border
-  final Color accentColor;
+  /// Accent color for the left border (defaults to BauhausColors.yellow)
+  final Color? accentColor;
 
   /// Semantic label for back button (MUST be localized if showBackButton is true)
   final String? backButtonLabel;
@@ -66,9 +83,9 @@ class BauhausAppBarWithLeftAccent extends StatelessWidget implements PreferredSi
     this.leading,
     this.showBackButton = false,
     this.actions,
-    this.backgroundColor = BauhausColors.white,
-    this.textColor = BauhausColors.black,
-    this.accentColor = BauhausColors.yellow,
+    this.backgroundColor,
+    this.textColor,
+    this.accentColor,
     this.backButtonLabel,
   });
 
@@ -77,18 +94,25 @@ class BauhausAppBarWithLeftAccent extends StatelessWidget implements PreferredSi
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    // Use theme colors as defaults
+    final effectiveBackgroundColor = backgroundColor ?? colorScheme.surface;
+    final effectiveTextColor = textColor ?? colorScheme.onSurface;
+    final effectiveAccentColor = accentColor ?? BauhausColors.yellow;
+
     return Semantics(
       header: true,
       child: Container(
         decoration: BoxDecoration(
-          color: backgroundColor,
+          color: effectiveBackgroundColor,
           border: Border(
             left: BorderSide(
-              color: accentColor,
+              color: effectiveAccentColor,
               width: BauhausSpacing.borderThick,
             ),
             bottom: BorderSide(
-              color: BauhausColors.lightGray,
+              color: colorScheme.outline,
               width: BauhausSpacing.borderThin,
             ),
           ),
@@ -99,20 +123,20 @@ class BauhausAppBarWithLeftAccent extends StatelessWidget implements PreferredSi
           shadowColor: Colors.transparent,
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,
-            statusBarIconBrightness: backgroundColor.computeLuminance() > 0.5
+            statusBarIconBrightness: effectiveBackgroundColor.computeLuminance() > 0.5
                 ? Brightness.dark
                 : Brightness.light,
           ),
           leading: BauhausAppBarLeading(
             customLeading: leading,
             showBackButton: showBackButton,
-            textColor: textColor,
+            textColor: effectiveTextColor,
             backButtonLabel: backButtonLabel,
           ),
           title: Text(
             title,
             style: BauhausTypography.screenTitle.copyWith(
-              color: textColor,
+              color: effectiveTextColor,
             ),
           ),
           actions: actions,

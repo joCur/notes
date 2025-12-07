@@ -626,6 +626,18 @@ abstract class AppLocalizations {
   /// **'Note saved successfully!'**
   String get voiceInputSaveSuccess;
 
+  /// Error message when note save fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save note. Please try again'**
+  String get voiceInputSaveError;
+
+  /// Loading message while saving note
+  ///
+  /// In en, this message translates to:
+  /// **'Saving note...'**
+  String get voiceInputSaving;
+
   /// Accessibility label for voice button when idle
   ///
   /// In en, this message translates to:
@@ -643,6 +655,360 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Clear transcription'**
   String get transcriptionClearButton;
+
+  /// Title for notes list screen
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notesListTitle;
+
+  /// Empty state title when no notes exist
+  ///
+  /// In en, this message translates to:
+  /// **'No Notes Yet'**
+  String get notesListEmptyTitle;
+
+  /// Empty state subtitle message
+  ///
+  /// In en, this message translates to:
+  /// **'Start creating your first note using voice or text'**
+  String get notesListEmptySubtitle;
+
+  /// Empty state button to create voice note
+  ///
+  /// In en, this message translates to:
+  /// **'Record Voice Note'**
+  String get notesListEmptyActionVoice;
+
+  /// Empty state button to create text note
+  ///
+  /// In en, this message translates to:
+  /// **'Create Text Note'**
+  String get notesListEmptyActionText;
+
+  /// Error title when notes fail to load
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to Load Notes'**
+  String get notesListErrorLoadingTitle;
+
+  /// Error message when notes fail to load
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to fetch your notes. Please check your connection and try again'**
+  String get notesListErrorLoadingMessage;
+
+  /// Loading message for notes list
+  ///
+  /// In en, this message translates to:
+  /// **'Loading your notes...'**
+  String get notesListLoadingMessage;
+
+  /// Search bar placeholder text
+  ///
+  /// In en, this message translates to:
+  /// **'Search notes...'**
+  String get notesListSearchPlaceholder;
+
+  /// Floating action button label for voice note
+  ///
+  /// In en, this message translates to:
+  /// **'Create Voice Note'**
+  String get notesListCreateVoiceNote;
+
+  /// Floating action button label for text note
+  ///
+  /// In en, this message translates to:
+  /// **'Create Text Note'**
+  String get notesListCreateTextNote;
+
+  /// Tooltip for pull-to-refresh
+  ///
+  /// In en, this message translates to:
+  /// **'Pull down to refresh'**
+  String get notesListRefreshTooltip;
+
+  /// Default title for notes without a title
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled Note'**
+  String get notesListUntitled;
+
+  /// Timestamp for very recent notes
+  ///
+  /// In en, this message translates to:
+  /// **'Just now'**
+  String get notesListJustNow;
+
+  /// Timestamp for notes created minutes ago
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min ago'**
+  String notesListMinutesAgo(int count);
+
+  /// Timestamp for notes created hours ago
+  ///
+  /// In en, this message translates to:
+  /// **'{count}h ago'**
+  String notesListHoursAgo(int count);
+
+  /// Timestamp for notes created days ago
+  ///
+  /// In en, this message translates to:
+  /// **'{count}d ago'**
+  String notesListDaysAgo(int count);
+
+  /// Title for delete note confirmation dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Note?'**
+  String get noteCardDeleteTitle;
+
+  /// Message for delete note confirmation dialog
+  ///
+  /// In en, this message translates to:
+  /// **'This note will be permanently deleted. This action cannot be undone.'**
+  String get noteCardDeleteMessage;
+
+  /// Context menu option to edit a note
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get noteCardContextEdit;
+
+  /// Context menu option to delete a note
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get noteCardContextDelete;
+
+  /// Context menu option to share a note
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get noteCardContextShare;
+
+  /// Title for note detail screen
+  ///
+  /// In en, this message translates to:
+  /// **'Note Details'**
+  String get noteDetailTitle;
+
+  /// Accessibility label for back button on note detail screen
+  ///
+  /// In en, this message translates to:
+  /// **'Back to notes'**
+  String get noteDetailBackButton;
+
+  /// Edit button label
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get noteDetailEdit;
+
+  /// Share button label
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get noteDetailShare;
+
+  /// Delete button label
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get noteDetailDelete;
+
+  /// Delete confirmation dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Note?'**
+  String get noteDetailDeleteTitle;
+
+  /// Delete confirmation dialog message
+  ///
+  /// In en, this message translates to:
+  /// **'This note will be permanently deleted. This action cannot be undone.'**
+  String get noteDetailDeleteMessage;
+
+  /// Success message after note deletion
+  ///
+  /// In en, this message translates to:
+  /// **'Note deleted successfully'**
+  String get noteDetailDeleteSuccess;
+
+  /// Error message when note deletion fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to delete note. Please try again'**
+  String get noteDetailDeleteError;
+
+  /// Metadata section header
+  ///
+  /// In en, this message translates to:
+  /// **'Note Information'**
+  String get noteDetailMetadata;
+
+  /// Created date label
+  ///
+  /// In en, this message translates to:
+  /// **'Created'**
+  String get noteDetailCreated;
+
+  /// Last modified date label
+  ///
+  /// In en, this message translates to:
+  /// **'Modified'**
+  String get noteDetailModified;
+
+  /// Word count label
+  ///
+  /// In en, this message translates to:
+  /// **'Words'**
+  String get noteDetailWords;
+
+  /// Language detection confidence label
+  ///
+  /// In en, this message translates to:
+  /// **'Confidence'**
+  String get noteDetailLanguageConfidence;
+
+  /// Content section header
+  ///
+  /// In en, this message translates to:
+  /// **'Content'**
+  String get noteDetailContent;
+
+  /// Empty content placeholder message
+  ///
+  /// In en, this message translates to:
+  /// **'This note has no content'**
+  String get noteDetailEmptyContent;
+
+  /// Copy content to clipboard button label
+  ///
+  /// In en, this message translates to:
+  /// **'Copy to clipboard'**
+  String get noteDetailCopyToClipboard;
+
+  /// Success message after copying content
+  ///
+  /// In en, this message translates to:
+  /// **'Copied to clipboard'**
+  String get noteDetailCopySuccess;
+
+  /// Tags section header
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get noteDetailTags;
+
+  /// Placeholder message for tags feature
+  ///
+  /// In en, this message translates to:
+  /// **'Tags will be available in Phase 8'**
+  String get noteDetailTagsComingSoon;
+
+  /// Placeholder message for edit feature
+  ///
+  /// In en, this message translates to:
+  /// **'Note editing will be available in Phase 7'**
+  String get noteDetailEditComingSoon;
+
+  /// Error message when sharing fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to share note. Please try again'**
+  String get noteDetailShareError;
+
+  /// Loading message for note detail screen
+  ///
+  /// In en, this message translates to:
+  /// **'Loading note...'**
+  String get noteDetailLoading;
+
+  /// Error title when note fails to load
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to Load Note'**
+  String get noteDetailErrorTitle;
+
+  /// Error message when note fails to load
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to fetch the note. Please check your connection and try again'**
+  String get noteDetailErrorMessage;
+
+  /// Title for text editor screen
+  ///
+  /// In en, this message translates to:
+  /// **'New Note'**
+  String get textEditorTitle;
+
+  /// Placeholder for note title field
+  ///
+  /// In en, this message translates to:
+  /// **'Title (optional)'**
+  String get textEditorTitlePlaceholder;
+
+  /// Placeholder for note content field
+  ///
+  /// In en, this message translates to:
+  /// **'Start typing your note...'**
+  String get textEditorContentPlaceholder;
+
+  /// Save button text
+  ///
+  /// In en, this message translates to:
+  /// **'SAVE'**
+  String get textEditorSaveButton;
+
+  /// Cancel button text
+  ///
+  /// In en, this message translates to:
+  /// **'CANCEL'**
+  String get textEditorCancelButton;
+
+  /// Error when trying to save empty note
+  ///
+  /// In en, this message translates to:
+  /// **'Note content cannot be empty'**
+  String get textEditorEmptyContentError;
+
+  /// Success message when text note is saved
+  ///
+  /// In en, this message translates to:
+  /// **'Text note created successfully'**
+  String get textEditorSaveSuccess;
+
+  /// Error message when note save fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save note. Please try again'**
+  String get textEditorSaveError;
+
+  /// Loading message while saving note
+  ///
+  /// In en, this message translates to:
+  /// **'Saving note...'**
+  String get textEditorSaving;
+
+  /// Dialog title when user tries to exit with unsaved changes
+  ///
+  /// In en, this message translates to:
+  /// **'Discard Changes?'**
+  String get textEditorUnsavedChangesTitle;
+
+  /// Dialog message when user tries to exit with unsaved changes
+  ///
+  /// In en, this message translates to:
+  /// **'You have unsaved changes. Are you sure you want to discard them?'**
+  String get textEditorUnsavedChangesMessage;
+
+  /// Button to discard unsaved changes
+  ///
+  /// In en, this message translates to:
+  /// **'DISCARD'**
+  String get textEditorDiscardButton;
 }
 
 class _AppLocalizationsDelegate

@@ -288,6 +288,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get voiceInputSaveSuccess => 'Note saved successfully!';
 
   @override
+  String get voiceInputSaveError => 'Failed to save note. Please try again';
+
+  @override
+  String get voiceInputSaving => 'Saving note...';
+
+  @override
   String get voiceButtonStartRecording => 'Start recording';
 
   @override
@@ -295,4 +301,194 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get transcriptionClearButton => 'Clear transcription';
+
+  @override
+  String get notesListTitle => 'Notes';
+
+  @override
+  String get notesListEmptyTitle => 'No Notes Yet';
+
+  @override
+  String get notesListEmptySubtitle =>
+      'Start creating your first note using voice or text';
+
+  @override
+  String get notesListEmptyActionVoice => 'Record Voice Note';
+
+  @override
+  String get notesListEmptyActionText => 'Create Text Note';
+
+  @override
+  String get notesListErrorLoadingTitle => 'Failed to Load Notes';
+
+  @override
+  String get notesListErrorLoadingMessage =>
+      'Unable to fetch your notes. Please check your connection and try again';
+
+  @override
+  String get notesListLoadingMessage => 'Loading your notes...';
+
+  @override
+  String get notesListSearchPlaceholder => 'Search notes...';
+
+  @override
+  String get notesListCreateVoiceNote => 'Create Voice Note';
+
+  @override
+  String get notesListCreateTextNote => 'Create Text Note';
+
+  @override
+  String get notesListRefreshTooltip => 'Pull down to refresh';
+
+  @override
+  String get notesListUntitled => 'Untitled Note';
+
+  @override
+  String get notesListJustNow => 'Just now';
+
+  @override
+  String notesListMinutesAgo(int count) {
+    return '$count min ago';
+  }
+
+  @override
+  String notesListHoursAgo(int count) {
+    return '${count}h ago';
+  }
+
+  @override
+  String notesListDaysAgo(int count) {
+    return '${count}d ago';
+  }
+
+  @override
+  String get noteCardDeleteTitle => 'Delete Note?';
+
+  @override
+  String get noteCardDeleteMessage =>
+      'This note will be permanently deleted. This action cannot be undone.';
+
+  @override
+  String get noteCardContextEdit => 'Edit';
+
+  @override
+  String get noteCardContextDelete => 'Delete';
+
+  @override
+  String get noteCardContextShare => 'Share';
+
+  @override
+  String get noteDetailTitle => 'Note Details';
+
+  @override
+  String get noteDetailBackButton => 'Back to notes';
+
+  @override
+  String get noteDetailEdit => 'Edit';
+
+  @override
+  String get noteDetailShare => 'Share';
+
+  @override
+  String get noteDetailDelete => 'Delete';
+
+  @override
+  String get noteDetailDeleteTitle => 'Delete Note?';
+
+  @override
+  String get noteDetailDeleteMessage =>
+      'This note will be permanently deleted. This action cannot be undone.';
+
+  @override
+  String get noteDetailDeleteSuccess => 'Note deleted successfully';
+
+  @override
+  String get noteDetailDeleteError => 'Failed to delete note. Please try again';
+
+  @override
+  String get noteDetailMetadata => 'Note Information';
+
+  @override
+  String get noteDetailCreated => 'Created';
+
+  @override
+  String get noteDetailModified => 'Modified';
+
+  @override
+  String get noteDetailWords => 'Words';
+
+  @override
+  String get noteDetailLanguageConfidence => 'Confidence';
+
+  @override
+  String get noteDetailContent => 'Content';
+
+  @override
+  String get noteDetailEmptyContent => 'This note has no content';
+
+  @override
+  String get noteDetailCopyToClipboard => 'Copy to clipboard';
+
+  @override
+  String get noteDetailCopySuccess => 'Copied to clipboard';
+
+  @override
+  String get noteDetailTags => 'Tags';
+
+  @override
+  String get noteDetailTagsComingSoon => 'Tags will be available in Phase 8';
+
+  @override
+  String get noteDetailEditComingSoon =>
+      'Note editing will be available in Phase 7';
+
+  @override
+  String get noteDetailShareError => 'Failed to share note. Please try again';
+
+  @override
+  String get noteDetailLoading => 'Loading note...';
+
+  @override
+  String get noteDetailErrorTitle => 'Failed to Load Note';
+
+  @override
+  String get noteDetailErrorMessage =>
+      'Unable to fetch the note. Please check your connection and try again';
+
+  @override
+  String get textEditorTitle => 'New Note';
+
+  @override
+  String get textEditorTitlePlaceholder => 'Title (optional)';
+
+  @override
+  String get textEditorContentPlaceholder => 'Start typing your note...';
+
+  @override
+  String get textEditorSaveButton => 'SAVE';
+
+  @override
+  String get textEditorCancelButton => 'CANCEL';
+
+  @override
+  String get textEditorEmptyContentError => 'Note content cannot be empty';
+
+  @override
+  String get textEditorSaveSuccess => 'Text note created successfully';
+
+  @override
+  String get textEditorSaveError => 'Failed to save note. Please try again';
+
+  @override
+  String get textEditorSaving => 'Saving note...';
+
+  @override
+  String get textEditorUnsavedChangesTitle => 'Discard Changes?';
+
+  @override
+  String get textEditorUnsavedChangesMessage =>
+      'You have unsaved changes. Are you sure you want to discard them?';
+
+  @override
+  String get textEditorDiscardButton => 'DISCARD';
 }

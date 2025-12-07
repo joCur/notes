@@ -153,8 +153,8 @@ void main() {
       });
     });
 
-    group('Voice input route', () {
-      test('router can be created with voice-input route', () {
+    group('Text editor route', () {
+      test('router can be created with text-editor route', () {
         // Arrange - Mock authenticated state
         final mockUser = User(
           id: 'test-id',
@@ -173,7 +173,7 @@ void main() {
         // Act
         final router = container.read(routerProvider);
 
-        // Assert - Router should be created successfully with voice-input route
+        // Assert - Router should be created successfully with text-editor route
         // The route configuration is tested in router_redirect_test.dart
         expect(router, isNotNull);
       });
