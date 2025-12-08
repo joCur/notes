@@ -27,6 +27,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get cancel => 'Abbrechen';
 
   @override
+  String get close => 'Schließen';
+
+  @override
   String get save => 'Speichern';
 
   @override
@@ -354,6 +357,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get notesListCreateTextNote => 'Textnotiz Erstellen';
 
   @override
+  String get notesListCreateNote => 'Notiz Erstellen';
+
+  @override
   String get notesListRefreshTooltip => 'Zum Aktualisieren nach unten ziehen';
 
   @override
@@ -513,4 +519,81 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get textEditorDiscardButton => 'VERWERFEN';
+
+  @override
+  String get editorPlaceholder => 'Beginnen Sie mit dem Tippen...';
+
+  @override
+  String get toolbarBold => 'Fett';
+
+  @override
+  String get toolbarItalic => 'Kursiv';
+
+  @override
+  String get toolbarUnderline => 'Unterstrichen';
+
+  @override
+  String get toolbarStrikethrough => 'Durchgestrichen';
+
+  @override
+  String get toolbarBulletList => 'Aufzählungsliste';
+
+  @override
+  String get toolbarNumberedList => 'Nummerierte Liste';
+
+  @override
+  String get toolbarQuote => 'Zitat';
+
+  @override
+  String get toolbarAlignLeft => 'Linksbündig';
+
+  @override
+  String get toolbarAlignCenter => 'Zentriert';
+
+  @override
+  String get toolbarAlignRight => 'Rechtsbündig';
+
+  @override
+  String get toolbarClearFormatting => 'Formatierung Entfernen';
+
+  @override
+  String get toolbarVoiceInput => 'Spracheingabe';
+
+  @override
+  String get editorScreenTitle => 'Editor';
+
+  @override
+  String get editorScreenEditNote => 'Notiz Bearbeiten';
+
+  @override
+  String get editorScreenNewNote => 'Neue Notiz';
+
+  @override
+  String get editorTitlePlaceholder => 'Titel (optional)';
+
+  @override
+  String get editorUnsavedChangesTitle => 'Nicht gespeicherte Änderungen';
+
+  @override
+  String get editorUnsavedChangesMessage =>
+      'Sie haben nicht gespeicherte Änderungen. Möchten Sie diese verwerfen?';
+
+  @override
+  String get editorDiscardChanges => 'Verwerfen';
+
+  @override
+  String get editorKeepEditing => 'Weiter Bearbeiten';
+
+  @override
+  String get editorSaveSuccess => 'Notiz erfolgreich gespeichert';
+
+  @override
+  String get editorSaveError => 'Speichern der Notiz fehlgeschlagen';
+
+  @override
+  String get editorLoadError => 'Laden der Notiz fehlgeschlagen';
+
+  @override
+  String get editorEmptyContentError =>
+      'Leere Notiz kann nicht gespeichert werden';
 }

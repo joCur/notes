@@ -15,7 +15,8 @@
 /// - `/forgot-password` - Forgot password screen (public)
 /// - `/reset-password` - Reset password screen (public, deep link target)
 /// - `/home` - Home screen (protected, requires authentication)
-/// - `/text-editor` - Text editor screen with voice capability (protected, requires authentication)
+/// - `/editor` - Rich text editor for creating new notes (protected, requires authentication)
+/// - `/editor/:noteId` - Rich text editor for editing existing notes (protected, requires authentication)
 /// - `/notes/:noteId` - Note detail screen (protected, requires authentication)
 ///
 /// Usage:
@@ -40,9 +41,9 @@ import '../../features/auth/presentation/screens/forgot_password_screen.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/reset_password_screen.dart';
 import '../../features/auth/presentation/screens/signup_screen.dart';
+import '../../features/editor/presentation/screens/editor_screen.dart';
 import '../../features/notes/presentation/screens/note_detail_screen.dart';
 import '../../features/notes/presentation/screens/notes_list_screen.dart';
-import '../../features/notes/presentation/screens/simple_text_editor_screen.dart';
 import '../presentation/screens/splash_screen.dart';
 import 'router_redirect.dart';
 
@@ -89,7 +90,15 @@ GoRouter router(Ref ref) {
       GoRoute(path: '/forgot-password', name: 'forgotPassword', builder: (context, state) => const ForgotPasswordScreen()),
       GoRoute(path: '/reset-password', name: 'resetPassword', builder: (context, state) => const ResetPasswordScreen()),
       GoRoute(path: '/home', name: 'home', builder: (context, state) => const NotesListScreen()),
-      GoRoute(path: '/text-editor', name: 'textEditor', builder: (context, state) => const SimpleTextEditorScreen()),
+      GoRoute(path: '/editor', name: 'editor', builder: (context, state) => const EditorScreen()),
+      GoRoute(
+        path: '/editor/:noteId',
+        name: 'editorWithNote',
+        builder: (context, state) {
+          final noteId = state.pathParameters['noteId']!;
+          return EditorScreen(noteId: noteId);
+        },
+      ),
       GoRoute(
         path: '/notes/:noteId',
         name: 'noteDetail',

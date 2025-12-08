@@ -153,8 +153,8 @@ void main() {
       });
     });
 
-    group('Text editor route', () {
-      test('router can be created with text-editor route', () {
+    group('Editor route', () {
+      test('router can be created with editor route', () {
         // Arrange - Mock authenticated state
         final mockUser = User(
           id: 'test-id',
@@ -173,7 +173,7 @@ void main() {
         // Act
         final router = container.read(routerProvider);
 
-        // Assert - Router should be created successfully with text-editor route
+        // Assert - Router should be created successfully with editor route
         // The route configuration is tested in router_redirect_test.dart
         expect(router, isNotNull);
       });

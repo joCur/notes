@@ -33,6 +33,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:share_plus/share_plus.dart' show SharePlus, ShareParams;
 
@@ -104,7 +105,7 @@ class _NoteDetailView extends ConsumerWidget {
           _ActionButton(
             icon: Icons.edit,
             label: l10n.noteDetailEdit,
-            onPressed: () => _onEditPressed(context),
+            onPressed: () => _onEditPressed(context, ref),
           ),
           _ActionButton(
             icon: Icons.share,
@@ -144,15 +145,13 @@ class _NoteDetailView extends ConsumerWidget {
     );
   }
 
-  /// Navigate to edit screen (placeholder for Phase 7)
-  void _onEditPressed(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(l10n.noteDetailEditComingSoon),
-        backgroundColor: BauhausColors.yellow,
-      ),
-    );
+  /// Navigate to edit screen
+  Future<void> _onEditPressed(BuildContext context, WidgetRef ref) async {
+    await context.push('/editor/${note.id}');
+    // Refresh note details after returning from editor
+    if (context.mounted) {
+      ref.invalidate(noteDetailProvider(note.id));
+    }
   }
 
   /// Share note content

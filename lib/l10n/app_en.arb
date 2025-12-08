@@ -31,6 +31,11 @@
     "description": "Button text to cancel an operation"
   },
 
+  "close": "Close",
+  "@close": {
+    "description": "Button text to close something"
+  },
+
   "save": "Save",
   "@save": {
     "description": "Button text to save"
@@ -521,6 +526,11 @@
     "description": "Floating action button label for text note"
   },
 
+  "notesListCreateNote": "Create Note",
+  "@notesListCreateNote": {
+    "description": "Floating action button tooltip for creating a note"
+  },
+
   "notesListRefreshTooltip": "Pull down to refresh",
   "@notesListRefreshTooltip": {
     "description": "Tooltip for pull-to-refresh"
@@ -774,5 +784,130 @@
   "textEditorDiscardButton": "DISCARD",
   "@textEditorDiscardButton": {
     "description": "Button to discard unsaved changes"
+  },
+
+  "editorPlaceholder": "Start typing...",
+  "@editorPlaceholder": {
+    "description": "Placeholder text for rich text editor"
+  },
+
+  "toolbarBold": "Bold",
+  "@toolbarBold": {
+    "description": "Tooltip for bold formatting button"
+  },
+
+  "toolbarItalic": "Italic",
+  "@toolbarItalic": {
+    "description": "Tooltip for italic formatting button"
+  },
+
+  "toolbarUnderline": "Underline",
+  "@toolbarUnderline": {
+    "description": "Tooltip for underline formatting button"
+  },
+
+  "toolbarStrikethrough": "Strikethrough",
+  "@toolbarStrikethrough": {
+    "description": "Tooltip for strikethrough formatting button"
+  },
+
+  "toolbarBulletList": "Bullet List",
+  "@toolbarBulletList": {
+    "description": "Tooltip for bullet list button"
+  },
+
+  "toolbarNumberedList": "Numbered List",
+  "@toolbarNumberedList": {
+    "description": "Tooltip for numbered list button"
+  },
+
+  "toolbarQuote": "Quote",
+  "@toolbarQuote": {
+    "description": "Tooltip for block quote button"
+  },
+
+  "toolbarAlignLeft": "Align Left",
+  "@toolbarAlignLeft": {
+    "description": "Tooltip for left alignment button"
+  },
+
+  "toolbarAlignCenter": "Align Center",
+  "@toolbarAlignCenter": {
+    "description": "Tooltip for center alignment button"
+  },
+
+  "toolbarAlignRight": "Align Right",
+  "@toolbarAlignRight": {
+    "description": "Tooltip for right alignment button"
+  },
+
+  "toolbarClearFormatting": "Clear Formatting",
+  "@toolbarClearFormatting": {
+    "description": "Tooltip for clear formatting button"
+  },
+
+  "toolbarVoiceInput": "Voice Input",
+  "@toolbarVoiceInput": {
+    "description": "Tooltip for voice input button in editor toolbar"
+  },
+
+  "editorScreenTitle": "Editor",
+  "@editorScreenTitle": {
+    "description": "Title for the editor screen"
+  },
+
+  "editorScreenEditNote": "Edit Note",
+  "@editorScreenEditNote": {
+    "description": "Title when editing an existing note"
+  },
+
+  "editorScreenNewNote": "New Note",
+  "@editorScreenNewNote": {
+    "description": "Title when creating a new note"
+  },
+
+  "editorTitlePlaceholder": "Title (optional)",
+  "@editorTitlePlaceholder": {
+    "description": "Placeholder text for the note title field"
+  },
+
+  "editorUnsavedChangesTitle": "Unsaved Changes",
+  "@editorUnsavedChangesTitle": {
+    "description": "Dialog title when user tries to exit with unsaved changes"
+  },
+
+  "editorUnsavedChangesMessage": "You have unsaved changes. Do you want to discard them?",
+  "@editorUnsavedChangesMessage": {
+    "description": "Dialog message when user tries to exit with unsaved changes"
+  },
+
+  "editorDiscardChanges": "Discard",
+  "@editorDiscardChanges": {
+    "description": "Button to discard unsaved changes"
+  },
+
+  "editorKeepEditing": "Keep Editing",
+  "@editorKeepEditing": {
+    "description": "Button to continue editing and not discard changes"
+  },
+
+  "editorSaveSuccess": "Note saved successfully",
+  "@editorSaveSuccess": {
+    "description": "Success message when note is saved"
+  },
+
+  "editorSaveError": "Failed to save note",
+  "@editorSaveError": {
+    "description": "Error message when note save fails"
+  },
+
+  "editorLoadError": "Failed to load note",
+  "@editorLoadError": {
+    "description": "Error message when note fails to load"
+  },
+
+  "editorEmptyContentError": "Cannot save empty note",
+  "@editorEmptyContentError": {
+    "description": "Error message when trying to save empty note"
   }
 }

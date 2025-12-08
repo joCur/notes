@@ -286,12 +286,12 @@ void main() {
       });
     });
 
-    group('Protected routes - /text-editor', () {
+    group('Protected routes - /editor', () {
       test('allows authenticated user to access', () {
         // Arrange & Act
         final result = getRedirectLocation(
           authState: authenticatedState,
-          currentLocation: '/text-editor',
+          currentLocation: '/editor',
         );
 
         // Assert
@@ -302,7 +302,7 @@ void main() {
         // Arrange & Act
         final result = getRedirectLocation(
           authState: unauthenticatedState,
-          currentLocation: '/text-editor',
+          currentLocation: '/editor',
         );
 
         // Assert

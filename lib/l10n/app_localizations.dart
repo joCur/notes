@@ -134,6 +134,12 @@ abstract class AppLocalizations {
   /// **'Cancel'**
   String get cancel;
 
+  /// Button text to close something
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
   /// Button text to save
   ///
   /// In en, this message translates to:
@@ -722,6 +728,12 @@ abstract class AppLocalizations {
   /// **'Create Text Note'**
   String get notesListCreateTextNote;
 
+  /// Floating action button tooltip for creating a note
+  ///
+  /// In en, this message translates to:
+  /// **'Create Note'**
+  String get notesListCreateNote;
+
   /// Tooltip for pull-to-refresh
   ///
   /// In en, this message translates to:
@@ -1009,6 +1021,156 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'DISCARD'**
   String get textEditorDiscardButton;
+
+  /// Placeholder text for rich text editor
+  ///
+  /// In en, this message translates to:
+  /// **'Start typing...'**
+  String get editorPlaceholder;
+
+  /// Tooltip for bold formatting button
+  ///
+  /// In en, this message translates to:
+  /// **'Bold'**
+  String get toolbarBold;
+
+  /// Tooltip for italic formatting button
+  ///
+  /// In en, this message translates to:
+  /// **'Italic'**
+  String get toolbarItalic;
+
+  /// Tooltip for underline formatting button
+  ///
+  /// In en, this message translates to:
+  /// **'Underline'**
+  String get toolbarUnderline;
+
+  /// Tooltip for strikethrough formatting button
+  ///
+  /// In en, this message translates to:
+  /// **'Strikethrough'**
+  String get toolbarStrikethrough;
+
+  /// Tooltip for bullet list button
+  ///
+  /// In en, this message translates to:
+  /// **'Bullet List'**
+  String get toolbarBulletList;
+
+  /// Tooltip for numbered list button
+  ///
+  /// In en, this message translates to:
+  /// **'Numbered List'**
+  String get toolbarNumberedList;
+
+  /// Tooltip for block quote button
+  ///
+  /// In en, this message translates to:
+  /// **'Quote'**
+  String get toolbarQuote;
+
+  /// Tooltip for left alignment button
+  ///
+  /// In en, this message translates to:
+  /// **'Align Left'**
+  String get toolbarAlignLeft;
+
+  /// Tooltip for center alignment button
+  ///
+  /// In en, this message translates to:
+  /// **'Align Center'**
+  String get toolbarAlignCenter;
+
+  /// Tooltip for right alignment button
+  ///
+  /// In en, this message translates to:
+  /// **'Align Right'**
+  String get toolbarAlignRight;
+
+  /// Tooltip for clear formatting button
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Formatting'**
+  String get toolbarClearFormatting;
+
+  /// Tooltip for voice input button in editor toolbar
+  ///
+  /// In en, this message translates to:
+  /// **'Voice Input'**
+  String get toolbarVoiceInput;
+
+  /// Title for the editor screen
+  ///
+  /// In en, this message translates to:
+  /// **'Editor'**
+  String get editorScreenTitle;
+
+  /// Title when editing an existing note
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Note'**
+  String get editorScreenEditNote;
+
+  /// Title when creating a new note
+  ///
+  /// In en, this message translates to:
+  /// **'New Note'**
+  String get editorScreenNewNote;
+
+  /// Placeholder text for the note title field
+  ///
+  /// In en, this message translates to:
+  /// **'Title (optional)'**
+  String get editorTitlePlaceholder;
+
+  /// Dialog title when user tries to exit with unsaved changes
+  ///
+  /// In en, this message translates to:
+  /// **'Unsaved Changes'**
+  String get editorUnsavedChangesTitle;
+
+  /// Dialog message when user tries to exit with unsaved changes
+  ///
+  /// In en, this message translates to:
+  /// **'You have unsaved changes. Do you want to discard them?'**
+  String get editorUnsavedChangesMessage;
+
+  /// Button to discard unsaved changes
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get editorDiscardChanges;
+
+  /// Button to continue editing and not discard changes
+  ///
+  /// In en, this message translates to:
+  /// **'Keep Editing'**
+  String get editorKeepEditing;
+
+  /// Success message when note is saved
+  ///
+  /// In en, this message translates to:
+  /// **'Note saved successfully'**
+  String get editorSaveSuccess;
+
+  /// Error message when note save fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save note'**
+  String get editorSaveError;
+
+  /// Error message when note fails to load
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load note'**
+  String get editorLoadError;
+
+  /// Error message when trying to save empty note
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot save empty note'**
+  String get editorEmptyContentError;
 }
 
 class _AppLocalizationsDelegate

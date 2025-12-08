@@ -93,6 +93,12 @@ class BauhausTextField extends StatefulWidget {
   /// Optional prefix icon
   final Widget? prefixIcon;
 
+  /// Whether to show the border (default true)
+  final bool showBorder;
+
+  /// Custom text style (overrides theme default)
+  final TextStyle? textStyle;
+
   const BauhausTextField({
     super.key,
     this.label,
@@ -115,6 +121,8 @@ class BauhausTextField extends StatefulWidget {
     this.focusNode,
     this.suffixIcon,
     this.prefixIcon,
+    this.showBorder = true,
+    this.textStyle,
   });
 
   @override
@@ -187,30 +195,34 @@ class _BauhausTextFieldState extends State<BauhausTextField> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeInOut,
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              border: Border(
-                // Animated yellow left border on focus
-                left: BorderSide(
-                  color: _isFocused ? focusColor : borderColor,
-                  width: _isFocused
-                      ? BauhausSpacing.borderThick // 4px when focused
-                      : BauhausSpacing.borderThin, // 1px normally
-                ),
-                top: BorderSide(
-                  color: borderColor,
-                  width: BauhausSpacing.borderThin,
-                ),
-                right: BorderSide(
-                  color: borderColor,
-                  width: BauhausSpacing.borderThin,
-                ),
-                bottom: BorderSide(
-                  color: borderColor,
-                  width: BauhausSpacing.borderThin,
-                ),
-              ),
-            ),
+            decoration: widget.showBorder
+                ? BoxDecoration(
+                    color: backgroundColor,
+                    border: Border(
+                      // Animated yellow left border on focus
+                      left: BorderSide(
+                        color: _isFocused ? focusColor : borderColor,
+                        width: _isFocused
+                            ? BauhausSpacing.borderThick // 4px when focused
+                            : BauhausSpacing.borderThin, // 1px normally
+                      ),
+                      top: BorderSide(
+                        color: borderColor,
+                        width: BauhausSpacing.borderThin,
+                      ),
+                      right: BorderSide(
+                        color: borderColor,
+                        width: BauhausSpacing.borderThin,
+                      ),
+                      bottom: BorderSide(
+                        color: borderColor,
+                        width: BauhausSpacing.borderThin,
+                      ),
+                    ),
+                  )
+                : BoxDecoration(
+                    color: backgroundColor,
+                  ),
             child: Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: BauhausSpacing.medium,
@@ -231,9 +243,10 @@ class _BauhausTextFieldState extends State<BauhausTextField> {
                 enableSuggestions: widget.enableSuggestions,
                 inputFormatters: widget.inputFormatters,
                 validator: widget.validator,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: textColor,
-                    ),
+                style: widget.textStyle ??
+                    Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: textColor,
+                        ),
                 decoration: InputDecoration(
                   hintText: widget.placeholder,
                   hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(

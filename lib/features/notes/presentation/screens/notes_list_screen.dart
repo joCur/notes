@@ -69,7 +69,7 @@ class NotesListScreen extends ConsumerWidget {
       ),
       body: notesAsync.when(
         data: (notes) => notes.isEmpty
-            ? _EmptyState(onCreateNote: () => _navigateToTextEditor(context, ref, user.id))
+            ? _EmptyState(onCreateNote: () => _navigateToEditor(context, ref, user.id))
             : _NotesList(
                 notes: notes,
                 onRefresh: () => _refreshNotes(ref, user.id),
@@ -83,14 +83,14 @@ class NotesListScreen extends ConsumerWidget {
         ),
       ),
       floatingActionButton: _CreateNoteFAB(
-        onCreateNote: () => _navigateToTextEditor(context, ref, user.id),
+        onCreateNote: () => _navigateToEditor(context, ref, user.id),
       ),
     );
   }
 
   // Navigation methods
-  Future<void> _navigateToTextEditor(BuildContext context, WidgetRef ref, String userId) async {
-    await context.push('/text-editor');
+  Future<void> _navigateToEditor(BuildContext context, WidgetRef ref, String userId) async {
+    await context.push('/editor');
     // Manually refresh the notes list after returning from editor
     // This ensures the list updates even if provider invalidation timing is off
     if (context.mounted) {
@@ -262,7 +262,7 @@ class _CreateNoteFAB extends StatelessWidget {
       onPressed: onCreateNote,
       backgroundColor: BauhausColors.primaryBlue,
       shape: const CircleBorder(),
-      tooltip: l10n.notesListCreateTextNote,
+      tooltip: l10n.notesListCreateNote,
       child: const Icon(
         Icons.add,
         color: BauhausColors.white,

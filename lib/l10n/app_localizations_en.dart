@@ -27,6 +27,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cancel => 'Cancel';
 
   @override
+  String get close => 'Close';
+
+  @override
   String get save => 'Save';
 
   @override
@@ -338,6 +341,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notesListCreateTextNote => 'Create Text Note';
 
   @override
+  String get notesListCreateNote => 'Create Note';
+
+  @override
   String get notesListRefreshTooltip => 'Pull down to refresh';
 
   @override
@@ -491,4 +497,80 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get textEditorDiscardButton => 'DISCARD';
+
+  @override
+  String get editorPlaceholder => 'Start typing...';
+
+  @override
+  String get toolbarBold => 'Bold';
+
+  @override
+  String get toolbarItalic => 'Italic';
+
+  @override
+  String get toolbarUnderline => 'Underline';
+
+  @override
+  String get toolbarStrikethrough => 'Strikethrough';
+
+  @override
+  String get toolbarBulletList => 'Bullet List';
+
+  @override
+  String get toolbarNumberedList => 'Numbered List';
+
+  @override
+  String get toolbarQuote => 'Quote';
+
+  @override
+  String get toolbarAlignLeft => 'Align Left';
+
+  @override
+  String get toolbarAlignCenter => 'Align Center';
+
+  @override
+  String get toolbarAlignRight => 'Align Right';
+
+  @override
+  String get toolbarClearFormatting => 'Clear Formatting';
+
+  @override
+  String get toolbarVoiceInput => 'Voice Input';
+
+  @override
+  String get editorScreenTitle => 'Editor';
+
+  @override
+  String get editorScreenEditNote => 'Edit Note';
+
+  @override
+  String get editorScreenNewNote => 'New Note';
+
+  @override
+  String get editorTitlePlaceholder => 'Title (optional)';
+
+  @override
+  String get editorUnsavedChangesTitle => 'Unsaved Changes';
+
+  @override
+  String get editorUnsavedChangesMessage =>
+      'You have unsaved changes. Do you want to discard them?';
+
+  @override
+  String get editorDiscardChanges => 'Discard';
+
+  @override
+  String get editorKeepEditing => 'Keep Editing';
+
+  @override
+  String get editorSaveSuccess => 'Note saved successfully';
+
+  @override
+  String get editorSaveError => 'Failed to save note';
+
+  @override
+  String get editorLoadError => 'Failed to load note';
+
+  @override
+  String get editorEmptyContentError => 'Cannot save empty note';
 }

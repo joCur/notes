@@ -31,6 +31,11 @@
     "description": "Schaltflächentext zum Abbrechen einer Operation"
   },
 
+  "close": "Schließen",
+  "@close": {
+    "description": "Schaltflächentext zum Schließen"
+  },
+
   "save": "Speichern",
   "@save": {
     "description": "Schaltflächentext zum Speichern"
@@ -521,6 +526,11 @@
     "description": "Beschriftung der schwebenden Aktionsschaltfläche für Textnotiz"
   },
 
+  "notesListCreateNote": "Notiz Erstellen",
+  "@notesListCreateNote": {
+    "description": "Tooltip der schwebenden Aktionsschaltfläche zum Erstellen einer Notiz"
+  },
+
   "notesListRefreshTooltip": "Zum Aktualisieren nach unten ziehen",
   "@notesListRefreshTooltip": {
     "description": "Tooltip für Ziehen-zum-Aktualisieren"
@@ -774,5 +784,130 @@
   "textEditorDiscardButton": "VERWERFEN",
   "@textEditorDiscardButton": {
     "description": "Schaltfläche zum Verwerfen nicht gespeicherter Änderungen"
+  },
+
+  "editorPlaceholder": "Beginnen Sie mit dem Tippen...",
+  "@editorPlaceholder": {
+    "description": "Platzhaltertext für Rich-Text-Editor"
+  },
+
+  "toolbarBold": "Fett",
+  "@toolbarBold": {
+    "description": "Tooltip für Fett-Formatierungs-Schaltfläche"
+  },
+
+  "toolbarItalic": "Kursiv",
+  "@toolbarItalic": {
+    "description": "Tooltip für Kursiv-Formatierungs-Schaltfläche"
+  },
+
+  "toolbarUnderline": "Unterstrichen",
+  "@toolbarUnderline": {
+    "description": "Tooltip für Unterstrichen-Formatierungs-Schaltfläche"
+  },
+
+  "toolbarStrikethrough": "Durchgestrichen",
+  "@toolbarStrikethrough": {
+    "description": "Tooltip für Durchgestrichen-Formatierungs-Schaltfläche"
+  },
+
+  "toolbarBulletList": "Aufzählungsliste",
+  "@toolbarBulletList": {
+    "description": "Tooltip für Aufzählungslisten-Schaltfläche"
+  },
+
+  "toolbarNumberedList": "Nummerierte Liste",
+  "@toolbarNumberedList": {
+    "description": "Tooltip für nummerierte Listen-Schaltfläche"
+  },
+
+  "toolbarQuote": "Zitat",
+  "@toolbarQuote": {
+    "description": "Tooltip für Blockzitat-Schaltfläche"
+  },
+
+  "toolbarAlignLeft": "Linksbündig",
+  "@toolbarAlignLeft": {
+    "description": "Tooltip für Linksbündig-Schaltfläche"
+  },
+
+  "toolbarAlignCenter": "Zentriert",
+  "@toolbarAlignCenter": {
+    "description": "Tooltip für Zentriert-Schaltfläche"
+  },
+
+  "toolbarAlignRight": "Rechtsbündig",
+  "@toolbarAlignRight": {
+    "description": "Tooltip für Rechtsbündig-Schaltfläche"
+  },
+
+  "toolbarClearFormatting": "Formatierung Entfernen",
+  "@toolbarClearFormatting": {
+    "description": "Tooltip für Formatierung-Entfernen-Schaltfläche"
+  },
+
+  "toolbarVoiceInput": "Spracheingabe",
+  "@toolbarVoiceInput": {
+    "description": "Tooltip für Spracheingabetaste in der Editor-Symbolleiste"
+  },
+
+  "editorScreenTitle": "Editor",
+  "@editorScreenTitle": {
+    "description": "Titel für den Editor-Bildschirm"
+  },
+
+  "editorScreenEditNote": "Notiz Bearbeiten",
+  "@editorScreenEditNote": {
+    "description": "Titel beim Bearbeiten einer vorhandenen Notiz"
+  },
+
+  "editorScreenNewNote": "Neue Notiz",
+  "@editorScreenNewNote": {
+    "description": "Titel beim Erstellen einer neuen Notiz"
+  },
+
+  "editorTitlePlaceholder": "Titel (optional)",
+  "@editorTitlePlaceholder": {
+    "description": "Platzhaltertext für das Notiz-Titel-Feld"
+  },
+
+  "editorUnsavedChangesTitle": "Nicht gespeicherte Änderungen",
+  "@editorUnsavedChangesTitle": {
+    "description": "Dialog-Titel wenn der Benutzer versucht zu beenden mit nicht gespeicherten Änderungen"
+  },
+
+  "editorUnsavedChangesMessage": "Sie haben nicht gespeicherte Änderungen. Möchten Sie diese verwerfen?",
+  "@editorUnsavedChangesMessage": {
+    "description": "Dialog-Nachricht wenn der Benutzer versucht zu beenden mit nicht gespeicherten Änderungen"
+  },
+
+  "editorDiscardChanges": "Verwerfen",
+  "@editorDiscardChanges": {
+    "description": "Schaltfläche zum Verwerfen nicht gespeicherter Änderungen"
+  },
+
+  "editorKeepEditing": "Weiter Bearbeiten",
+  "@editorKeepEditing": {
+    "description": "Schaltfläche zum Fortsetzen der Bearbeitung und nicht verwerfen"
+  },
+
+  "editorSaveSuccess": "Notiz erfolgreich gespeichert",
+  "@editorSaveSuccess": {
+    "description": "Erfolgsmeldung wenn die Notiz gespeichert wurde"
+  },
+
+  "editorSaveError": "Speichern der Notiz fehlgeschlagen",
+  "@editorSaveError": {
+    "description": "Fehlermeldung wenn das Speichern der Notiz fehlschlägt"
+  },
+
+  "editorLoadError": "Laden der Notiz fehlgeschlagen",
+  "@editorLoadError": {
+    "description": "Fehlermeldung wenn das Laden der Notiz fehlschlägt"
+  },
+
+  "editorEmptyContentError": "Leere Notiz kann nicht gespeichert werden",
+  "@editorEmptyContentError": {
+    "description": "Fehlermeldung beim Versuch, eine leere Notiz zu speichern"
   }
 }
